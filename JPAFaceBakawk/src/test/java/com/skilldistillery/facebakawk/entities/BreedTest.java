@@ -46,5 +46,12 @@ class BreedTest {
 		assertEquals("Fluffy", breed.getCharacteristic());
 	}
 
+	@Test
+	void test_Breed_to_Chicken_mapping() {
+		assertNotNull(breed);
+		assertNotNull(breed.getChickens());
+		assertTrue(breed.getChickens().size() > 0);
+
+	}
 
 }

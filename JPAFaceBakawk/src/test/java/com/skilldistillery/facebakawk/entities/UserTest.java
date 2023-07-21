@@ -62,6 +62,20 @@ class UserTest {
 		assertNotNull(user.getComments());
 		assertTrue(user.getComments().size()>0);
 	}
+	@Test
+	void user_To_Address_Mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getAddress());
+		assertEquals("Denver", user.getAddress().getCity());
+		
+	}
+	
+	@Test
+	void user_To_Chicken_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getChickens());
+		assertTrue(user.getChickens().size()>0);
+	}
 	
 
 }

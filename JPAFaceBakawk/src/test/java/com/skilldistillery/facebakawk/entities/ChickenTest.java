@@ -46,6 +46,20 @@ class ChickenTest {
 		assertEquals("Bernice", chicken.getName());
 		assertEquals(72, chicken.getHeight());
 	}
+	
+	@Test
+	void test_Chicken_to_User_mapping() {
+		assertNotNull(chicken);
+		assertNotNull(chicken.getOwner());
+		assertEquals("chicken_lover", chicken.getOwner().getUsername());
+		
+	}
+	@Test
+	void test_Chicken_to_Breed_mapping() {
+		assertNotNull(chicken);
+		assertNotNull(chicken.getBreed());
+		assertEquals("Silkie", chicken.getBreed().getName());
+	}
 
 
 }

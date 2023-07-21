@@ -1,5 +1,6 @@
 package com.skilldistillery.facebakawk.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,22 +8,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Breed {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String characteristic;
-	
-	@Column(name="picture_url")
+
+	@Column(name = "picture_url")
 	private String pictureURL;
-	
-	public Breed() {}
+
+	@OneToMany(mappedBy = "breed")
+	private List<Chicken> chickens;
+
+	public Breed() {
+	}
 
 	public int getId() {
 		return id;
@@ -56,6 +62,14 @@ public class Breed {
 		this.pictureURL = pictureURL;
 	}
 
+	public List<Chicken> getChickens() {
+		return chickens;
+	}
+
+	public void setChickens(List<Chicken> chickens) {
+		this.chickens = chickens;
+	}
+
 	@Override
 	public String toString() {
 		return "Breed [id=" + id + ", name=" + name + ", characteristic=" + characteristic + ", pictureURL="
@@ -79,7 +93,4 @@ public class Breed {
 		return id == other.id;
 	}
 
-
-
-	
 }

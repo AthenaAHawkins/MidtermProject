@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Chicken {
@@ -15,35 +17,40 @@ public class Chicken {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private LocalDateTime birthday;
-	
-	@Column(name="inches")
+
+	@Column(name = "inches")
 	private Double height;
-	
+
 	private char gender;
-	
-	@Column(name="music_taste")
+
+	@Column(name = "music_taste")
 	private String musicTaste;
-	
-	@Column(name="wants_chicks")
+
+	@Column(name = "wants_chicks")
 	private boolean wantsChicks;
-	
-//	private User owner;
-	
-//	private Breed breed;
-	
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User owner;
+
+	@ManyToOne
+	@JoinColumn(name = "breed_id")
+	private Breed breed;
+
 	private String description;
-	
-	@Column(name="create_date")
+
+	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	
-	@Column(name= "picture_url")
+
+	@Column(name = "picture_url")
 	private String pictureURL;
-	
-	public Chicken() {}
+
+	public Chicken() {
+	}
 
 	public int getId() {
 		return id;
@@ -101,21 +108,21 @@ public class Chicken {
 		this.wantsChicks = wantsChicks;
 	}
 
-//	public User getOwner() {
-//		return owner;
-//	}
-//
-//	public void setOwner(User owner) {
-//		this.owner = owner;
-//	}
+	public User getOwner() {
+		return owner;
+	}
 
-//	public Breed getBreed() {
-//		return breed;
-//	}
-//
-//	public void setBreed(Breed breed) {
-//		this.breed = breed;
-//	}
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
+
+	public Breed getBreed() {
+		return breed;
+	}
+
+	public void setBreed(Breed breed) {
+		this.breed = breed;
+	}
 
 	public String getDescription() {
 		return description;
@@ -156,7 +163,5 @@ public class Chicken {
 				+ gender + ", musicTaste=" + musicTaste + ", wantsChicks=" + wantsChicks + ", description="
 				+ description + ", createDate=" + createDate + "]";
 	}
-	
 
-	
 }

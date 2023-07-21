@@ -7,7 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -29,6 +31,13 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
 	private List<PostComment> comments;
+	
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+	
+	@OneToMany(mappedBy="owner")
+	private List<Chicken> chickens;
 
 	public User() {
 	}
@@ -89,6 +98,22 @@ public class User {
 
 	public void setComments(List<PostComment> comments) {
 		this.comments = comments;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<Chicken> getChickens() {
+		return chickens;
+	}
+
+	public void setChickens(List<Chicken> chickens) {
+		this.chickens = chickens;
 	}
 
 	@Override
