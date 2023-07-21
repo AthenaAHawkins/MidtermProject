@@ -11,6 +11,7 @@
 		<class>com.skilldistillery.facebakawk.entities.User</class>
 		<class>com.skilldistillery.facebakawk.entities.Chicken</class>
 		<class>com.skilldistillery.facebakawk.entities.Event</class>
+		<class>com.skilldistillery.facebakawk.entities.Breed</class>
 
 		<!-- end entities -->
 
