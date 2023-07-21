@@ -17,17 +17,24 @@ public class Event {
 	private int id;
 	
 	private String title;
+	
 	@Column(name="start_time")
 	private LocalDateTime startTime;
+	
 	@Column(name="end_time")
 	private LocalDateTime endTime;
+	
 	@Column(name="event_date")
 	private LocalDateTime eventDate;
+	
 	private String description;
+	
 	@Column(name= "picture_url")
 	private String pictureURL;
+	
 	@Column(name="create_date")
 	private LocalDateTime createDate;
+	
 	@Column(name="last_update")
 	private LocalDateTime lastUpdate;
 	

@@ -393,7 +393,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `breed` (`id`, `name`, `characteristic`, `picture_url`) VALUES (1, NULL, 'Fluffy', NULL);
+INSERT INTO `breed` (`id`, `name`, `characteristic`, `picture_url`) VALUES (1, 'Silkie', 'Fluffy', NULL);
 
 COMMIT;
 
@@ -427,6 +427,46 @@ START TRANSACTION;
 USE `chickendb`;
 INSERT INTO `post` (`id`, `title`, `content`, `user_id`, `post_date`, `picture_url`) VALUES (1, 'Why are chickens so cute?', 'I love them', 1, NULL, NULL);
 INSERT INTO `post` (`id`, `title`, `content`, `user_id`, `post_date`, `picture_url`) VALUES (2, 'Falcon defense tips', 'Buy a bigger friendlier falcon', 2, NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `currency`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `chickendb`;
+INSERT INTO `currency` (`id`, `type`) VALUES (1, 'egg');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `post_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `chickendb`;
+INSERT INTO `post_comment` (`id`, `comment_date`, `post_content`, `user_id`, `post_id`, `picture_url`, `in_reply_to_id`) VALUES (1, NULL, 'cool chickens!', 1, 1, NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `post_like`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `chickendb`;
+INSERT INTO `post_like` (`post_id`, `user_id`, `love`) VALUES (1, 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `post_image`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `chickendb`;
+INSERT INTO `post_image` (`id`, `picture_url`, `caption`, `post_id`) VALUES (1, NULL, 'test pic', 1);
 
 COMMIT;
 

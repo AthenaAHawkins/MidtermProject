@@ -8,11 +8,14 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- begin entities -->
-		<class>com.skilldistillery.facebakawk.entities.User</class>
+		<class>com.skilldistillery.facebakawk.entities.Address</class>
+		<class>com.skilldistillery.facebakawk.entities.Breed</class>
 		<class>com.skilldistillery.facebakawk.entities.Chicken</class>
 		<class>com.skilldistillery.facebakawk.entities.Event</class>
-		<class>com.skilldistillery.facebakawk.entities.Breed</class>
-		<class>com.skilldistillery.facebakawk.entities.Address</class>
+		<class>com.skilldistillery.facebakawk.entities.Post</class>
+		<class>com.skilldistillery.facebakawk.entities.PostComment</class>
+		<class>com.skilldistillery.facebakawk.entities.PostImage</class>
+		<class>com.skilldistillery.facebakawk.entities.User</class>
 
 		<!-- end entities -->
 
