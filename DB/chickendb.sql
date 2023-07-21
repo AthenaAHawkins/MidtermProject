@@ -66,8 +66,7 @@ DROP TABLE IF EXISTS `breed` ;
 
 CREATE TABLE IF NOT EXISTS `breed` (
   `id` INT NOT NULL,
-  `scientific_name` VARCHAR(80) NULL,
-  `common_name` VARCHAR(600) NULL,
+  `name` VARCHAR(600) NULL,
   `characteristic` VARCHAR(200) NULL,
   `picture_url` VARCHAR(2000) NULL,
   PRIMARY KEY (`id`))
@@ -394,7 +393,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `breed` (`id`, `scientific_name`, `common_name`, `characteristic`, `picture_url`) VALUES (1, 'Silkie', NULL, 'Fluffy', NULL);
+INSERT INTO `breed` (`id`, `name`, `characteristic`, `picture_url`) VALUES (1, NULL, 'Fluffy', NULL);
 
 COMMIT;
 
