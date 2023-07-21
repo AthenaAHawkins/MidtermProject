@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,7 +24,9 @@ public class PostImage {
 	
 	private String caption;
 
-	
+	@ManyToOne
+	@JoinColumn(name="post_id")
+	private Post post;
 	
 	public PostImage() {
 	}
@@ -59,6 +63,15 @@ public class PostImage {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	
+	public Post getPost() {
+		return post;
+	}
+
+	public void setPost(Post post) {
+		this.post = post;
 	}
 
 	@Override

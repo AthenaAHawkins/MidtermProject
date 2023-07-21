@@ -47,4 +47,10 @@ class PostImageTest {
 		assertNotNull(postImage);
 		assertEquals("test pic", postImage.getCaption());
 	}
+	@Test
+	void test_PostImage_To_Post_mapping() {
+		assertNotNull(postImage);
+		assertNotNull(postImage.getPost());
+		assertEquals("Why are chickens so cute?",postImage.getPost().getTitle());
+	}
 }

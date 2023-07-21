@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Post {
@@ -15,16 +19,26 @@ public class Post {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String title;
-	
+
 	private String content;
-	
-	@Column(name="post_date")
+
+	@Column(name = "post_date")
 	private LocalDateTime postDate;
-	
-	@Column(name="picture_url")
+
+	@Column(name = "picture_url")
 	private String pictureURL;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+	
+	@OneToMany(mappedBy="post")
+	private List<PostImage> images;
+	
+	@OneToMany(mappedBy="post")
+	private List<PostComment> comments;
 
 	public Post() {
 		super();
@@ -81,6 +95,32 @@ public class Post {
 		return Objects.hash(id);
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+
+	public List<PostImage> getImages() {
+		return images;
+	}
+
+	public void setImages(List<PostImage> images) {
+		this.images = images;
+	}
+	
+
+	public List<PostComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<PostComment> comments) {
+		this.comments = comments;
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -92,7 +132,5 @@ public class Post {
 		Post other = (Post) obj;
 		return id == other.id;
 	}
-	
-	
-	
+
 }

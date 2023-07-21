@@ -47,5 +47,18 @@ class PostCommentTest {
 		assertNotNull(postComment);
 		assertEquals("cool chickens!", postComment.getPostContent());
 	}
+	@Test
+	void test_PostComment_toUser_mapping() {
+		assertNotNull(postComment);
+		assertNotNull(postComment.getUser());
+		assertEquals("chicken_lover", postComment.getUser().getUsername());
+	}
+	@Test
+	void test_PostComment_to_Post_mapping() {
+		assertNotNull(postComment);
+		assertNotNull(postComment.getPost());
+		assertEquals("Why are chickens so cute?", postComment.getPost().getTitle());
+	}
+	
 
 }

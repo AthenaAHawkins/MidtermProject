@@ -1,11 +1,13 @@
 package com.skilldistillery.facebakawk.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -21,6 +23,12 @@ public class User {
 	private Boolean enabled;
 
 	private String role;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Post> posts;
+	
+	@OneToMany(mappedBy = "user")
+	private List<PostComment> comments;
 
 	public User() {
 	}
@@ -63,6 +71,24 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+
+	public List<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	
+	public List<PostComment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<PostComment> comments) {
+		this.comments = comments;
 	}
 
 	@Override

@@ -2,6 +2,7 @@ package com.skilldistillery.facebakawk.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -32,7 +33,8 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		user = em.find(User.class, 3);
+		
+		user = em.find(User.class, 1);
 	}
 
 	@AfterEach
@@ -43,9 +45,23 @@ class UserTest {
 
 	@Test
 	void test_User_entity_mapping() {
+		user = em.find(User.class, 3);
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
 	}
+	@Test
+	void test_userToPost_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getPosts());
+		assertTrue(user.getPosts().size()>0);
+	}
+	@Test
+	void user_ToPostComment_mapping(){
+		assertNotNull(user);
+		assertNotNull(user.getComments());
+		assertTrue(user.getComments().size()>0);
+	}
+	
 
 }
