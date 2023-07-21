@@ -12,6 +12,7 @@
 		<class>com.skilldistillery.facebakawk.entities.Chicken</class>
 		<class>com.skilldistillery.facebakawk.entities.Event</class>
 		<class>com.skilldistillery.facebakawk.entities.Breed</class>
+		<class>com.skilldistillery.facebakawk.entities.Address</class>
 
 		<!-- end entities -->
 
