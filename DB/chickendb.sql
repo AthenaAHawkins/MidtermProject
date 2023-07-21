@@ -442,6 +442,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `event_currency`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `chickendb`;
+INSERT INTO `event_currency` (`currency_id`, `event_id`, `amount`) VALUES (1, 1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `post_comment`
 -- -----------------------------------------------------
 START TRANSACTION;
