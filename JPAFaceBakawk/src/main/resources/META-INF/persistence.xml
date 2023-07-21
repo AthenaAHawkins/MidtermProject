@@ -18,7 +18,10 @@
 		<class>com.skilldistillery.facebakawk.entities.PostComment</class>
 		<class>com.skilldistillery.facebakawk.entities.PostLike</class>
 		<class>com.skilldistillery.facebakawk.entities.PostImage</class>
-		<class>com.skilldistillery.facebakawk.entities.User</class>
+		<class>com.skilldistillery.facebakawk.entities.User</class> 
+		<class>com.skilldistillery.facebakawk.entities.EventCurrencyId</class> 
+		<class>com.skilldistillery.facebakawk.entities.PostLikeId</class> 
+		<class>com.skilldistillery.facebakawk.entities.EventComment</class> 
 
 
 		<!-- end entities -->

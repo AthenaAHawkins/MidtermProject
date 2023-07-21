@@ -1,5 +1,6 @@
 package com.skilldistillery.facebakawk.entities;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -7,7 +8,9 @@ import javax.persistence.Table;
 @Table(name = "event_currency")
 public class EventCurrency {
 
-
+	@EmbeddedId
+	private EventCurrencyId id;
+	
 	private int amount;
 
 	public EventCurrency() {
@@ -21,9 +24,16 @@ public class EventCurrency {
 		this.amount = amount;
 	}
 
+	public EventCurrencyId getId() {
+		return id;
+	}
+	public void setId(EventCurrencyId id) {
+		this.id = id;
+	}
 	@Override
 	public String toString() {
-		return "EventCurrency [amount=" + amount + "]";
+		return "EventCurrency [id=" + id + ", amount=" + amount + "]";
 	}
-
+	
+ 
 }

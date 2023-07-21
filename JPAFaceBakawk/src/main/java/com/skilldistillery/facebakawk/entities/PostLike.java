@@ -1,5 +1,6 @@
 package com.skilldistillery.facebakawk.entities;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -7,28 +8,26 @@ import javax.persistence.Table;
 @Table(name = "post_like")
 public class PostLike {
 	
-private boolean love;
+	@EmbeddedId
+	private PostLikeId id;
+	
+	private boolean love;
 
-public PostLike() {
-	
-}
+	public PostLike() {
 
-public boolean isLove() {
-	return love;
-}
+	}
 
-public void setLove(boolean love) {
-	this.love = love;
-}
+	public boolean isLove() {
+		return love;
+	}
 
-@Override
-public String toString() {
-	return "PostLike [love=" + love + "]";
-}
-	
-	
-	
-	
-	
+	public void setLove(boolean love) {
+		this.love = love;
+	}
+
+	@Override
+	public String toString() {
+		return "PostLike [love=" + love + "]";
+	}
 
 }

@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +32,8 @@ class PostLikeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		postLike = em.find(PostLike.class, 1);
+		PostLikeId id = new PostLikeId(1,1);
+		postLike = em.find(PostLike.class, id);
 	}
 
 	@AfterEach

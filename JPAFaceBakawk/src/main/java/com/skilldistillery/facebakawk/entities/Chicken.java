@@ -40,6 +40,9 @@ public class Chicken {
 	@Column(name="create_date")
 	private LocalDateTime createDate;
 	
+	@Column(name= "picture_url")
+	private String pictureURL;
+	
 	public Chicken() {}
 
 	public int getId() {

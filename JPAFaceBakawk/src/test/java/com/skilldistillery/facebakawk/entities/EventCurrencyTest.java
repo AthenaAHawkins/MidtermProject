@@ -31,7 +31,8 @@ class EventCurrencyTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		eventCurrency = em.find(EventCurrency.class, 1);
+		EventCurrencyId id = new EventCurrencyId(1, 1);
+		eventCurrency = em.find(EventCurrency.class, id);
 	}
 
 	@AfterEach
@@ -41,9 +42,10 @@ class EventCurrencyTest {
 	}
 
 	@Test
-	void test_Post_entity_mapping() {
+	void test_eventCurrency_entity_mapping() {
 		assertNotNull(eventCurrency);
 		assertEquals(1, eventCurrency.getAmount());
 	}
+	
 
 }
