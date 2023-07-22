@@ -47,4 +47,25 @@ class EventTest {
 		assertEquals(2023, event.getEventDate().getYear());
 	}
 
+	@Test
+	void test_Event_to_eventComment_mapping() {
+		assertNotNull(event);
+		assertNotNull(event.getComments());
+		assertTrue(event.getComments().size() > 0);
+
+	}
+	@Test
+	void test_Event_to_User_Mapping() {
+		assertNotNull(event);
+		assertNotNull(event.getCreator());
+		assertEquals("chicken_lover", event.getCreator().getUsername());
+	}
+	
+	@Test
+	void test_Event_to_address_Mapping() {
+		assertNotNull(event);
+		assertNotNull(event.getAddress());
+		assertEquals("Denver", event.getAddress().getCity());
+	}
+
 }

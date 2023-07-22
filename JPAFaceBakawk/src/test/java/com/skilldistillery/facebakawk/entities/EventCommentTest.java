@@ -12,11 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class AddressTest {
+class EventCommentTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Address address;
+	private EventComment eventComment;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,27 +31,20 @@ class AddressTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		address = em.find(Address.class, 1);
+		
+		eventComment = em.find(EventComment.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		address = null;
+		eventComment = null;
 	}
-
+	
 	@Test
-	void test_Address_entity_mapping() {
-		assertNotNull(address);
-		assertEquals("Denver", address.getCity());
-		assertEquals("80108", address.getZipCode());
-	}
-
-	@Test
-	void test_Address_to_Event_entity_mapping() {
-		assertNotNull(address);
-		assertNotNull(address.getEvents());
-		assertTrue(address.getEvents().size() > 0);
+	void test_eventComment_basic_mapping() {
+		assertNotNull(eventComment);
+		assertEquals(2019, eventComment.getCommentDate().getYear());
 	}
 
 }

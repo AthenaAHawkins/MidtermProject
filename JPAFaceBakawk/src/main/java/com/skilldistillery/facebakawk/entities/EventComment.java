@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,6 +28,14 @@ public class EventComment {
 	
 	@Column(name= "picture_url")
 	private String pictureURL;
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User commentor;
+	
+	@ManyToOne
+	@JoinColumn(name="event_id")
+	private Event event;
 	
 	public EventComment() {}
 
@@ -59,6 +69,22 @@ public class EventComment {
 
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
+	}
+
+	public User getCommentor() {
+		return commentor;
+	}
+
+	public void setCommentor(User commentor) {
+		this.commentor = commentor;
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 	@Override
