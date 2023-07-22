@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -40,7 +39,7 @@ class PostImageTest {
 	void tearDown() throws Exception {
 		em.close();
 		postImage = null;
-	}
+	} 
 
 	@Test
 	void test_PostImage_entity_mapping() {

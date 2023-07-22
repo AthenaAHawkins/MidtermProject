@@ -462,6 +462,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `event_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `chickendb`;
+INSERT INTO `event_comment` (`id`, `comment_date`, `post_content`, `user_id`, `picture_url`, `in_reply_to_id`, `event_id`) VALUES (1, '2019-11-11', 'event was lit', 1, NULL, NULL, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `post_like`
 -- -----------------------------------------------------
 START TRANSACTION;
