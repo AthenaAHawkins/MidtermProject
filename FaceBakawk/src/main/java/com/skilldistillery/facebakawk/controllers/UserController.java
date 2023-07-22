@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.facebakawk.data.UserDAO;
+import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
 public class UserController {
@@ -14,8 +15,8 @@ public class UserController {
 	private UserDAO userDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
-	public String home(Model model) {
-		model.addAttribute("DELETEME", userDAO.findByUserNameAndPassword("admin", "1234"));
+	public String home(Model model, User user) {
+		model.addAttribute("DELETEME", userDAO.findByUserNameAndPassword(user.getUsername(),user.getPassword()));
 
 		return "home";
 	}
