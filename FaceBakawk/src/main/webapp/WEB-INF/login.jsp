@@ -18,5 +18,9 @@
 		<input type="password" name="password" /> 
 		<input type="submit" value="Log In">
 	</form>
+	
+	<a href="goToAddUser.do">Create Account</a>
+	
+	
 </body>
 </html>

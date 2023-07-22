@@ -24,6 +24,8 @@ public class User {
 
 	private String username;
 	
+	private String password;
+	
 	@Column(name="first_name")
 	private String firstName;
 	
@@ -32,7 +34,6 @@ public class User {
 	
 	private String description;
 
-	private String password;
 
 	private Boolean enabled;
 
