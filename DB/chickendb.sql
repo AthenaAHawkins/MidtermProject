@@ -456,7 +456,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `post_comment` (`id`, `comment_date`, `post_content`, `user_id`, `post_id`, `picture_url`, `in_reply_to_id`) VALUES (1, NULL, 'cool chickens!', 1, 1, NULL, NULL);
+INSERT INTO `post_comment` (`id`, `comment_date`, `post_content`, `user_id`, `post_id`, `picture_url`, `in_reply_to_id`) VALUES (1, NULL, 'cool chickens!', 1, 1, NULL, 1);
 
 COMMIT;
 
@@ -476,7 +476,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `event_comment` (`id`, `comment_date`, `post_content`, `user_id`, `picture_url`, `in_reply_to_id`, `event_id`) VALUES (1, '2019-11-11', 'event was lit', 1, NULL, NULL, 1);
+INSERT INTO `event_comment` (`id`, `comment_date`, `post_content`, `user_id`, `picture_url`, `in_reply_to_id`, `event_id`) VALUES (1, '2019-11-11', 'event was lit', 1, NULL, 1, 1);
 
 COMMIT;
 

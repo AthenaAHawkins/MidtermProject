@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,6 +38,16 @@ public class PostComment {
 	@ManyToOne
 	@JoinColumn(name = "post_id")
 	private Post post;
+	
+	
+	@ManyToOne
+	@JoinColumn(name = "in_reply_to_id")
+	private PostComment commentor;
+	
+	
+	@OneToMany(mappedBy = "commentor")
+	private List<PostComment> replys;
+	
 	
 	public PostComment() {
 		
@@ -111,6 +123,22 @@ public class PostComment {
 			return false;
 		PostComment other = (PostComment) obj;
 		return id == other.id;
+	}
+
+	public PostComment getCommentor() {
+		return commentor;
+	}
+
+	public void setCommentor(PostComment commentor) {
+		this.commentor = commentor;
+	}
+
+	public List<PostComment> getReplys() {
+		return replys;
+	}
+
+	public void setReplys(List<PostComment> replys) {
+		this.replys = replys;
 	}
 
 	

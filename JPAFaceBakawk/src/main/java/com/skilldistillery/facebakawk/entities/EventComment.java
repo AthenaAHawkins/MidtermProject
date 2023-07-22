@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -36,6 +38,14 @@ public class EventComment {
 	@ManyToOne
 	@JoinColumn(name="event_id")
 	private Event event;
+	
+	@ManyToOne
+	@JoinColumn(name = "in_reply_to_id")
+	private EventComment comment;
+	
+	
+	@OneToMany(mappedBy = "commentor")
+	private List<EventComment> replys;
 	
 	public EventComment() {}
 
@@ -108,6 +118,22 @@ public class EventComment {
 			return false;
 		EventComment other = (EventComment) obj;
 		return id == other.id;
+	}
+
+	public EventComment getComment() {
+		return comment;
+	}
+
+	public void setComment(EventComment comment) {
+		this.comment = comment;
+	}
+
+	public List<EventComment> getReplys() {
+		return replys;
+	}
+
+	public void setReplys(List<EventComment> replys) {
+		this.replys = replys;
 	}
 	
 	

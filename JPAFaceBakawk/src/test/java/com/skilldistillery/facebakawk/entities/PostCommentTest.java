@@ -14,8 +14,6 @@ import org.junit.jupiter.api.Test;
 
 class PostCommentTest {
 
-
-
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private PostComment postComment;
@@ -47,18 +45,26 @@ class PostCommentTest {
 		assertNotNull(postComment);
 		assertEquals("cool chickens!", postComment.getPostContent());
 	}
+
 	@Test
 	void test_PostComment_toUser_mapping() {
 		assertNotNull(postComment);
 		assertNotNull(postComment.getUser());
 		assertEquals("chicken_lover", postComment.getUser().getUsername());
 	}
+
 	@Test
 	void test_PostComment_to_Post_mapping() {
 		assertNotNull(postComment);
 		assertNotNull(postComment.getPost());
 		assertEquals("Why are chickens so cute?", postComment.getPost().getTitle());
 	}
-	
+
+	@Test
+	void test_self_join_commentor_replys() {
+		assertNotNull(postComment.getReplys());
+		assertTrue(postComment.getReplys().size() > 0);
+		assertEquals("chicken_lover", postComment.getCommentor().getUser().getUsername());
+	}
 
 }

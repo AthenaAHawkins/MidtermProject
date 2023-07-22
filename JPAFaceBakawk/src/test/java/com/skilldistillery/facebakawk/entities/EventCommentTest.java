@@ -56,6 +56,12 @@ class EventCommentTest {
 		assertEquals("chicken_lover", eventComment.getCommentor().getUsername());
 		assertEquals( 2023, eventComment.getEvent().getEventDate().getYear());
 	}
-	
+
+	@Test
+	void test_self_join_comment_and_replys() {
+		assertNotNull(eventComment.getReplys());
+		assertTrue(eventComment.getReplys().size() > 0);
+		assertEquals("chicken_lover", eventComment.getCommentor().getUsername());
+	}
 
 }
