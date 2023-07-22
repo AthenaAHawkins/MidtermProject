@@ -42,8 +42,12 @@ public class User {
 	private List<Chicken> chickens;
 	
 	@ManyToMany
-	@JoinTable(name = "event_attendee" , joinColumns = @JoinColumn (name = "user_id") , inverseJoinColumns = @JoinColumn( name = "event_id"))
-	List<Event> events;
+	@JoinTable(name = "event_attendee", joinColumns = @JoinColumn (name = "user_id") , inverseJoinColumns = @JoinColumn( name = "event_id"))
+	private List<Event> events;
+	
+	@ManyToMany
+	@JoinTable(name = "post_like", joinColumns = @JoinColumn (name = "user_id") , inverseJoinColumns = @JoinColumn( name = "post_id"))
+	private List<Post> likedPosts;
 
 	public User() {
 	}
@@ -151,6 +155,14 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + "]";
+	}
+
+	public List<Post> getLikedPosts() {
+		return likedPosts;
+	}
+
+	public void setLikedPosts(List<Post> likedPosts) {
+		this.likedPosts = likedPosts;
 	}
 
 }

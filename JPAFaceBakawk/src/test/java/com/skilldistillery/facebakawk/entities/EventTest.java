@@ -68,4 +68,10 @@ class EventTest {
 		assertEquals("Denver", event.getAddress().getCity());
 	}
 
+    @Test 
+    void test_event_currecny_relationship(){
+    	assertNotNull(event);
+    	assertNotNull(event.getCurrencies());
+    	assertTrue(event.getCurrencies().size()>0);
+    }
 }

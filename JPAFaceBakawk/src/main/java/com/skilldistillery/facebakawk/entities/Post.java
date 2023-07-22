@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -40,6 +41,9 @@ public class Post {
 	@OneToMany(mappedBy="post")
 	private List<PostComment> comments;
 
+	@ManyToMany(mappedBy = "likedPosts")
+	private List<User> postLikers;
+	
 	public Post() {
 		super();
 	}
@@ -131,6 +135,14 @@ public class Post {
 			return false;
 		Post other = (Post) obj;
 		return id == other.id;
+	}
+
+	public List<User> getPostLikers() {
+		return postLikers;
+	}
+
+	public void setPostLikers(List<User> postLikers) {
+		this.postLikers = postLikers;
 	}
 
 }

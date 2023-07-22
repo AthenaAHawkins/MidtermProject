@@ -462,6 +462,16 @@ COMMIT;
 
 
 -- -----------------------------------------------------
+-- Data for table `event_attendee`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `chickendb`;
+INSERT INTO `event_attendee` (`user_id`, `event_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
 -- Data for table `event_comment`
 -- -----------------------------------------------------
 START TRANSACTION;

@@ -31,7 +31,7 @@ class CurrencyTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		currency = em.find(Currency.class, 3);
+		currency = em.find(Currency.class, 1);
 	}
 
 	@AfterEach
@@ -46,5 +46,11 @@ class CurrencyTest {
 		assertEquals("egg", currency.getType());
 		
 	}
-
+    @Test 
+    void test_event_currecny_relationship(){
+    	assertNotNull(currency);
+    	assertNotNull(currency.getEvents());
+    	assertTrue(currency.getEvents().size()>0);
+    }
+	
 }

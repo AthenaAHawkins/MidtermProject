@@ -22,6 +22,9 @@ public class Event {
 	private int id;
 
 	private String title;
+	
+	@ManyToMany(mappedBy = "events")
+	private List<Currency> currencies;
 
 	@Column(name = "start_time")
 	private LocalDateTime startTime;
@@ -52,10 +55,10 @@ public class Event {
 	private Address address;
 	
 	@OneToMany(mappedBy = "event")
-	List <EventComment> eventComments;
+	private List <EventComment> eventComments;
 	
 	@ManyToMany(mappedBy = "events")
-	List<User> attendees;
+	private List<User> attendees;
 	
 	public List<EventComment> getEventComments() {
 		return eventComments;
@@ -196,6 +199,14 @@ public class Event {
 		return "Event [id=" + id + ", title=" + title + ", startTime=" + startTime + ", endTime=" + endTime
 				+ ", eventDate=" + eventDate + ", description=" + description + ", pictureURL=" + pictureURL
 				+ ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + "]";
+	}
+
+	public List<Currency> getCurrencies() {
+		return currencies;
+	}
+
+	public void setCurrencies(List<Currency> currencies) {
+		this.currencies = currencies;
 	}
 
 }

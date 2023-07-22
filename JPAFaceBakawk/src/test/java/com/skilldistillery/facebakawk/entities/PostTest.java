@@ -16,7 +16,6 @@ import org.junit.jupiter.api.Test;
 
 class PostTest {
 
-
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Post post;
@@ -49,23 +48,42 @@ class PostTest {
 		assertEquals("Why are chickens so cute?", post.getTitle());
 		assertEquals("I love them", post.getContent());
 	}
+
 	@Test
 	void test_postToUser_mapping() {
 		assertNotNull(post);
 		assertNotNull(post.getUser());
-		assertEquals("chicken_lover",post.getUser().getUsername());
+		assertEquals("chicken_lover", post.getUser().getUsername());
 	}
+
 	@Test
-	void postToPostImage_mapping(){
+	void postToPostImage_mapping() {
 		assertNotNull(post);
 		assertNotNull(post.getImages());
-		assertTrue(post.getImages().size()>0);
+		assertTrue(post.getImages().size() > 0);
 	}
+
 	@Test
-	void post_ToPostComment_mapping(){
+	void post_ToPostComment_mapping() {
 		assertNotNull(post);
 		assertNotNull(post.getComments());
-		assertTrue(post.getComments().size()>0);
+		assertTrue(post.getComments().size() > 0);
 	}
-	
+
+	@Test
+	void test_user_ToPostComment_mapping() {
+		assertNotNull(post);
+		assertNotNull(post.getComments());
+		assertTrue(post.getComments().size() > 0);
+
+	}
+
+	@Test
+	void test_post_like() {
+		assertNotNull(post);
+		assertNotNull(post.getPostLikers());
+		assertTrue(post.getPostLikers().size() > 0);
+		
+	}
+
 }

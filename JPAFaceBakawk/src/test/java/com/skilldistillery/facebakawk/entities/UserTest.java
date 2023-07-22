@@ -33,7 +33,7 @@ class UserTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		
+
 		user = em.find(User.class, 1);
 	}
 
@@ -50,40 +50,49 @@ class UserTest {
 		assertEquals("admin", user.getUsername());
 		assertEquals("admin", user.getPassword());
 	}
+
 	@Test
 	void test_userToPost_mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getPosts());
-		assertTrue(user.getPosts().size()>0);
+		assertTrue(user.getPosts().size() > 0);
 	}
+
 	@Test
-	void user_ToPostComment_mapping(){
+	void user_ToPostComment_mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getComments());
-		assertTrue(user.getComments().size()>0);
+		assertTrue(user.getComments().size() > 0);
 	}
+
 	@Test
 	void user_To_Address_Mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getAddress());
 		assertEquals("Denver", user.getAddress().getCity());
-		
+
 	}
-	
+
 	@Test
 	void user_To_Chicken_mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getChickens());
-		assertTrue(user.getChickens().size()>0);
+		assertTrue(user.getChickens().size() > 0);
 	}
-	
-	
+
 	@Test
 	void user_to_event_mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getEvents());
 		assertTrue(user.getEvents().size() > 0);
-		
+
+	}
+
+	@Test
+	void test_post_like() {
+		assertNotNull(user);
+		assertNotNull(user.getLikedPosts());
+		assertTrue(user.getLikedPosts().size() > 0);
 		
 	}
 
