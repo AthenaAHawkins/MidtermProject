@@ -46,5 +46,16 @@ class EventCommentTest {
 		assertNotNull(eventComment);
 		assertEquals(2019, eventComment.getCommentDate().getYear());
 	}
+	
+	
+	@Test
+	void user_list_and_event_list_tests() {
+		assertNotNull(eventComment);
+		assertNotNull(eventComment.getCommentor());
+		assertNotNull(eventComment.getEvent());
+		assertEquals("chicken_lover", eventComment.getCommentor().getUsername());
+		assertEquals( 2023, eventComment.getEvent().getEventDate().getYear());
+	}
+	
 
 }

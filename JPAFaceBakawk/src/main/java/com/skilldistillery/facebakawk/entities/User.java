@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -38,6 +40,10 @@ public class User {
 	
 	@OneToMany(mappedBy="owner")
 	private List<Chicken> chickens;
+	
+	@ManyToMany
+	@JoinTable(name = "event_attendee" , joinColumns = @JoinColumn (name = "user_id") , inverseJoinColumns = @JoinColumn( name = "event_id"))
+	List<Event> events;
 
 	public User() {
 	}
@@ -92,6 +98,14 @@ public class User {
 	}
 
 	
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(List<Event> events) {
+		this.events = events;
+	}
+
 	public List<PostComment> getComments() {
 		return comments;
 	}
