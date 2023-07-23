@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.skilldistillery.facebakawk.entities.Chicken;
 
-public interface ChickkenDAO  {
+public interface ChickenDAO  {
 	
 	List<Chicken> findAll();
 
