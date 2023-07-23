@@ -45,7 +45,7 @@ public class UserController {
 
 	@RequestMapping(path = { "editUser.do" })
 	public String updateUser(Model model, User user, Integer userId) {
-		System.out.println("in controller FISHID " + userId);
+		System.out.println("in controller USERID " + userId);
 		System.out.println("in controller " + user);
 		userDAO.updateUser(userId, user);
 		model.addAttribute("user", user);
@@ -55,6 +55,7 @@ public class UserController {
 	@RequestMapping(path = { "addUser.do" })
 	public String addUser(Model model, User user, Address address) {
 		System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
+		System.out.println("\n\n\n\n\n\n\n\nADDRESS: " + address);
 		addressDAO.create(address);
 		user.setAddress(address);
 		userDAO.create(user);

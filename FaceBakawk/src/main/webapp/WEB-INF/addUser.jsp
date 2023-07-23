@@ -37,7 +37,7 @@
 		
 		<h2>Address:</h2>
 		
-		<input type="hidden" name="addressId" value="${address.addressId} ">
+		<input type="hidden" name="addressId" value="${address.id} ">
 		
 		<label for="city">City:</label><br>
 		<input type="text" name="city"  ><br>
