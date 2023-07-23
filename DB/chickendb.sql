@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `chicken` ;
 CREATE TABLE IF NOT EXISTS `chicken` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
-  `birthday` DATE NULL,
+  `birthday` DATETIME NULL,
   `inches` DOUBLE NULL,
   `gender` CHAR(1) NOT NULL,
   `music_taste` VARCHAR(500) NULL,
