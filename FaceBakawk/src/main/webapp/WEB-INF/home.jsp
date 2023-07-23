@@ -22,7 +22,7 @@
 <h1>WELCOME BA-KAWK!</h1>
 
 
-<h2>${DELETEME }</h2>
+
 
 </body>
 </html>
