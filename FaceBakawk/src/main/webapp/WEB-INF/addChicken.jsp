@@ -13,15 +13,17 @@
 
 
 <div>
-    <form action="addUser.do" method="POST">
+    <form action="addChicken.do" method="POST">
 
   <h2>Tell us about you:</h2>
+		
+		<input type="hidden" name="userId" value ="${owner.id}">
 		
 		<label for="name">Name:</label><br>
 		<input type="text" name="name"  ><br>
 		
-		<label for="birthday">Birthday:</label><br>
-		<input type="datetime" name="birthday"  ><br>
+		<!-- <label for="birthday">Birthday:</label><br>
+		<input type="datetime-local" name="birthday"  ><br> -->
 		
 		<label for="description">Tell us about yourself:</label><br>
 		<input type="text" name="description"  ><br>
@@ -36,13 +38,13 @@
         <option value="M">Male</option>
         <option value="F">Female</option>
         </select>
-		
+		<br>
 		<label for="height">Height in Inches:</label><br>
 		<input type="number" name="height"  ><br>
 		
 		<label for="wantsChicks">Do you want chicks?:</label><br>
-		<input type="checkbox" name="wantsChicks" value="true"  ><br>
-		<input type="checkbox" name="wantsChicks" value="false"  ><br>
+		<input type="checkbox" name="wantsChicks" value="true"  >Yes<br>
+		<input type="checkbox" name="wantsChicks" value="false"  >No!!!!<br>
 		<!-- <input type="checkbox" id="wantsChicks">	
 		<label for="wantsChicks">Yes</label> -->
 		

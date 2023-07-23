@@ -28,6 +28,8 @@
 			<h1>Not logged In.</h1>
 		</c:otherwise>
 	</c:choose>
+	
+<a href="goToAddChicken.do">Create Chicken</a>
 
 
 

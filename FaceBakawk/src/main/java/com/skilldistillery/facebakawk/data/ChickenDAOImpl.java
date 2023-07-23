@@ -5,9 +5,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
 
 import com.skilldistillery.facebakawk.entities.Chicken;
-
+@Service
+@Transactional
 public class ChickenDAOImpl implements ChickenDAO {
 
 	@PersistenceContext

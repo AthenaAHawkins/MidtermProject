@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -197,6 +198,27 @@ public class User {
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
 	}
+	
+	
+	public void addChicken(Chicken chicken) {
+		if(chickens != null) {
+			chickens = new ArrayList<>();
+		}
+		if (!chickens.contains(chicken)) {
+			chickens.add(chicken);
+			chicken.setOwner(this);
+		}
+		
+	}
+	
+	public void removeChicken(Chicken chicken) {
+		if(chickens != null && chickens.contains(chicken)) {
+			chickens.remove(chicken);
+			chicken.setOwner(null);
+		}
+	}
+	
+	
 
 	@Override
 	public boolean equals(Object obj) {
