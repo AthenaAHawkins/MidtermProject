@@ -22,8 +22,8 @@
 		<label for="name">Name:</label><br>
 		<input type="text" name="name"  ><br>
 		
-		<!-- <label for="birthday">Birthday:</label><br>
-		<input type="datetime-local" name="birthday"  ><br> -->
+		<label for="birthday">Birthday:</label><br>
+		<input type="datetime-local" name="birthday"  ><br>
 		
 		<label for="description">Tell us about yourself:</label><br>
 		<input type="text" name="description"  ><br>

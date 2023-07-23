@@ -1,4 +1,3 @@
-
 package com.skilldistillery.facebakawk.data;
 
 import java.util.List;
@@ -7,10 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
-
-import com.skilldistillery.facebakawk.entities.Address;
 import com.skilldistillery.facebakawk.entities.User;
 
 @Service
