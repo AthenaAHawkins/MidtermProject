@@ -18,7 +18,9 @@
 			<%-- Output user details --%>
 
 			<ul>
-				<li>ID: ${loggedInUser.id }</li>
+			
+				<li><img src="${loggedInUser.pictureURL }"  alt="This you?"  width="300"
+						height="200"></li>
 				<li>UserName: ${loggedInUser.username }</li>
 				<li>FirstName: ${loggedInUser.firstName }</li>
 				<li>LastName: ${loggedInUser.lastName }</li>
@@ -31,6 +33,20 @@
 	
 <a href="goToAddChicken.do">Create Chicken</a>
 
+
+<table class="table table-striped table-hover">
+		<thead class="table-dark">
+		<tbody>
+			<c:forEach var="chicken" items="${chickenList}">
+				<tr>
+					<td><a href="getChicken.do?chickenId=${chicken.id}"> ${chicken.name}</a></td>
+					<td><img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
+						height="200"></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	
 
 
 

@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.facebakawk.data.AddressDAO;
+import com.skilldistillery.facebakawk.data.ChickenDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
 import com.skilldistillery.facebakawk.entities.Address;
+import com.skilldistillery.facebakawk.entities.Chicken;
 import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
@@ -20,11 +22,14 @@ public class UserController {
 	
 	@Autowired
 	private AddressDAO addressDAO;
+	
+	@Autowired
+	private ChickenDAO chickenDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, User user) {
 		model.addAttribute("DELETEME", userDAO.findByUserNameAndPassword(user.getUsername(), user.getPassword()));
-
+		model.addAttribute("chickenList", chickenDAO.findAll());
 		return "home";
 	}
 
@@ -75,5 +80,6 @@ public class UserController {
 		model.addAttribute("userList", userList);
 		return "showSearched";
 	}
-
+	
+	
 }

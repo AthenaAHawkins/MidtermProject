@@ -166,4 +166,12 @@ public class Chicken {
 				+ description + ", createDate=" + createDate + "]";
 	}
 
+	public String getPictureURL() {
+		return pictureURL;
+	}
+
+	public void setPictureURL(String pictureURL) {
+		this.pictureURL = pictureURL;
+	}
+
 }

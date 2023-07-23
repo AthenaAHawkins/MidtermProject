@@ -60,6 +60,13 @@ class ChickenTest {
 		assertNotNull(chicken.getBreed());
 		assertEquals("Silkie", chicken.getBreed().getName());
 	}
+	
+	@Test
+	void test_chicken_birthday() {
+		assertNotNull(chicken);
+		assertNotNull(chicken.getBirthday());
+		assertEquals(1990, chicken.getBirthday().getYear());
+	}
 
 
 }
