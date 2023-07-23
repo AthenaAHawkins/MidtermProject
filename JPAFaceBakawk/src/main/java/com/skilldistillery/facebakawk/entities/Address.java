@@ -15,7 +15,7 @@ public class Address {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int addressId;
+	private int id;
 
 	private String city;
 
@@ -36,11 +36,11 @@ public class Address {
 	}
 
 	public int getId() {
-		return addressId;
+		return id;
 	}
 
 	public void setId(int id) {
-		this.addressId = id;
+		this.id = id;
 	}
 
 	public String getCity() {
@@ -94,7 +94,7 @@ public class Address {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(addressId);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -106,12 +106,12 @@ public class Address {
 		if (getClass() != obj.getClass())
 			return false;
 		Address other = (Address) obj;
-		return addressId == other.addressId;
+		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "Address [id=" + addressId + ", city=" + city + ", state=" + state + ", country=" + country + ", zipcode="
+		return "Address [id=" + id + ", city=" + city + ", state=" + state + ", country=" + country + ", zipcode="
 				+ zipcode + ", phoneNumber=" + phoneNumber + "]";
 	}
 

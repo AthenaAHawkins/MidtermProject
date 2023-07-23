@@ -10,12 +10,12 @@ public interface ChickenDAO  {
 
 	List<Chicken> searchByKeyword(String searchTerm);
 
-	Chicken findUserById(int userId);
+	Chicken findChickenById(int chickenId);
 
 	Chicken create(Chicken chicken);
 
-	Chicken updateChicken(int userId, Chicken chicken);
+	Chicken updateChicken(int chickenId, Chicken chicken);
 
-	boolean deleteById(int userId);
+	boolean deleteById(int chickenId);
 
 }
