@@ -1,7 +1,7 @@
 package com.skilldistillery.facebakawk.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -21,7 +21,7 @@ public class Chicken {
 
 	private String name;
 
-	private LocalDateTime birthday;
+	private LocalDate birthday;
 
 	@Column(name = "inches")
 	private Double height;
@@ -69,11 +69,11 @@ public class Chicken {
 		this.name = name;
 	}
 
-	public LocalDateTime getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(LocalDateTime birthday) {
+	public void setBirthday(LocalDate birthday) {
 		this.birthday = birthday;
 	}
 
