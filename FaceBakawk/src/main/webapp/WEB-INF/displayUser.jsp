@@ -42,7 +42,7 @@
 		<tbody>
 			<c:forEach var="event" items="${user.events}">
 				<tr>
-					<td><a href="getEvent.do?eventId=${event.id}"> ${event.title}</a></td>
+					<td><a href="getEvent.do?eventId=${event.creator.id}"> ${event.title}</a></td>
 					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
 						height="200"></td>
 				</tr>
