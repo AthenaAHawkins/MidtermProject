@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.facebakawk.data.AddressDAO;
 import com.skilldistillery.facebakawk.data.ChickenDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
 import com.skilldistillery.facebakawk.entities.Address;
-import com.skilldistillery.facebakawk.entities.Chicken;
 import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
@@ -37,6 +37,7 @@ public class UserController {
 	public String displayUser(Model model, Integer userId) {
 		User user = userDAO.findUserById(userId);
 		model.addAttribute("user", user);
+		model.addAttribute("eventsAttended", user.getEvents());
 		return "User/show";
 	}
 
@@ -56,8 +57,13 @@ public class UserController {
 		model.addAttribute("user", user);
 		return "home";
 	}
+	
+	@RequestMapping(path="addUser.do", method=RequestMethod.GET)
+	public String goToLoginForm(Model model, User user) {
+		return home(model, user);
+	}
 
-	@RequestMapping(path = { "addUser.do" })
+	@RequestMapping(path="addUser.do" , method=RequestMethod.POST)
 	public String addUser(Model model, User user, Address address) {
 		System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
 		System.out.println("\n\n\n\n\n\n\n\nADDRESS: " + address);

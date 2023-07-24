@@ -199,6 +199,22 @@ public class User {
 		this.pictureURL = pictureURL;
 	}
 	
+	public void addEvent(Event event) {
+		if(events != null) {
+			events = new ArrayList<>();
+		}
+		if (!events.contains(event)) {
+			events.add(event);
+			event.addAttendee(this);
+		}
+		
+	}
+	public void removeEvent(Event event) {
+		if(events != null && events.contains(event)) {
+			events.remove(event);
+			event.addAttendee(null);
+		}
+	}
 	
 	public void addChicken(Chicken chicken) {
 		if(chickens != null) {
@@ -208,8 +224,8 @@ public class User {
 			chickens.add(chicken);
 			chicken.setOwner(this);
 		}
-		
 	}
+	
 	
 	public void removeChicken(Chicken chicken) {
 		if(chickens != null && chickens.contains(chicken)) {
@@ -217,6 +233,7 @@ public class User {
 			chicken.setOwner(null);
 		}
 	}
+	
 	
 	
 
