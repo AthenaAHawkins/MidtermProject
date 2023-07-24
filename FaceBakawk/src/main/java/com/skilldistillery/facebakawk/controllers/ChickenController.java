@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.facebakawk.data.BreedDAO;
 import com.skilldistillery.facebakawk.data.ChickenDAO;
@@ -32,7 +33,7 @@ public class ChickenController {
 	public String displayChicken(Model model, Integer chickenId) {
 		Chicken chicken = chickenDAO.findChickenById(chickenId);
 		model.addAttribute("chicken", chicken);
-		return "Chicken/show";
+		return "displayChicken";
 	}
 
 	@RequestMapping(path = { "deleteChicken.do" })
@@ -51,8 +52,13 @@ public class ChickenController {
 		model.addAttribute("chicken", chicken);
 		return "home";
 	}
+	
+	@RequestMapping(path="addChicken.do", method=RequestMethod.GET)
+	public String goToLoginForm() {
+		return "home";
+	}
 
-	@RequestMapping(path = { "addChicken.do" })
+	@RequestMapping(path="addChicken.do", method=RequestMethod.POST)
 	public String addChicken(Model model, Chicken chicken, Breed breed, HttpSession session) {
 		System.out.println("\n\n\n\n\n\n\n\nCHICKEN: " + chicken);
 		System.out.println("\n\n\n\n\n\n\n\nBREED: " + breed);
@@ -68,7 +74,7 @@ public class ChickenController {
 			model.addAttribute("chicken", chicken);
 			model.addAttribute("userId", user.getId());
 			model.addAttribute("chickenList", chickenDAO.findAll());
-			return "account";
+			return "home";
 		} else {
 			return "login";
 		}
