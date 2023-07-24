@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>FaceBaKawk</title>
-<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav>
@@ -20,7 +19,6 @@
   </ul>
 </nav>
 <h1>WELCOME BA-KAWK!</h1>
-
 
 
 
