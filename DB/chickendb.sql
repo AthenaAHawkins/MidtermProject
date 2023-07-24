@@ -146,7 +146,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `post` ;
 
 CREATE TABLE IF NOT EXISTS `post` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `title` VARCHAR(150) NOT NULL,
   `content` TEXT NOT NULL,
   `user_id` INT NOT NULL,
