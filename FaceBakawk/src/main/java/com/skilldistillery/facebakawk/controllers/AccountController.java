@@ -15,8 +15,8 @@ public class AccountController {
 	@RequestMapping(path="account.do")
 	public String goToAccount(Model model,HttpSession session) {
 		User inSession = (User) session.getAttribute("loggedInUser");
-		
 		if(inSession != null) {
+			model.addAttribute("chickenList", inSession.getChickens());
 			
 			return "account";
 		}else {
