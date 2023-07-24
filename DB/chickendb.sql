@@ -65,7 +65,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `breed` ;
 
 CREATE TABLE IF NOT EXISTS `breed` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(600) NULL,
   `characteristic` VARCHAR(200) NULL,
   `picture_url` VARCHAR(2000) NULL,

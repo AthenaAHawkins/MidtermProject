@@ -26,6 +26,7 @@ public class LoginController {
 	@RequestMapping(path="login.do", method=RequestMethod.POST)
 	public String login(User user, HttpSession session, Model model) {
 		user = userDAO.findByUserNameAndPassword(user.getUsername(), user.getPassword());
+		
 		if(user != null) {
 			model.addAttribute("chickenList", user.getChickens());
 			session.setAttribute("loggedInUser", user);

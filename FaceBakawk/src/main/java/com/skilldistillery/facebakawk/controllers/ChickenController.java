@@ -2,6 +2,8 @@ package com.skilldistillery.facebakawk.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,16 +18,15 @@ import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
 public class ChickenController {
-	
+
 	@Autowired
 	private BreedDAO breedDAO;
-	
+
 	@Autowired
 	private ChickenDAO chickenDAO;
-	
+
 	@Autowired
 	private UserDAO userDAO;
-
 
 	@RequestMapping(path = { "getChicken.do" })
 	public String displayChicken(Model model, Integer chickenId) {
@@ -52,19 +53,25 @@ public class ChickenController {
 	}
 
 	@RequestMapping(path = { "addChicken.do" })
-	public String addChicken(Model model, Chicken chicken, Breed breed, User user) {
+	public String addChicken(Model model, Chicken chicken, Breed breed, HttpSession session) {
 		System.out.println("\n\n\n\n\n\n\n\nCHICKEN: " + chicken);
 		System.out.println("\n\n\n\n\n\n\n\nBREED: " + breed);
-		breedDAO.create(breed);
-		chicken.setBreed(breed);
-		chickenDAO.create(chicken);
-		user.addChicken(chicken);
-		userDAO.updateUser(user.getId(), user);
-		System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+			breedDAO.create(breed);
+			chicken.setBreed(breed);
+			user.addChicken(chicken);
+			chickenDAO.create(chicken);
+			userDAO.updateUser(user.getId(), user);
+			System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
 //		model.addAttribute("breed", breed);
-		model.addAttribute("chicken", chicken);
-		model.addAttribute("userId", user.getId());
-		return "account";
+			model.addAttribute("chicken", chicken);
+			model.addAttribute("userId", user.getId());
+			model.addAttribute("chickenList", chickenDAO.findAll());
+			return "account";
+		} else {
+			return "login";
+		}
 	}
 
 	@RequestMapping(path = { "goToAddChicken.do" })
@@ -80,6 +87,3 @@ public class ChickenController {
 	}
 
 }
-
-	
-
