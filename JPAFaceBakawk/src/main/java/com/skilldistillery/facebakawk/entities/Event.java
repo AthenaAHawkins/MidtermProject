@@ -1,6 +1,8 @@
 package com.skilldistillery.facebakawk.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +17,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 @Entity
 public class Event {
 
@@ -28,13 +33,13 @@ public class Event {
 	private List<Currency> currencies;
 
 	@Column(name = "start_time")
-	private LocalDateTime startTime;
+	private LocalTime startTime;
 
 	@Column(name = "end_time")
-	private LocalDateTime endTime;
+	private LocalTime endTime;
 
 	@Column(name = "event_date")
-	private LocalDateTime eventDate;
+	private LocalDate eventDate;
 
 	private String description;
 
@@ -42,9 +47,11 @@ public class Event {
 	private String pictureURL;
 
 	@Column(name = "create_date")
+	@CreationTimestamp
 	private LocalDateTime createDate;
 
 	@Column(name = "last_update")
+	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 
 	@ManyToOne
@@ -98,30 +105,14 @@ public class Event {
 		this.title = title;
 	}
 
-	public LocalDateTime getStartTime() {
+	public LocalTime getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(LocalDateTime startTime) {
+	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
-
-	public LocalDateTime getEndTime() {
-		return endTime;
-	}
-
-	public void setEndTime(LocalDateTime endTime) {
-		this.endTime = endTime;
-	}
-
-	public LocalDateTime getEventDate() {
-		return eventDate;
-	}
-
-	public void setEventDate(LocalDateTime eventDate) {
-		this.eventDate = eventDate;
-	}
-
+	
 	public String getDescription() {
 		return description;
 	}
@@ -185,7 +176,7 @@ public class Event {
 	
 	
 	public void addAttendee(User user) {
-		if(attendees != null) {
+		if(attendees == null) {
 			attendees = new ArrayList<>();
 		}
 		if (!attendees.contains(user)) {
@@ -215,9 +206,10 @@ public class Event {
 
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ", title=" + title + ", startTime=" + startTime + ", endTime=" + endTime
-				+ ", eventDate=" + eventDate + ", description=" + description + ", pictureURL=" + pictureURL
-				+ ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + "]";
+		return "Event [id=" + id + ", title=" + title + ", currencies=" + currencies + ", startTime=" + startTime
+				+ ", endTime=" + endTime + ", eventDate=" + eventDate + ", description=" + description + ", pictureURL="
+				+ pictureURL + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + ", creator=" + creator
+				+ ", address=" + address + ", eventComments=" + eventComments + ", attendees=" + attendees + "]";
 	}
 
 	public List<Currency> getCurrencies() {
@@ -226,6 +218,22 @@ public class Event {
 
 	public void setCurrencies(List<Currency> currencies) {
 		this.currencies = currencies;
+	}
+
+	public LocalDate getEventDate() {
+		return eventDate;
+	}
+
+	public void setEventDate(LocalDate eventDate) {
+		this.eventDate = eventDate;
+	}
+
+	public void setEndTime(LocalTime endTime) {
+		this.endTime = endTime;
+	}
+
+	public LocalTime getEndTime() {
+		return endTime;
 	}
 
 }

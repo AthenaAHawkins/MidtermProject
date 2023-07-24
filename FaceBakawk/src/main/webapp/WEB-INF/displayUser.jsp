@@ -15,11 +15,16 @@
 
 	<%-- <c:forEach var="user" items="${userList}"> --%>
 
+<<<<<<< HEAD
 	<img src="${user.pictureURL}"  width="300"
+=======
+	<img src="${user.pictureURL}" alt="${user.username}" width="300"
+>>>>>>> 88e5c086b6f533d7ef71bd1c00cbf03f4f6cfe36
 		height="200"> 
 	<h3>User Name: ${user.username}</h3>
 	<h2>${user.username}</h2>
 	<h2> ${user.firstName} , ${user.lastName }</h2>
+<<<<<<< HEAD
 	<br><h2>
 	Chicken:
 	<c:forEach var="chicken" items="${user.chickens}">
@@ -31,6 +36,12 @@
 	<br>
 	<h2>Description:
 	 ${user.description}</h2>
+=======
+	<br>Chicken:
+	<!--  List of chickens here-->
+	<br>Description:
+	 ${user.description}
+>>>>>>> 88e5c086b6f533d7ef71bd1c00cbf03f4f6cfe36
 	<br> <h2>Events Attended</h2>
 <table class="table table-striped table-hover">
 		<thead class="table-dark">

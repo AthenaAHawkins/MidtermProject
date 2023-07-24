@@ -24,47 +24,46 @@ public class User {
 	private int id;
 
 	private String username;
-	
-	private String password;
-	
-	@Column(name="first_name")
-	private String firstName;
-	
-	@Column(name="last_name")
-	private String lastName;
-	
-	private String description;
 
+	private String password;
+
+	@Column(name = "first_name")
+	private String firstName;
+
+	@Column(name = "last_name")
+	private String lastName;
+
+	private String description;
 
 	private Boolean enabled;
 
 	private String role;
-	
-	@Column(name="create_date")
+
+	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	
-	@Column(name="picture_url")
+
+	@Column(name = "picture_url")
 	private String pictureURL;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<Post> posts;
-	
+
 	@OneToMany(mappedBy = "user")
 	private List<PostComment> comments;
-	
+
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
-	
-	@OneToMany(mappedBy="owner")
+
+	@OneToMany(mappedBy = "owner")
 	private List<Chicken> chickens;
-	
+
 	@ManyToMany
-	@JoinTable(name = "event_attendee", joinColumns = @JoinColumn (name = "user_id") , inverseJoinColumns = @JoinColumn( name = "event_id"))
+	@JoinTable(name = "event_attendee", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
 	private List<Event> events;
-	
+
 	@ManyToMany
-	@JoinTable(name = "post_like", joinColumns = @JoinColumn (name = "user_id") , inverseJoinColumns = @JoinColumn( name = "post_id"))
+	@JoinTable(name = "post_like", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "post_id"))
 	private List<Post> likedPosts;
 
 	public User() {
@@ -109,7 +108,6 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
 
 	public List<Post> getPosts() {
 		return posts;
@@ -119,7 +117,6 @@ public class User {
 		this.posts = posts;
 	}
 
-	
 	public List<Event> getEvents() {
 		return events;
 	}
@@ -156,7 +153,6 @@ public class User {
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
 
 	public String getFirstName() {
 		return firstName;
@@ -174,7 +170,6 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	
 	public String getDescription() {
 		return description;
 	}
@@ -198,26 +193,27 @@ public class User {
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
 	}
-	
+
 	public void addEvent(Event event) {
-		if(events != null) {
+		if (events == null) {
 			events = new ArrayList<>();
 		}
 		if (!events.contains(event)) {
 			events.add(event);
 			event.addAttendee(this);
 		}
-		
+
 	}
+
 	public void removeEvent(Event event) {
-		if(events != null && events.contains(event)) {
+		if (events != null && events.contains(event)) {
 			events.remove(event);
 			event.addAttendee(null);
 		}
 	}
-	
+
 	public void addChicken(Chicken chicken) {
-		if(chickens != null) {
+		if (chickens == null) {
 			chickens = new ArrayList<>();
 		}
 		if (!chickens.contains(chicken)) {
@@ -225,17 +221,13 @@ public class User {
 			chicken.setOwner(this);
 		}
 	}
-	
-	
+
 	public void removeChicken(Chicken chicken) {
-		if(chickens != null && chickens.contains(chicken)) {
+		if (chickens != null && chickens.contains(chicken)) {
 			chickens.remove(chicken);
 			chicken.setOwner(null);
 		}
 	}
-	
-	
-	
 
 	@Override
 	public boolean equals(Object obj) {

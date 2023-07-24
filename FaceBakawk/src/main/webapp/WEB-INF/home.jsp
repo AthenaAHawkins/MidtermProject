@@ -11,7 +11,7 @@
   <ul>
     <li><a href="home.do">Home</a></li>
     <li><a href="login.do">Sign In/Up</a></li>
-    <li><a href="#">Eggcelent Events</a></li>
+    <li><a href="getEvent.do">Eggcelent Events</a></li>
     <li><a href="#">See The Flock</a></li>
     <li><a href="#">Forum</a></li>
     <li><a href="#">Quizzes</a></li>
