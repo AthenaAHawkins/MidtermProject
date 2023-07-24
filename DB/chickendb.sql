@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   `country` VARCHAR(45) NULL,
   `zipcode` VARCHAR(45) NULL,
   `phone_number` VARCHAR(45) NULL,
+  `street` VARCHAR(500) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -146,7 +147,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `post` ;
 
 CREATE TABLE IF NOT EXISTS `post` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL,
   `title` VARCHAR(150) NOT NULL,
   `content` TEXT NOT NULL,
   `user_id` INT NOT NULL,
@@ -371,7 +372,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `address` (`id`, `city`, `state`, `country`, `zipcode`, `phone_number`) VALUES (1, 'Denver', 'CO', 'USA', '80108', NULL);
+INSERT INTO `address` (`id`, `city`, `state`, `country`, `zipcode`, `phone_number`, `street`) VALUES (1, 'Denver', 'CO', 'USA', '80108', NULL, NULL);
 
 COMMIT;
 
