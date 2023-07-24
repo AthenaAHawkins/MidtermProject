@@ -29,7 +29,7 @@ public class EventController {
 		@Autowired
 		private UserDAO userDAO;
 
-		@RequestMapping(path = { "getEvent.do" })
+		@RequestMapping(path = { "displayEvent.do" })
 		public String displayEvent(Model model, Integer eventId) {
 			Event event = eventDAO.findEventById(eventId);
 			model.addAttribute("event", event);
@@ -55,26 +55,25 @@ public class EventController {
 		
 		@RequestMapping(path="addEvent.do", method=RequestMethod.GET)
 		public String goToLoginForm() {
-			return "home";
+			return "account";
 		}
 
 		@RequestMapping(path="addEvent.do", method=RequestMethod.POST)
 		public String addEvent(Model model, Event event, Address address, HttpSession session) {
-			System.out.println("\n\n\n\n\n\n\n\nCHICKEN: " + event);
-			System.out.println("\n\n\n\n\n\n\n\nBREED: " + address);
+			System.out.println("\n\n\n\n\n\n\n\nEVENT: " + event);
+			System.out.println("\n\n\n\n\n\n\n\nADDRESS: " + address);
 			User user = (User) session.getAttribute("loggedInUser");
 			if (user != null) {
 				addressDAO.create(address);
 				event.setAddress(address);
-				user.addEvent(event);
+				event.setCreator(user);
 				eventDAO.create(event);
-				userDAO.updateUser(user.getId(), user);
 				System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
-//			model.addAttribute("address", address);
+				
 				model.addAttribute("event", event);
 				model.addAttribute("userId", user.getId());
 				model.addAttribute("eventList", eventDAO.findAll());
-				return "home";
+				return "account";
 			} else {
 				return "login";
 			}

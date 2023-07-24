@@ -38,7 +38,7 @@ public class UserController {
 		User user = userDAO.findUserById(userId);
 		model.addAttribute("user", user);
 		model.addAttribute("eventsAttended", user.getEvents());
-		return "User/show";
+		return "displayUser";
 	}
 
 	@RequestMapping(path = { "deleteUser.do" })

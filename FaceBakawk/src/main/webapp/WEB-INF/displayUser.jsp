@@ -15,13 +15,13 @@
 
 	<%-- <c:forEach var="user" items="${userList}"> --%>
 
-	<img src="${user.pictureURL}" alt="${user.name}" width="300"
+	<img src="${user.pictureURL}" alt="${user.username}" width="300"
 		height="200"> 
 	<h3>User Name:</h3>
 	<h2>${user.username}</h2>
 	<h2> ${user.firstName} , ${user.lastName }</h2>
 	<br>Chicken:
-	 <a href="getUser.do?userId=${user.chicken.id}"> ${user.chicken.username}</a>
+	<!--  List of chickens here-->
 	<br>Description:
 	 ${user.description}
 	<br> <h2>Events Attended</h2>

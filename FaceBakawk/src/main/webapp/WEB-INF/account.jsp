@@ -32,6 +32,9 @@
 	</c:choose>
 	
 <a href="goToAddChicken.do">Create Chicken</a>
+<br>
+<br>
+<a href="goToAddEvent.do">Create An Event</a>
 
 
 <table class="table table-striped table-hover">
