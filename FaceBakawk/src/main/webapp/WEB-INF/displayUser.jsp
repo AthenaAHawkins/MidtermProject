@@ -5,33 +5,40 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>User info</title>
 </head>
 <body>
-
-	<h1>Chicken Details</h1>
+<%@ include file="nav.jsp"%>
+	<h1>User Details</h1>
 
 
 
 	<%-- <c:forEach var="user" items="${userList}"> --%>
 
-	<img src="${user.pictureURL}" alt="${user.name}" width="300"
+	<img src="${user.pictureURL}"  width="300"
 		height="200"> 
-	<h3>User Name:</h3>
+	<h3>User Name: ${user.username}</h3>
 	<h2>${user.username}</h2>
 	<h2> ${user.firstName} , ${user.lastName }</h2>
-	<br>Chicken:
-	 <a href="getUser.do?userId=${user.chicken.id}"> ${user.chicken.username}</a>
-	<br>Description:
-	 ${user.description}
+	<br><h2>
+	Chicken:
+	<c:forEach var="chicken" items="${user.chickens}">
+	 <a href="getChicken.do?chickenId=${chicken.owner.id}"> <img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
+						height="200"></a><br>
+	 
+	 
+	 </c:forEach></h2>
+	<br>
+	<h2>Description:
+	 ${user.description}</h2>
 	<br> <h2>Events Attended</h2>
 <table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
-			<c:forEach var="events" items="${eventAttended}">
+			<c:forEach var="event" items="${user.events}">
 				<tr>
-					<td><a href="getEvent.do?eventId=${event.id}"> ${event.name}</a></td>
-					<td><img src="${event.pictureURL}"  alt="${event.name}"  width="300"
+					<td><a href="getEvent.do?eventId=${event.id}"> ${event.title}</a></td>
+					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
 						height="200"></td>
 				</tr>
 			</c:forEach>
@@ -44,7 +51,7 @@
 <table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
-			<c:forEach var="chicken" items="${chickenList}">
+			<c:forEach var="chicken" items="${user.chickens}">
 				<tr>
 					<td><a href="getChicken.do?chickenId=${chicken.id}"> ${chicken.name}</a></td>
 					<td><img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
