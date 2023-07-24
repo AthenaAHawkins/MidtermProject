@@ -6,11 +6,8 @@
 <meta charset="UTF-8">
 <title>Create Account</title>
 
-
 </head>
 <body>
-
-
 
 <div>
     <form action="addChicken.do" method="POST">
