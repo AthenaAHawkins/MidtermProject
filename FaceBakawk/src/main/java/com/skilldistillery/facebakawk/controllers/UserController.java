@@ -37,6 +37,7 @@ public class UserController {
 	public String displayUser(Model model, Integer userId) {
 		User user = userDAO.findUserById(userId);
 		model.addAttribute("user", user);
+		model.addAttribute("eventsAttended", user.getEvents());
 		return "User/show";
 	}
 

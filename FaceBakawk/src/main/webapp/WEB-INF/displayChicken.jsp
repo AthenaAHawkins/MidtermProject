@@ -10,39 +10,38 @@
 <body>
 
 	<h1>Chicken Details</h1>
-	<table class="table table-striped table-hover">
-		<thead class="table-dark">
-		<tbody>
-			<%-- <c:forEach var="chicken" items="${chickenList}"> --%>
-				<tr>
-					<td><a href="getChicken.do?chickenId=${chicken.id}">
-							${chicken.name}</a></td>
-					<td><img src="${chicken.pictureURL}" alt="${chicken.name}"
-						width="300" height="200"></td>
+
+
+
+	<%-- <c:forEach var="chicken" items="${chickenList}"> --%>
+
+	<img src="${chicken.pictureURL}" alt="${chicken.name}" width="300"
+		height="200"> 
+	<h2> ${chicken.name} </h2>
+	<br>Owner:
+	 <a href="getUser.do?userId=${chicken.owner.id}"> ${chicken.owner.username}</a>
+	<br>Breed:
+	${chicken.breed.name}
+	<br>Gender:
+	 ${chicken.gender} 
+	<br>Height:
+	 ${chicken.height} in. 
+	<br>Do they want chicks:
+	 ${chicken.wantsChicks} 
+	<br>Birthday:
+	 ${chicken.birthday} 
+	<br>Music Taste:
+	${chicken.musicTaste} 
+	<br>Description:
+	 ${chicken.description}
 
 
 
 
 
+	<%-- </c:forEach> --%>
 
 
-
-					<td>Birthday:<br> ${chicken.birthday}</td>
-					<td>Height:<br> ${chicken.height} in.</td>
-					<td>Gender:<br> ${chicken.gender}</td>
-					<td>Music Taste: <br>${chicken.musicTaste}</td>
-					<td>Do they want chicks?<br> ${chicken.wantsChicks}</td>
-					<td>Owner:<br> ${chicken.owner.username}</td>
-					<td>Breed: <br>${chicken.breed.name}</td>
-					<td>Description:<br> ${chicken.description}</td>
-
-
-
-				</tr>
-
-			<%-- </c:forEach> --%>
-		</tbody>
-	</table>
 
 </body>
 </html>

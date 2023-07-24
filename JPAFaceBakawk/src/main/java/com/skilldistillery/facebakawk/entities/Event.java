@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -180,6 +181,24 @@ public class Event {
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+	
+	
+	public void addAttendee(User user) {
+		if(attendees != null) {
+			attendees = new ArrayList<>();
+		}
+		if (!attendees.contains(user)) {
+			attendees.add(user);
+			user.addEvent(this);
+		}
+		
+	}
+	public void removeAttendee(User user) {
+		if(attendees != null && attendees.contains(user)) {
+			attendees.remove(user);
+			user.addEvent(null);
+		}
 	}
 
 	@Override
