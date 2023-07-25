@@ -80,13 +80,14 @@ class UserTest {
 		assertTrue(user.getChickens().size() > 0);
 	}
 
-//	@Test
-//	void user_to_event_mapping() {
-//		assertNotNull(user);
-//		assertNotNull(user.getEvents());
-//		assertTrue(user.getEvents().size() > 0);
-//
-//	}
+	@Test
+	void user_to_event_mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getEventsAttended());
+		assertTrue(user.getEventsAttended().size() > 0);
+
+	}
+
 
 	@Test
 	void test_post_like() {

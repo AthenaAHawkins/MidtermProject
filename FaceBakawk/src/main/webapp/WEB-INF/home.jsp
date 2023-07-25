@@ -10,10 +10,11 @@
 <nav>
   <ul>
     <li><a href="home.do">Home</a></li>
+    <li><a href="account.do">Go To Account</a></li>
     <li><a href="login.do">Sign In/Up</a></li>
     <li><a href="getEvent.do">Eggcelent Events</a></li>
     <li><a href="#">See The Flock</a></li>
-    <li><a href="#">Forum</a></li>
+    <li><a href="displayAllPosts.do">Forums</a></li>
     <li><a href="#">Quizzes</a></li>
     <li><a href="matchmaker.do">Match Maker</a></li>
   </ul>
