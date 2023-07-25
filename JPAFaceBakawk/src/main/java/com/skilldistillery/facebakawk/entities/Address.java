@@ -17,6 +17,8 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	private String street;
+
 	private String city;
 
 	private String state;
@@ -25,7 +27,6 @@ public class Address {
 
 	private String zipcode;
 	
-	private String street;
 
 	@Column(name = "phone_number")
 	private String phoneNumber;

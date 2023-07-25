@@ -15,7 +15,7 @@
     <li><a href="#">See The Flock</a></li>
     <li><a href="#">Forum</a></li>
     <li><a href="#">Quizzes</a></li>
-    <li><a href="#">Match Maker</a></li>
+    <li><a href="matchmaker.do">Match Maker</a></li>
   </ul>
 </nav>
 <h1>WELCOME BA-KAWK!</h1>

@@ -372,7 +372,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `address` (`id`, `city`, `state`, `country`, `zipcode`, `phone_number`, `street`) VALUES (1, 'Denver', 'CO', 'USA', '80108', NULL, NULL);
+INSERT INTO `address` (`id`, `city`, `state`, `country`, `zipcode`, `phone_number`, `street`) VALUES (1, 'Denver', 'CO', 'USA', '80108', NULL, '123 Fake st.');
 
 COMMIT;
 
@@ -404,8 +404,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `chicken` (`id`, `name`, `birthday`, `inches`, `gender`, `music_taste`, `wants_chicks`, `user_id`, `picture_url`, `breed_id`, `description`, `create_date`) VALUES (1, 'Bernice', '1990-12-25', 72, 'F', 'Heavy metal', 1, 1, 'https://media.istockphoto.com/id/176802518/photo/raw-chicken-on-cutting-board.jpg?s=612x612&w=0&k=20&c=f6BVBxu9r0-nEtwlce926KO_n3H26m0xU_f7Cz7B7EU=', 1, NULL, NULL);
-INSERT INTO `chicken` (`id`, `name`, `birthday`, `inches`, `gender`, `music_taste`, `wants_chicks`, `user_id`, `picture_url`, `breed_id`, `description`, `create_date`) VALUES (2, 'A-aron', '1890-07-23', 36, 'M', 'Classical', 0, 2, 'https://media.springernature.com/full/springer-static/image/art%3A10.1038%2F529270a/MediaObjects/41586_2016_Article_BF529270a_Figa_HTML.jpg', 1, NULL, NULL);
+INSERT INTO `chicken` (`id`, `name`, `birthday`, `inches`, `gender`, `music_taste`, `wants_chicks`, `user_id`, `picture_url`, `breed_id`, `description`, `create_date`) VALUES (1, 'Bernice', '1990-12-25', 72, 'F', 'Heavy metal', 1, 1, 'https://media.istockphoto.com/id/176802518/photo/raw-chicken-on-cutting-board.jpg?s=612x612&w=0&k=20&c=f6BVBxu9r0-nEtwlce926KO_n3H26m0xU_f7Cz7B7EU=', 1, 'Likes long walks on the beach', NULL);
+INSERT INTO `chicken` (`id`, `name`, `birthday`, `inches`, `gender`, `music_taste`, `wants_chicks`, `user_id`, `picture_url`, `breed_id`, `description`, `create_date`) VALUES (2, 'A-aron', '1890-07-23', 36, 'M', 'Classical', 0, 1, 'https://media.springernature.com/full/springer-static/image/art%3A10.1038%2F529270a/MediaObjects/41586_2016_Article_BF529270a_Figa_HTML.jpg', 1, 'Likes to party', NULL);
+INSERT INTO `chicken` (`id`, `name`, `birthday`, `inches`, `gender`, `music_taste`, `wants_chicks`, `user_id`, `picture_url`, `breed_id`, `description`, `create_date`) VALUES (3, 'Bernicer', '1990-5-22', 27, 'M', 'Heavy metal', 1, 2, 'https://cdn.britannica.com/07/183407-050-C35648B5/Chicken.jpg', 1, 'Likes long walks on the beach', NULL);
+INSERT INTO `chicken` (`id`, `name`, `birthday`, `inches`, `gender`, `music_taste`, `wants_chicks`, `user_id`, `picture_url`, `breed_id`, `description`, `create_date`) VALUES (4, 'B-Becky', '1890-1-25', 63, 'F', 'Classical', 0, 2, 'https://media.istockphoto.com/id/1420724418/photo/hen-hatching-eggs-in-nest-of-straw-inside-chicken-coop.jpg?b=1&s=170667a&w=0&k=20&c=cF-mIk0JXIZ3IixapvlHvBNx3lvg48GSK2KGQzwph4g=', 1, 'Likes to party', NULL);
 
 COMMIT;
 

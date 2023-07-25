@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.facebakawk.data.BreedDAO;
 import com.skilldistillery.facebakawk.data.ChickenDAO;
+import com.skilldistillery.facebakawk.data.MatchmakerDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
 import com.skilldistillery.facebakawk.entities.Breed;
 import com.skilldistillery.facebakawk.entities.Chicken;
@@ -28,6 +29,9 @@ public class ChickenController {
 
 	@Autowired
 	private UserDAO userDAO;
+
+	@Autowired
+	private MatchmakerDAO matchDAO;
 
 	@RequestMapping(path = { "getChicken.do" })
 	public String displayChicken(Model model, Integer chickenId) {
@@ -52,13 +56,13 @@ public class ChickenController {
 		model.addAttribute("chicken", chicken);
 		return "home";
 	}
-	
-	@RequestMapping(path="addChicken.do", method=RequestMethod.GET)
+
+	@RequestMapping(path = "addChicken.do", method = RequestMethod.GET)
 	public String goToLoginForm() {
 		return "home";
 	}
 
-	@RequestMapping(path="addChicken.do", method=RequestMethod.POST)
+	@RequestMapping(path = "addChicken.do", method = RequestMethod.POST)
 	public String addChicken(Model model, Chicken chicken, Breed breed, HttpSession session) {
 		System.out.println("\n\n\n\n\n\n\n\nCHICKEN: " + chicken);
 		System.out.println("\n\n\n\n\n\n\n\nBREED: " + breed);
@@ -90,6 +94,15 @@ public class ChickenController {
 		List<Chicken> chickenList = chickenDAO.searchByKeyword(searchTerm);
 		model.addAttribute("chickenList", chickenList);
 		return "showSearched";
+	}
+
+	@RequestMapping(path = { "matchmaker.do" })
+	public String matchmakeChicken(Model model, HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		List<Chicken> chickenList = loggedInUser.getChickens();
+		List<List<Chicken>> matchedPairs = matchDAO.findMatches(chickenList);
+		model.addAttribute("matchedPairs", matchedPairs);
+		return "matchmaker";
 	}
 
 }

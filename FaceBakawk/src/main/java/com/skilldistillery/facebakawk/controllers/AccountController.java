@@ -20,7 +20,7 @@ public class AccountController {
 			
 			return "account";
 		}else {
-			
+			System.out.println("\n\n\n\n\nERROR IN ACCOUNTCONTROLLER");
 			return "login";
 		}
 	}
