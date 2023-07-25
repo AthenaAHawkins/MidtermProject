@@ -78,7 +78,7 @@ public class UserController {
 		userDAO.create(user);
 //		model.addAttribute("address", address);
 		model.addAttribute("user", user);
-		return "home";
+		return "userAddedMessage";
 	}
 
 	@RequestMapping(path = { "goToAddUser.do" })

@@ -15,7 +15,7 @@
 <div>
     <form action="register.do" method="POST">
 
-  <h2>Tell us about you:</h2>
+  <h2>Tell us about yourself:</h2>
 		
 		<label for="firstName">First Name:</label><br>
 		<input type="text" name="firstName"  ><br>
@@ -23,17 +23,19 @@
 		<label for="lastName">Last Name:</label><br>
 		<input type="text" name="lastName"  ><br>
 		
-		<label for="description">Tell us about yourself:</label><br>
-		<input type="text" name="description"  ><br>
+		<label for="description">*Profile Description:</label><br>
+		<textarea name="description" required rows="5" cols="40"></textarea><br>
+
 
 		<label for="pictureURL">Image URL:</label><br>
 		<input type="text" name="pictureURL"><br>
 
-		<label for="username">Username:</label><br>
-		<input type="text" name="username"  ><br>
+		<label for="username">*Username:</label><br>
+        <input type="text" name="username" required><br>
+
 		
-		<label for="password">Password:</label><br>
-		<input type="text" name="password"  ><br>
+		<label for="password">*Password:</label><br>
+		<input type="text" name="password" required><br>
 		
 		<h2>Address:</h2>
 		
@@ -54,9 +56,10 @@
 		<input type="text" name="zipcode" ><br>
 		
         <input type="submit" value="Add">
+        <h6>*Required Field</h6>
         <br>
         <br>
-        <a href="home.do">Back to Home</a>
+        <a href="account.do">Back to Home</a>
             </form>
 </div>
 

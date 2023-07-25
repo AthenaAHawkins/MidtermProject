@@ -20,8 +20,8 @@
 		<label for="title">Title:</label><br>
 		<input type="text" name="title"  ><br>
  		
-		<label for="description">Description:</label><br>
-		<input type="text" name="description"  ><br>
+		<label for="description">About your Event:</label><br>
+		<textarea name="description" rows="5" cols="40"></textarea><br>
  		
  		
  		
@@ -64,16 +64,17 @@
 		<label for="zipcode">Zipcode:</label><br>
 		<input type="text" name="zipcode" ><br>
 		
-		<label for="eventDate">Event Date:</label><br>
-        <input type="date" name="eventDate"  ><br> 
+		<label for="eventDate">*Event Date:</label><br>
+        <input type="date" name="eventDate" required ><br> 
 		
-		<label for="startTime">Start Time:</label><br>
-        <input type="time" name="startTime"  ><br> 
+		<label for="startTime">*Start Time:</label><br>
+        <input type="time" name="startTime" required ><br> 
 		
         <input type="submit" value="Add">
         <br>
         <br>
-        <a href="home.do">Back to Home</a>
+        <h6>*Required Field</h6>
+        <a href="account.do">Back to Home</a>
  		
             </form>
 </div>

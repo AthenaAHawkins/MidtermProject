@@ -12,18 +12,18 @@
 <div>
     <form action="addChicken.do" method="POST">
 
-  <h2>Tell us about you:</h2>
+  <h2>Tell us about your chicken:</h2>
 		
 		<input type="hidden" name="userId" value ="${owner.id}">
 		
-		<label for="name">Name:</label><br>
-		<input type="text" name="name"  ><br>
+		<label for="name">*Name:</label><br>
+		<input type="text" name="name" required><br>
  		
  		<label for="birthday">Birthday:</label><br>
 		<input type="date" name="birthday"  ><br> 
 		
-		<label for="description">Tell us about yourself:</label><br>
-		<input type="text" name="description"  ><br>
+		<label for="description">About your chicken:</label><br>
+		<textarea name="description" rows="5" cols="40"></textarea><br>
 
 		<label for="pictureURL">Image URL:</label><br>
 		<input type="text" name="pictureURL"><br>
@@ -31,17 +31,20 @@
 		<label for="musicTaste">Music Taste:</label><br>
 		<input type="text" name="musicTaste"  ><br>
 		
-		<select name="gender">
+		<label for="gender">Gender:</label><br>
+        <select name="gender" required>
+        <option value="">Select an option</option>
         <option value="M">Male</option>
         <option value="F">Female</option>
-        </select>
+        </select><br>
+
 		<br>
 		<label for="height">Height in Inches:</label><br>
 		<input type="number" name="height"  ><br>
 		
 		<label for="wantsChicks">Do you want chicks?:</label><br>
-		<input type="checkbox" name="wantsChicks" value="true"  >Yes<br>
-		<input type="checkbox" name="wantsChicks" value="false"  >No!!!!<br>
+		<input type="radio" name="wantsChicks" value="true"  >Yes<br>
+		<input type="radio" name="wantsChicks" value="false"  >No!!!!<br>
 		<!-- <input type="checkbox" id="wantsChicks">	
 		<label for="wantsChicks">Yes</label> -->
 		
@@ -61,7 +64,8 @@
         <input type="submit" value="Add">
         <br>
         <br>
-        <a href="home.do">Back to Home</a>
+        <h6>*Required Field</h6>
+        <a href="account.do">Back to Home</a>
             </form>
 </div>
 

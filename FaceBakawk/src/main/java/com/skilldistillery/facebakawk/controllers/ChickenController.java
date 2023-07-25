@@ -52,16 +52,15 @@ public class ChickenController {
 		model.addAttribute("chicken", chicken);
 		return "home";
 	}
-	
-	@RequestMapping(path="addChicken.do", method=RequestMethod.GET)
+
+	@RequestMapping(path = "addChicken.do", method = RequestMethod.GET)
 	public String goToLoginForm() {
 		return "home";
 	}
 
-	@RequestMapping(path="addChicken.do", method=RequestMethod.POST)
+	@RequestMapping(path = "addChicken.do", method = RequestMethod.POST)
 	public String addChicken(Model model, Chicken chicken, Breed breed, HttpSession session) {
-		System.out.println("\n\n\n\n\n\n\n\nCHICKEN: " + chicken);
-		System.out.println("\n\n\n\n\n\n\n\nBREED: " + breed);
+
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
 			breedDAO.create(breed);
@@ -69,14 +68,13 @@ public class ChickenController {
 			user.addChicken(chicken);
 			chickenDAO.create(chicken);
 			userDAO.updateUser(user.getId(), user);
-			System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
-//		model.addAttribute("breed", breed);
 			model.addAttribute("chicken", chicken);
 			model.addAttribute("userId", user.getId());
 			model.addAttribute("chickenList", chickenDAO.findAll());
-			return "home";
+			return "chickenAddedMessage";
+
 		} else {
-			return "login";
+			return "chickenAddErrorMessage";
 		}
 	}
 

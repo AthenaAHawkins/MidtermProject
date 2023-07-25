@@ -58,7 +58,7 @@ public class EventController {
 		
 		@RequestMapping(path="addEvent.do", method=RequestMethod.GET)
 		public String goToLoginForm() {
-			return "account";
+			return "eventAddedMessage";
 		}
 		
 		public void refreshSessionData(HttpSession session) {
@@ -79,7 +79,7 @@ public class EventController {
 				System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
 				refreshSessionData(session);
 //				model.addAttribute("event", event);
-				return "account";
+				return "eventAddedMessage";
 			} else {
 				return "login";
 			}
