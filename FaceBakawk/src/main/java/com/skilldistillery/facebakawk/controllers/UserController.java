@@ -73,7 +73,7 @@ public class UserController {
 	public String addUser(Model model, User user, Address address) {
 		System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
 		System.out.println("\n\n\n\n\n\n\n\nADDRESS: " + address);
-		addressDAO.create(address);
+		addressDAO.create(address); 
 		user.setAddress(address);
 		userDAO.create(user);
 //		model.addAttribute("address", address);

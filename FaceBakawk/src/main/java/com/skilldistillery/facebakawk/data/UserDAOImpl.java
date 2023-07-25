@@ -81,7 +81,7 @@ public class UserDAOImpl implements UserDAO {
 		u.setEnabled(user.getEnabled());
 		u.setEventsAttended(user.getEventsAttended());
 		u.setFirstName(user.getFirstName());
-		u.setLastName(user.getLastName());
+		u.setLastName(user.getLastName()); 
 		u.setLikedPosts(user.getLikedPosts());
 		u.setPassword(user.getPassword());
 		u.setPictureURL(user.getPictureURL());

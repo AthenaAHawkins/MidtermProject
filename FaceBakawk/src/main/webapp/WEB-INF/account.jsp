@@ -25,7 +25,7 @@
 				<li>FirstName: ${loggedInUser.firstName }</li>
 				<li>LastName: ${loggedInUser.lastName }</li>
 				<li>city: ${loggedInUser.address.city }</li>
-			</ul>
+			</ul> 
 			<form action="updateUserAccount.do" >
 			<input type="number" name="user" value="${loggedInUser.id }">
 			<label for="username">Enter in the new username: </label>
