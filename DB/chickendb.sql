@@ -42,7 +42,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `role` VARCHAR(45) NULL,
-  `enabled` TINYINT NULL,
   `picture_url` VARCHAR(2000) NULL,
   `description` TEXT NOT NULL,
   `create_date` DATETIME NULL,
@@ -382,9 +381,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `picture_url`, `description`, `create_date`, `first_name`, `last_name`, `address_id`) VALUES (3, 'admin', 'admin', 'ADMIN', 1, NULL, 'HBIC', NULL, NULL, NULL, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `picture_url`, `description`, `create_date`, `first_name`, `last_name`, `address_id`) VALUES (1, 'chicken_lover', 'ilovechicks', 'USER', 1, 'https://media.istockphoto.com/id/1147495352/photo/senior-farmer-holding-chickens-on-farm.jpg?s=612x612&w=0&k=20&c=ncgNcfKYv5-I0UoFI739kU7NqVJrpjgE11S6qdDx4Ik=', 'Just a man who loves chickens', NULL, NULL, NULL, 1);
-INSERT INTO `user` (`id`, `username`, `password`, `role`, `enabled`, `picture_url`, `description`, `create_date`, `first_name`, `last_name`, `address_id`) VALUES (2, 'EricTheGreat', 'SD', 'USER', 1, 'https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/chicken-man-returns-1566939091.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*', 'King of chickens', NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `picture_url`, `description`, `create_date`, `first_name`, `last_name`, `address_id`) VALUES (3, 'admin', 'admin', 'ADMIN', NULL, 'HBIC', NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `picture_url`, `description`, `create_date`, `first_name`, `last_name`, `address_id`) VALUES (1, 'chicken_lover', 'ilovechicks', 'USER', 'https://media.istockphoto.com/id/1147495352/photo/senior-farmer-holding-chickens-on-farm.jpg?s=612x612&w=0&k=20&c=ncgNcfKYv5-I0UoFI739kU7NqVJrpjgE11S6qdDx4Ik=', 'Just a man who loves chickens', NULL, NULL, NULL, 1);
+INSERT INTO `user` (`id`, `username`, `password`, `role`, `picture_url`, `description`, `create_date`, `first_name`, `last_name`, `address_id`) VALUES (2, 'EricTheGreat', 'SD', 'USER', 'https://kubrick.htvapps.com/htv-prod-media.s3.amazonaws.com/images/chicken-man-returns-1566939091.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*', 'King of chickens', NULL, NULL, NULL, 1);
 
 COMMIT;
 
