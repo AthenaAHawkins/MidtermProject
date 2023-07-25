@@ -60,13 +60,13 @@ public class UserController {
 		return "home";
 	}
 
-	@RequestMapping(path = { "editUser.do" })
+	@RequestMapping(path = { "updateUserAccount.do" })
 	public String updateUser(Model model, User user, Integer userId) {
 		System.out.println("in controller USERID " + userId);
 		System.out.println("in controller " + user);
 		userDAO.updateUser(userId, user);
 		model.addAttribute("user", user);
-		return "home";
+		return "account";
 	}
 	
 	@RequestMapping(path="register.do" , method=RequestMethod.POST)

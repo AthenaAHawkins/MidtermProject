@@ -28,7 +28,7 @@ public class UserDAOImpl implements UserDAO {
 			user.getChickens().size();
 			user.getEventsAttended().size();
 			user.getEventsCreated().size();
-			
+
 		} catch (Exception e) {
 //			e.printStackTrace();
 			System.err.println("Invalid username or password");
@@ -36,11 +36,13 @@ public class UserDAOImpl implements UserDAO {
 
 		return user;
 	}
+
 	@Override
 	public List<User> findAll() {
 		String jpql = "SELECT user FROM User user";
 		return em.createQuery(jpql, User.class).getResultList();
 	}
+
 	@Override
 	public List<User> searchByKeyword(String searchTerm) {
 
@@ -58,6 +60,7 @@ public class UserDAOImpl implements UserDAO {
 		User u = em.find(User.class, userId);
 		return u;
 	}
+
 	@Override
 	public User create(User user) {
 		user.setEnabled(true);
@@ -90,6 +93,7 @@ public class UserDAOImpl implements UserDAO {
 		em.flush();
 		return u;
 	}
+
 	@Override
 	public boolean deleteById(int userId) {
 

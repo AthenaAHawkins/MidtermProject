@@ -39,7 +39,7 @@
 	<br> <h2>Events Attended</h2>
 <table class="table table-striped table-hover">
 		<thead class="table-dark">
-			<c:forEach var="event" items="${user.events}">
+			<c:forEach var="event" items="${user.eventsAttended}">
 		<tbody>
 				<tr>
 					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>

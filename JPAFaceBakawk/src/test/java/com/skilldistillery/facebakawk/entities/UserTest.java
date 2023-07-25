@@ -83,8 +83,8 @@ class UserTest {
 	@Test
 	void user_to_event_mapping() {
 		assertNotNull(user);
-		assertNotNull(user.getEvents());
-		assertTrue(user.getEvents().size() > 0);
+		assertNotNull(user.getEventsCreated());
+		assertTrue(user.getEventsCreated().size() > 0);
 
 	}
 
