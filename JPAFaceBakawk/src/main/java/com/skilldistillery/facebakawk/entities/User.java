@@ -60,7 +60,10 @@ public class User {
 
 	@ManyToMany
 	@JoinTable(name = "event_attendee", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "event_id"))
-	private List<Event> events;
+	private List<Event> eventsAttended;
+	
+	@OneToMany(mappedBy="creator")
+	private List<Event> eventsCreated;
 
 	@ManyToMany
 	@JoinTable(name = "post_like", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "post_id"))
@@ -117,12 +120,14 @@ public class User {
 		this.posts = posts;
 	}
 
-	public List<Event> getEvents() {
-		return events;
+
+
+	public List<Event> getEventsAttended() {
+		return eventsAttended;
 	}
 
-	public void setEvents(List<Event> events) {
-		this.events = events;
+	public void setEventsAttended(List<Event> eventsAttended) {
+		this.eventsAttended = eventsAttended;
 	}
 
 	public List<PostComment> getComments() {
@@ -193,21 +198,31 @@ public class User {
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
 	}
+	
+	
+
+	public List<Event> getEventsCreated() {
+		return eventsCreated;
+	}
+
+	public void setEventsCreated(List<Event> eventsCreated) {
+		this.eventsCreated = eventsCreated;
+	}
 
 	public void addEvent(Event event) {
-		if (events == null) {
-			events = new ArrayList<>();
+		if (eventsAttended == null) {
+			eventsAttended = new ArrayList<>();
 		}
-		if (!events.contains(event)) {
-			events.add(event);
+		if (!eventsAttended.contains(event)) {
+			eventsAttended.add(event);
 			event.addAttendee(this);
 		}
 
 	}
 
 	public void removeEvent(Event event) {
-		if (events != null && events.contains(event)) {
-			events.remove(event);
+		if (eventsAttended != null && eventsAttended.contains(event)) {
+			eventsAttended.remove(event);
 			event.addAttendee(null);
 		}
 	}

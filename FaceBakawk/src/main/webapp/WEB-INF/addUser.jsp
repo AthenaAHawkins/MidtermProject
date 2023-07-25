@@ -13,7 +13,7 @@
 
 
 <div>
-    <form action="addUser.do" method="POST">
+    <form action="register.do" method="POST">
 
   <h2>Tell us about you:</h2>
 		
@@ -37,7 +37,6 @@
 		
 		<h2>Address:</h2>
 		
-		<input type="hidden" name="addressId" value="${address.id} ">
 		
 		<label for="street">street:</label><br>
 		<input type="text" name="street"  ><br>

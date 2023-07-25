@@ -25,6 +25,10 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			user = em.createQuery(jpql, User.class).setParameter("un", username).setParameter("pw", password)
 					.getSingleResult();
+			user.getChickens().size();
+			user.getEventsAttended().size();
+			user.getEventsCreated().size();
+			
 		} catch (Exception e) {
 //			e.printStackTrace();
 			System.err.println("Invalid username or password");
@@ -56,6 +60,7 @@ public class UserDAOImpl implements UserDAO {
 	}
 	@Override
 	public User create(User user) {
+		user.setEnabled(true);
 		em.persist(user);
 		em.flush();
 		return user;
@@ -71,7 +76,7 @@ public class UserDAOImpl implements UserDAO {
 		u.setCreateDate(user.getCreateDate());
 		u.setDescription(user.getDescription());
 		u.setEnabled(user.getEnabled());
-		u.setEvents(user.getEvents());
+		u.setEventsAttended(user.getEventsAttended());
 		u.setFirstName(user.getFirstName());
 		u.setLastName(user.getLastName());
 		u.setLikedPosts(user.getLikedPosts());

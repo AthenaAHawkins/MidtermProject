@@ -28,8 +28,8 @@ public class LoginController {
 		user = userDAO.findByUserNameAndPassword(user.getUsername(), user.getPassword());
 		
 		if(user != null) {
-			model.addAttribute("chickenList", user.getChickens());
-			model.addAttribute("eventList", user.getEvents());
+//			model.addAttribute("chickenList", user.getChickens());
+//			model.addAttribute("eventList", user.getEvents());
 			session.setAttribute("loggedInUser", user);
 			return "account";
 		} else {

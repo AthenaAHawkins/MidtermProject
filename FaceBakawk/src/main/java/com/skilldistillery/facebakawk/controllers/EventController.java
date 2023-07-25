@@ -60,6 +60,11 @@ public class EventController {
 		public String goToLoginForm() {
 			return "account";
 		}
+		
+		public void refreshSessionData(HttpSession session) {
+			User loggedInUser = (User) session.getAttribute("loggedInUser");
+			session.setAttribute("loggedInUser", userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
+		}
 
 		@RequestMapping(path="addEvent.do", method=RequestMethod.POST)
 		public String addEvent(Model model, Event event, Address address, HttpSession session) {
@@ -72,10 +77,8 @@ public class EventController {
 				event.setCreator(user);
 				eventDAO.create(event);
 				System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
-				
-				model.addAttribute("event", event);
-				model.addAttribute("userId", user.getId());
-				model.addAttribute("eventList", eventDAO.findAll());
+				refreshSessionData(session);
+//				model.addAttribute("event", event);
 				return "account";
 			} else {
 				return "login";

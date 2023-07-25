@@ -40,7 +40,7 @@
 <table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
-			<c:forEach var="chicken" items="${chickenList}">
+			<c:forEach var="chicken" items="${loggedInUser.chickens}">
 				<tr>
 					<td><a href="getChicken.do?chickenId=${chicken.id}"> ${chicken.name}</a></td>
 					<td><img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
@@ -55,7 +55,7 @@
 <table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
-			<c:forEach var="event" items="${eventList}">
+			<c:forEach var="event" items="${loggedInUser.eventsAttended}">
 				<tr>
 					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
 					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
@@ -66,6 +66,19 @@
 	</table>
 
 
+	<br> <h2>Events Created</h2>
+<table class="table table-striped table-hover">
+		<thead class="table-dark">
+		<tbody>
+			<c:forEach var="event" items="${loggedInUser.eventsCreated}">
+				<tr>
+					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
+					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
+						height="200"></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 
 </body>
 </html>

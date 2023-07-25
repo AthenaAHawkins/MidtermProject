@@ -65,7 +65,7 @@ public class Event {
 	@OneToMany(mappedBy = "event")
 	private List <EventComment> eventComments;
 	
-	@ManyToMany(mappedBy = "events")
+	@ManyToMany(mappedBy = "eventsAttended")
 	private List<User> attendees;
 	
 	public List<EventComment> getEventComments() {
@@ -208,8 +208,7 @@ public class Event {
 	public String toString() {
 		return "Event [id=" + id + ", title=" + title + ", currencies=" + currencies + ", startTime=" + startTime
 				+ ", endTime=" + endTime + ", eventDate=" + eventDate + ", description=" + description + ", pictureURL="
-				+ pictureURL + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + ", creator=" + creator
-				+ ", address=" + address + ", eventComments=" + eventComments + ", attendees=" + attendees + "]";
+				+ pictureURL + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + "]";
 	}
 
 	public List<Currency> getCurrencies() {

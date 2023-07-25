@@ -2,6 +2,8 @@ package com.skilldistillery.facebakawk.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,18 +33,22 @@ public class UserController {
 	private EventDAO eventDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
-	public String home(Model model, User user) {
-		model.addAttribute("DELETEME", userDAO.findByUserNameAndPassword(user.getUsername(), user.getPassword()));
+	public String home(Model model) {
 		model.addAttribute("chickenList", chickenDAO.findAll());
 		model.addAttribute("eventList", eventDAO.findAll());
 		return "home";
 	}
 
+	public void refreshSessionData(HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		session.setAttribute("loggedInUser", userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
+	}
+	
 	@RequestMapping(path = { "getUser.do" })
 	public String displayUser(Model model, Integer userId) {
 		User user = userDAO.findUserById(userId);
 		model.addAttribute("user", user);
-		model.addAttribute("eventsAttended", user.getEvents());
+		model.addAttribute("eventsAttended", user.getEventsAttended());
 		return "displayUser";
 	}
 
@@ -63,12 +69,7 @@ public class UserController {
 		return "home";
 	}
 	
-	@RequestMapping(path="addUser.do", method=RequestMethod.GET)
-	public String goToLoginForm(Model model, User user) {
-		return home(model, user);
-	}
-
-	@RequestMapping(path="addUser.do" , method=RequestMethod.POST)
+	@RequestMapping(path="register.do" , method=RequestMethod.POST)
 	public String addUser(Model model, User user, Address address) {
 		System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
 		System.out.println("\n\n\n\n\n\n\n\nADDRESS: " + address);
