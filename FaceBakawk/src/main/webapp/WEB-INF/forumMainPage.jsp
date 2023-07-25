@@ -13,7 +13,7 @@
 <table>
     <c:forEach items="${postList}" var="post">
         <tr>
-            <td><a href="displayAllPosts.do?postId=${post.id}">${post.title}</a></td>
+            <td><a href="displayPost.do?postId=${post.id}">${post.title}</a></td>
             <td>${post.user.username}</td>
             <td>${post.postDate}</td>
         </tr>
