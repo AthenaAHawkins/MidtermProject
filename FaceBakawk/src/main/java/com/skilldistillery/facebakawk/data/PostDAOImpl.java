@@ -10,12 +10,12 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.facebakawk.entities.Post;
-import com.skilldistillery.facebakawk.entities.Post;
+import com.skilldistillery.facebakawk.entities.PostComment;
 
 @Service
-@Transactional 
+@Transactional
 public class PostDAOImpl implements PostDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -24,6 +24,8 @@ public class PostDAOImpl implements PostDAO {
 		String jpql = "SELECT post FROM Post post";
 		return em.createQuery(jpql, Post.class).getResultList();
 	}
+
+
 
 	@Override
 	public List<Post> searchByKeyword(String searchTerm) {
@@ -35,7 +37,6 @@ public class PostDAOImpl implements PostDAO {
 		query.setParameter("searchTerm", "%" + searchTerm + "%");
 		return query.getResultList();
 	}
-
 
 	@Override
 	public Post findPostById(int postId) {

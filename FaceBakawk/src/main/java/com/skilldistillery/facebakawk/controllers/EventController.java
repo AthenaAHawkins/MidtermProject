@@ -33,7 +33,7 @@ public class EventController {
 		public String displayEvent(Model model, Integer eventId) {
 			Event event = eventDAO.findEventById(eventId);
 			
-			model.addAttribute("eventList", event);
+			model.addAttribute("event", event);
 			return "displayEvent";
 		}
 		

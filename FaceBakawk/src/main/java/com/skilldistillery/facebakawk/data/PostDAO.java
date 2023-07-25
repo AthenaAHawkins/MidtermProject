@@ -3,6 +3,7 @@ package com.skilldistillery.facebakawk.data;
 import java.util.List;
 
 import com.skilldistillery.facebakawk.entities.Post;
+import com.skilldistillery.facebakawk.entities.PostComment;
 
 public interface PostDAO {
 	
@@ -17,5 +18,7 @@ public interface PostDAO {
 	Post updatePost(int postId, Post post);
 
 	boolean deleteById(int postId);
+	
+	
 
 }

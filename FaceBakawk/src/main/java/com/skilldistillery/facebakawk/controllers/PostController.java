@@ -7,14 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skilldistillery.facebakawk.data.CommentDAO;
 import com.skilldistillery.facebakawk.data.PostDAO;
 import com.skilldistillery.facebakawk.entities.Post;
+import com.skilldistillery.facebakawk.entities.PostComment;
 
 @Controller
 public class PostController {
 	
 	@Autowired
 	private PostDAO postDAO;
+	
+	@Autowired
+	private CommentDAO commentDAO;
 	
 //	@RequestMapping(path = { "goToForumMain.do" })
 //	public String goToForumMain() {
@@ -24,8 +29,16 @@ public class PostController {
 	@RequestMapping(path = { "displayPost.do" })
 	public String displayPost(Model model, Integer postId) {
 		Post post = postDAO.findPostById(postId);
+		model.addAttribute("post", post);
 		
-		model.addAttribute("postList", post);
+		System.out.println("\n\n\n\n\n\n\nPOST ID"+ postId);
+		
+//		commentDAO.addCommentToPost(postComment, postDAO.findPostById(postId));
+		List<PostComment> commentList = commentDAO.findAllCommentsForPost(postId); 
+		model.addAttribute("commentList", commentList);
+		
+		System.out.println("\n\n\n\n\n\n\ncomment list"+commentList);
+		
 		return "displayPost";
 	}
 
@@ -35,5 +48,15 @@ public class PostController {
 		model.addAttribute("postList", postList);
 		return "forumMainPage";
 	}
+	
+	@RequestMapping(path= {"addComment.do"})
+	public String addComment(Model model, PostComment userComment) {
+		
+		return "displayPost";
+	}
+	
+
+	
+	
 	
 }
