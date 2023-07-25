@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.facebakawk.data.AddressDAO;
 import com.skilldistillery.facebakawk.data.ChickenDAO;
+import com.skilldistillery.facebakawk.data.EventDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
 import com.skilldistillery.facebakawk.entities.Address;
 import com.skilldistillery.facebakawk.entities.User;
@@ -25,11 +26,15 @@ public class UserController {
 	
 	@Autowired
 	private ChickenDAO chickenDAO;
+	
+	@Autowired
+	private EventDAO eventDAO;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, User user) {
 		model.addAttribute("DELETEME", userDAO.findByUserNameAndPassword(user.getUsername(), user.getPassword()));
 		model.addAttribute("chickenList", chickenDAO.findAll());
+		model.addAttribute("eventList", eventDAO.findAll());
 		return "home";
 	}
 

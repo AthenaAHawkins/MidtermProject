@@ -24,6 +24,8 @@ public class Address {
 	private String country;
 
 	private String zipcode;
+	
+	private String street;
 
 	@Column(name = "phone_number")
 	private String phoneNumber;
@@ -73,6 +75,14 @@ public class Address {
 
 	public void setZipCode(String zipCode) {
 		this.zipcode = zipCode;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
 	public String getPhoneNumber() {

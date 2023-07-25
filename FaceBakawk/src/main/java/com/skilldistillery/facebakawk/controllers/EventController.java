@@ -32,9 +32,12 @@ public class EventController {
 		@RequestMapping(path = { "displayEvent.do" })
 		public String displayEvent(Model model, Integer eventId) {
 			Event event = eventDAO.findEventById(eventId);
-			model.addAttribute("event", event);
+			
+			model.addAttribute("eventList", event);
 			return "displayEvent";
 		}
+		
+
 
 		@RequestMapping(path = { "deleteEvent.do" })
 		public String deleteEvent(Model model, Integer eventId) {

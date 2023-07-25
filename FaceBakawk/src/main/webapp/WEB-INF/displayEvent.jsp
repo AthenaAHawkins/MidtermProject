@@ -23,7 +23,7 @@
 	 <a href="getUser.do?userId=${event.creator.id}">${event.creator.username}</a>
 	 <p><em>Description: ${event.description } </em></p>
 	 <p><em>When: ${event.eventDate } </em></p>
-	 <p><em>Where: ${event.address.city }, ${event.address.state } </em></p>
+	 <p><em>Where: ${event.address.city }, ${event.address.state }, Street: ${event.address.street } </em></p>
 
 
 

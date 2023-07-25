@@ -39,8 +39,8 @@
 	<br> <h2>Events Attended</h2>
 <table class="table table-striped table-hover">
 		<thead class="table-dark">
-		<tbody>
 			<c:forEach var="event" items="${user.events}">
+		<tbody>
 				<tr>
 					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
 					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"

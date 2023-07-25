@@ -50,6 +50,20 @@
 		</tbody>
 	</table>
 	
+	
+	<br> <h2>Events Attended</h2>
+<table class="table table-striped table-hover">
+		<thead class="table-dark">
+		<tbody>
+			<c:forEach var="event" items="${eventList}">
+				<tr>
+					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
+					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
+						height="200"></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 
 
 
