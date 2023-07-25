@@ -18,7 +18,7 @@ public class EventDAOImpl implements EventDAO {
 	@PersistenceContext
 	private EntityManager em;
 
-	@Override
+	
 	public List<Event> findAll() {
 		String jpql = "SELECT event FROM Event event";
 		return em.createQuery(jpql, Event.class).getResultList();

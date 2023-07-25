@@ -88,6 +88,7 @@ class UserTest {
 
 	}
 
+
 	@Test
 	void test_post_like() {
 		assertNotNull(user);
