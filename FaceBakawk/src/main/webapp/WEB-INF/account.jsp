@@ -24,7 +24,17 @@
 				<li>UserName: ${loggedInUser.username }</li>
 				<li>FirstName: ${loggedInUser.firstName }</li>
 				<li>LastName: ${loggedInUser.lastName }</li>
-			</ul>
+				<li>city: ${loggedInUser.address.city }</li>
+			</ul> 
+			<form action="updateUserAccount.do" >
+			<input type="number" name="user" value="${loggedInUser.id }">
+			<label for="username">Enter in the new username: </label>
+			<input type="text" class="form-control" name="username" value="${loggedInUser.username }"><br>
+			<label for="password">Enter in the new password: </label>
+			<input type="text" class="form-control" name="password" value="${loggedInUser.password }"><br>
+			<button class="btn btn-primary">update userinfo</button>
+			</form>
+			
 		</c:when>
 		<c:otherwise>
 			<h1>Not logged In.</h1>

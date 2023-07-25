@@ -19,7 +19,7 @@
 		height="200"> 
 	<h2> ${chicken.name} </h2>
 	<br>Owner:
-	 <a href="getUser.do?userId=${chicken.owner.id}"> ${chicken.owner.username}</a>
+	 <a href="getUser.do?userId=${loggedInUser.id}"> ${chicken.owner.username}</a>
 	<br>Breed:
 	${chicken.breed.name}
 	<br>Gender:
