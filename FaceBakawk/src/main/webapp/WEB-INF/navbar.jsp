@@ -13,7 +13,7 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" href="getEvents.do">Eggcelent Events</a></li>
+					<li class="nav-item"><a class="nav-link" href="displayAllEvents.do">Eggcelent Events</a></li>
 					<li class="nav-item"><a class="nav-link" href="displayAllPosts.do">Forums</a></li>
 
 			<c:choose>

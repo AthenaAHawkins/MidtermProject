@@ -3,8 +3,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>List of Chicken Breeds</title>
 <jsp:include page="bootStrapHead.jsp"/>
+
+
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>

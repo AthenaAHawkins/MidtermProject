@@ -6,14 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Account Profile</title>
-<jsp:include page="bootStrapHead.jsp"/>
+<jsp:include page="bootStrapHead.jsp" />
 <link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
 </head>
 
 <body>
 
 	<%--Edit the file nav.jsp to change nav links --%>
-	<jsp:include page="navbar.jsp"/>
+	<jsp:include page="navbar.jsp" />
 
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser }">
@@ -21,97 +21,127 @@
 			<%-- Output user details --%>
 
 			<ul>
-			
-				<li><img src="${loggedInUser.pictureURL }"  alt="This you?"  width="300"
-						height="200"></li>
+
+				<li><img src="${loggedInUser.pictureURL }" alt="This you?"
+					width="300" height="200"></li>
 				<li>UserName: ${loggedInUser.username }</li>
 				<li>FirstName: ${loggedInUser.firstName }</li>
 				<li>LastName: ${loggedInUser.lastName }</li>
 				<li>city: ${loggedInUser.address.city }</li>
-			</ul> 
-		<form action="updateUserAccount.do" method="post">
-			
-				
-			
-			
-			
-			<label for="username">Enter in the new username: </label>
-			<input type="text" class="form-control" name="username" value="${loggedInUser.username }"><br>
-			<label for="password">Enter in the new password: </label>
-			<input type="text" class="form-control" name="password" value="${loggedInUser.password }"><br>
-				<textarea rows="3" cols="50" name="description">${loggedInUser.description }</textarea>
-			<br>
-			<input type="text" name="street"  value="${loggedInUser.address.street }"><br>
+			</ul>
 		
-			<br>
-			<input type="text" name="city" value="${loggedInUser.address.city }" ><br>
-		
-			<br>
-			<input type="text" name="state" value="${loggedInUser.address.state }"><br>
-		
-			<br>
-			<input type="text" name="country" value="${loggedInUser.address.country }"><br>
-		
-			<br>
-		
-		
-			<button class="btn btn-primary">update userinfo</button>
-		</form>
-			
+
 		</c:when>
 		<c:otherwise>
 			<h1>Not logged In.</h1>
 		</c:otherwise>
 	</c:choose>
-	
-<a href="goToAddChicken.do">Create Chicken</a>
-<br>
-<br>
-<a href="goToAddEvent.do">Create An Event</a>
+
+	<a href="goToAddChicken.do">Create Chicken</a>
+	<br>
+	<br>
+	<a href="goToAddEvent.do">Create An Event</a>
 
 
-<table class="table table-striped table-hover">
+	<table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
 			<c:forEach var="chicken" items="${loggedInUser.chickens}">
 				<tr>
-					<td><a href="getChicken.do?chickenId=${chicken.id}"> ${chicken.name}</a></td>
-					<td><img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
-						height="200"></td>
+					<td><a href="getChicken.do?chickenId=${chicken.id}">
+							${chicken.name}</a></td>
+					<td><c:choose>
+							<c:when test="${not empty chicken.pictureURL}">
+								<a href="getChicken.do?chickenId=${chicken.id}"> <img
+									src="${chicken.pictureURL}" alt="Chicken Picture" width="300"
+									height="200"></a>
+							</c:when>
+							<c:otherwise>
+								<a href="getChicken.do?chickenId=${chicken.id}"> <img
+									src="${chicken.breed.pictureURL}" alt="Breed Picture"
+									width="300" height="200"></a>
+							</c:otherwise>
+						</c:choose></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-	
-	
-	<br> <h2>Events Attended</h2>
-<table class="table table-striped table-hover">
+
+
+	<br>
+	<h2>Events Attended</h2>
+	<table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
 			<c:forEach var="event" items="${loggedInUser.eventsAttended}">
 				<tr>
-					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
-					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
-						height="200"></td>
+					<td><a href="displayEvent.do?eventId=${event.id}">
+							${event.title}</a></td>
+					<td><img src="${event.pictureURL}" alt="${event.title}"
+						width="300" height="200"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 
 
-	<br> <h2>Events Created</h2>
-<table class="table table-striped table-hover">
+	<br>
+	<h2>Events Created</h2>
+	<table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
 			<c:forEach var="event" items="${loggedInUser.eventsCreated}">
 				<tr>
-					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
-					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
-						height="200"></td>
+					<td><a href="displayEvent.do?eventId=${event.id}">
+							${event.title}</a></td>
+					<td><img src="${event.pictureURL}" alt="${event.title}"
+						width="300" height="200"></td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
-<jsp:include page="bootStrapFoot.jsp"/>
+	
+	<h3>Update Your Info</h3>
+		<form action="updateUserAccount.do" method="post">
+
+
+
+
+
+				<label for="username">Enter in the new username: </label>
+				<br>
+				 <input
+					type="text" class="form-control" name="username"
+					value="${loggedInUser.username }">
+				<br> 
+				<label
+					for="password">Enter in the new password: </label> 
+					<br>
+					<input
+					type="text" class="form-control" name="password"
+					value="${loggedInUser.password }">
+					<br> 
+					<label 
+					for="description">Enter in new description: 
+					</label>
+					<br>
+				<textarea rows="3" cols="50" name="description">${loggedInUser.description }</textarea>
+				<br> <label for="street">Enter in the new Street: </label> <br><input
+					type="text" name="street" value="${loggedInUser.address.street }"><br>
+				<br> <label for="city">Enter in the new City: </label><br> <input
+					type="text" name="city" value="${loggedInUser.address.city }">
+					<br>
+					<br>
+
+				<label for="state">Enter in the new state: </label> <br> <input
+					type="text" name="state" value="${loggedInUser.address.state }"><br>
+				<br> <label for="country">Enter in the new country: </label><br> <input
+					type="text" name="country" value="${loggedInUser.address.country }"><br>
+				<br>
+
+
+				<button class="btn btn-primary">update userinfo</button>
+			</form>
+	<jsp:include page="bootStrapFoot.jsp" />
 </body>
 </html>
