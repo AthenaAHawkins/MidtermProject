@@ -6,9 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Create Account</title>
+<jsp:include page="bootStrapHead.jsp"/>
+
 
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
 
 <div>
     <form action="addChicken.do" method="POST">
@@ -75,6 +78,6 @@
         <a href="account.do">Back to Home</a>
             </form>
 </div>
-
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

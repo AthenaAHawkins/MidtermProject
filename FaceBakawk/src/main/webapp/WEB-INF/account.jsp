@@ -6,11 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Account Profile</title>
+<jsp:include page="bootStrapHead.jsp"/>
+<link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
 </head>
+
 <body>
 
 	<%--Edit the file nav.jsp to change nav links --%>
-	<%@ include file="nav.jsp"%>
+	<jsp:include page="navbar.jsp"/>
 
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser }">
@@ -109,6 +112,6 @@
 			</c:forEach>
 		</tbody>
 	</table>
-
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

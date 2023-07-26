@@ -4,17 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>FaceBaKawk</title>
-<jsp:include page="bootStrapHead.jsp"/>
+<title>Insert title here</title>
 </head>
 <body>
 
-
-<jsp:include page="navbar.jsp"/>
-<h1>WELCOME BA-KAWK!</h1>
-
-
-
-<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

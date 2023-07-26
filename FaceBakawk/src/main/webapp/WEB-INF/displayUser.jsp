@@ -7,8 +7,9 @@
 <meta charset="UTF-8">
 <title>User info</title>
 </head>
+<jsp:include page="bootStrapHead.jsp"/>
 <body>
-<%@ include file="nav.jsp"%>
+<jsp:include page="navbar.jsp"/>
 	<h1>User Details</h1>
 
 
@@ -70,7 +71,7 @@
 
 	<%-- </c:forEach> --%>
 
-
+<jsp:include page="bootStrapFoot.jsp"/>
 
 </body>
 </html>

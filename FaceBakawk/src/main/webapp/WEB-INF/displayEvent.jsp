@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
 
 	<h1>Event Details</h1>
 
@@ -33,6 +35,6 @@
 	<%-- </c:forEach> --%>
 
 
-
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>
