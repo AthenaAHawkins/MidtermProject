@@ -5,23 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>FaceBaKawk</title>
+<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
-<nav>
-  <ul>
-    <li><a href="home.do">Home</a></li>
-    <li><a href="account.do">Go To Account</a></li>
-    <li><a href="login.do">Sign In/Up</a></li>
-    <li><a href="getEvent.do">Eggcelent Events</a></li>
-    <li><a href="#">See The Flock</a></li>
-    <li><a href="displayAllPosts.do">Forums</a></li>
-    <li><a href="#">Quizzes</a></li>
-    <li><a href="matchmaker.do">Match Maker</a></li>
-  </ul>
-</nav>
+
+
+<jsp:include page="navbar.jsp"/>
 <h1>WELCOME BA-KAWK!</h1>
 
 
 
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
 
 <img src="${post.pictureURL}" alt="${post.title}" width="300"
 		height="200"> 
@@ -43,5 +45,6 @@
 					 </form>
 		 </c:if>
 					  <a href="home.do">home</a>
+					  <jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

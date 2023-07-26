@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Forum Page</title>
+<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
 <h1>Forum</h1>
 
 <table>
@@ -19,6 +21,6 @@
         </tr>
     </c:forEach>
 </table>
-
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>
