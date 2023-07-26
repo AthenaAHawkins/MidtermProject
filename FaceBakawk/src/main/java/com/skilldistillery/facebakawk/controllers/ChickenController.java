@@ -28,9 +28,6 @@ public class ChickenController {
 	private ChickenDAO chickenDAO; 
 
 	@Autowired
-	private UserDAO userDAO;
-
-	@Autowired
 	private MatchmakerDAO matchDAO;
 
 	@RequestMapping(path = { "getChicken.do" })
