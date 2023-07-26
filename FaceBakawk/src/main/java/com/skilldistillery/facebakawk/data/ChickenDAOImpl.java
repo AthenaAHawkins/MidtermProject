@@ -9,7 +9,10 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.facebakawk.entities.Breed;
 import com.skilldistillery.facebakawk.entities.Chicken;
+import com.skilldistillery.facebakawk.entities.User;
+
 @Service
 @Transactional
 public class ChickenDAOImpl implements ChickenDAO {
@@ -26,9 +29,9 @@ public class ChickenDAOImpl implements ChickenDAO {
 	@Override
 	public List<Chicken> searchByKeyword(String searchTerm) {
 
-		String jpql = "SELECT chicken FROM Chicken chicken WHERE chicken.name "
-				+ "LIKE :searchTerm OR chicken.breed " + "LIKE :searchTerm OR chicken.description "
-				+ "LIKE :searchTerm OR chicken.gender " + "LIKE :searchTerm";
+		String jpql = "SELECT chicken FROM Chicken chicken WHERE chicken.name " + "LIKE :searchTerm OR chicken.breed "
+				+ "LIKE :searchTerm OR chicken.description " + "LIKE :searchTerm OR chicken.gender "
+				+ "LIKE :searchTerm";
 
 		System.out.println("\n\n\nJPQL IN DAO " + jpql);
 		TypedQuery<Chicken> query = em.createQuery(jpql, Chicken.class);
@@ -51,14 +54,16 @@ public class ChickenDAOImpl implements ChickenDAO {
 	}
 
 	@Override
-	public Chicken updateChicken(int chickenId, Chicken chicken) {
-		Chicken u = em.find(Chicken.class, chickenId);
-		u.setCreateDate(chicken.getCreateDate());
-		u.setDescription(chicken.getDescription());
-		u.setId(chicken.getId());
-		em.merge(u);
-		em.flush();
-		return u;
+	public void updateChicken(User user, Chicken chicken) {
+		Chicken manageChicken = em.find(Chicken.class, user.getId());
+		manageChicken.setName(chicken.getName());
+
+		manageChicken.setWantsChicks(chicken.isWantsChicks());
+		manageChicken.setDescription(chicken.getDescription());
+		manageChicken.setPictureURL(chicken.getPictureURL());
+		manageChicken.getOwner().setFirstName(user.getFirstName());
+		manageChicken.getOwner().setLastName(user.getLastName());
+
 	}
 
 	@Override

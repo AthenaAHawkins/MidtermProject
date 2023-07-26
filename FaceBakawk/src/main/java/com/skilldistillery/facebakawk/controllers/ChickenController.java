@@ -20,12 +20,13 @@ import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
 public class ChickenController {
-
+	@Autowired
+	private UserDAO userDAO;
 	@Autowired
 	private BreedDAO breedDAO;
 
 	@Autowired
-	private ChickenDAO chickenDAO; 
+	private ChickenDAO chickenDAO;
 
 	@Autowired
 	private MatchmakerDAO matchDAO;
@@ -44,14 +45,28 @@ public class ChickenController {
 
 		return "home";
 	}
+	public void refreshSessionData(HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		session.setAttribute("loggedInUser",
+				userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
+	}
 
-	@RequestMapping(path = { "editChicken.do" })
-	public String updateChicken(Model model, Chicken chicken, Integer chickenId) {
-		System.out.println("in controller USERID " + chickenId);
-		System.out.println("in controller " + chicken);
-		chickenDAO.updateChicken(chickenId, chicken);
-		model.addAttribute("chicken", chicken);
-		return "home";
+	@RequestMapping(path = { "updateChickenInfo.do" }, method = RequestMethod.POST)
+	public String updateChicken(HttpSession session, Chicken chicken, User user) {
+		User userInSession = (User) session.getAttribute("loggedInUser");
+
+		if (userInSession != null) {
+//			addressDAO.updateAddress(addressId, address);
+//			User loggedInUser = userDAO.findUserById(userInSession.getId());
+
+//			loggedInUser.setAddress(address);
+			user.setId(userInSession.getId());
+			chickenDAO.updateChicken(user, chicken);
+
+			refreshSessionData(session);
+			return "account";
+		}
+		return "account";
 	}
 
 	@RequestMapping(path = "addChicken.do", method = RequestMethod.GET)
@@ -83,6 +98,13 @@ public class ChickenController {
 	public String redirectToAddChicken(Model model) {
 		model.addAttribute("breedList", breedDAO.findAll());
 		return "addChicken";
+	}
+	
+	@RequestMapping(path = { "goToUpdateChicken.do" })
+	public String redirectToUpdateChicken(Model model, Integer chickenId) {
+		Chicken chicken = chickenDAO.findChickenById(chickenId);
+		model.addAttribute("chickenList", chicken);
+		return "updateChickenForm";
 	}
 
 	@RequestMapping(path = { "searchChicken.do" })
