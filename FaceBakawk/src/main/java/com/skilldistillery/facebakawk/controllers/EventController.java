@@ -97,6 +97,12 @@ public class EventController {
 			return "showSearched";
 		}
 
+		@RequestMapping(path= {"displayAllEvents.do"})
+		public String displayAllEvents(Model model) {
+			List<Event> eventList = eventDAO.findAll(); 
+			model.addAttribute("eventList", eventList);
+			return "displayAllEvents";
+		}
 	
 
 }
