@@ -16,10 +16,10 @@
 
 <c:choose>
     <c:when test="${not empty chicken.pictureURL}">
-        <img src="${chicken.pictureURL}" alt="Chicken Picture">
+        <img src="${chicken.pictureURL}" alt="Chicken Picture" width="400" height="300">
     </c:when>
     <c:otherwise>
-        <img src="${chicken.breed.pictureURL}" alt="Breed Picture">
+        <img src="${chicken.breed.pictureURL}" alt="Breed Picture" width="400" height="300">
     </c:otherwise>
 </c:choose>
 	<h2> ${chicken.name} </h2>
