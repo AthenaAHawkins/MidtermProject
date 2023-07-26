@@ -6,7 +6,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
+
+import com.skilldistillery.facebakawk.entities.Address;
 import com.skilldistillery.facebakawk.entities.User;
 
 @Service
@@ -71,27 +74,20 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User updateUser(int userId, User user) {
-		User u = em.find(User.class, userId);
-		u.setAddress(user.getAddress());
-		u.setChickens(user.getChickens());
-		u.setComments(user.getComments());
-		u.setCreateDate(user.getCreateDate());
-		u.setDescription(user.getDescription());
-		u.setEnabled(user.getEnabled());
-		u.setEventsAttended(user.getEventsAttended());
-		u.setFirstName(user.getFirstName());
-		u.setLastName(user.getLastName()); 
-		u.setLikedPosts(user.getLikedPosts());
-		u.setPassword(user.getPassword());
-		u.setPictureURL(user.getPictureURL());
-		u.setPosts(user.getPosts());
-		u.setRole(user.getRole());
-		u.setUsername(user.getUsername());
-		u.setId(user.getId());
-		em.merge(u);
-		em.flush();
-		return u;
+	public void updateUser(User user, Address address) {
+		User managedUser = em.find(User.class, user.getId());
+		managedUser.getAddress().setStreet(address.getStreet());
+		managedUser.getAddress().setCity(address.getCity());
+		managedUser.getAddress().setState(address.getState());
+		managedUser.getAddress().setCountry(address.getCountry());
+		managedUser.getAddress().setZipCode(address.getZipCode());
+		managedUser.setDescription(user.getDescription());
+		managedUser.setFirstName(user.getFirstName());
+		managedUser.setLastName(user.getLastName()); 
+		managedUser.setUsername(user.getUsername());
+		managedUser.setPassword(user.getPassword());
+		managedUser.setPictureURL(user.getPictureURL());
+		
 	}
 
 	@Override

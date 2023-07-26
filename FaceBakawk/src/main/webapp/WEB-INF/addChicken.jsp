@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,13 @@
 		
 		<h2>Breed:</h2>
 		
-		<input type="hidden" name="breedId" value="${breed.id} ">
+		<select name="breed.id">
+		<c:forEach var="breed" items="${breedList }">
+		<option value="${breed.id }">${breed.name }</option>
+		
+		</c:forEach>
+		</select>
+	<%-- 	<input type="hidden" name="breedId" value="${breed.id} ">
 		
 		<label for="name">Breed Name:</label><br>
 		<input type="text" name="name"  ><br>
@@ -59,7 +66,7 @@
 		<input type="text" name="characteristics" ><br>
 		
 		<label for="pictureURL">Breed Picture URL:</label><br>
-		<input type="text" name="pictureURL" ><br>
+		<input type="text" name="pictureURL" ><br> --%>
 		
         <input type="submit" value="Add">
         <br>

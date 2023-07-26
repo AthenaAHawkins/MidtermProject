@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.facebakawk.data.AddressDAO;
 import com.skilldistillery.facebakawk.data.ChickenDAO;
@@ -22,13 +24,13 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDAO;
-	
+
 	@Autowired
 	private AddressDAO addressDAO;
-	
+
 	@Autowired
 	private ChickenDAO chickenDAO;
-	
+
 	@Autowired
 	private EventDAO eventDAO;
 
@@ -41,9 +43,10 @@ public class UserController {
 
 	public void refreshSessionData(HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("loggedInUser");
-		session.setAttribute("loggedInUser", userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
+		session.setAttribute("loggedInUser",
+				userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
 	}
-	
+
 	@RequestMapping(path = { "getUser.do" })
 	public String displayUser(Model model, Integer userId) {
 		User user = userDAO.findUserById(userId);
@@ -60,20 +63,29 @@ public class UserController {
 		return "home";
 	}
 
-	@RequestMapping(path = { "updateUserAccount.do" })
-	public String updateUser(Model model, User user, Integer userId) {
-		System.out.println("in controller USERID " + userId);
-		System.out.println("in controller " + user);
-		userDAO.updateUser(userId, user);
-		model.addAttribute("user", user);
+	@RequestMapping(path = { "updateUserAccount.do" }, method = RequestMethod.POST)
+	public String updateUser(HttpSession session, Address address, User user) {
+		User userInSession = (User) session.getAttribute("loggedInUser");
+
+		if (userInSession != null) {
+//			addressDAO.updateAddress(addressId, address);
+//			User loggedInUser = userDAO.findUserById(userInSession.getId());
+
+//			loggedInUser.setAddress(address);
+			user.setId(userInSession.getId());
+			userDAO.updateUser(user, address);
+			
+			refreshSessionData(session);
+			return "home";
+		}
 		return "account";
 	}
-	
-	@RequestMapping(path="register.do" , method=RequestMethod.POST)
+
+	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public String addUser(Model model, User user, Address address) {
 		System.out.println("\n\n\n\n\n\n\n\nUSER: " + user);
 		System.out.println("\n\n\n\n\n\n\n\nADDRESS: " + address);
-		addressDAO.create(address); 
+		addressDAO.create(address);
 		user.setAddress(address);
 		userDAO.create(user);
 //		model.addAttribute("address", address);
@@ -92,6 +104,5 @@ public class UserController {
 		model.addAttribute("userList", userList);
 		return "showSearched";
 	}
-	
-	
+
 }

@@ -26,14 +26,34 @@
 				<li>LastName: ${loggedInUser.lastName }</li>
 				<li>city: ${loggedInUser.address.city }</li>
 			</ul> 
-			<form action="updateUserAccount.do" >
-			<input type="number" name="user" value="${loggedInUser.id }">
+		<form action="updateUserAccount.do" method="post">
+			
+				
+			
+			
+			
 			<label for="username">Enter in the new username: </label>
 			<input type="text" class="form-control" name="username" value="${loggedInUser.username }"><br>
 			<label for="password">Enter in the new password: </label>
 			<input type="text" class="form-control" name="password" value="${loggedInUser.password }"><br>
+				<textarea rows="3" cols="50" name="description">${loggedInUser.description }</textarea>
+			<br>
+			<input type="text" name="street"  value="${loggedInUser.address.street }"><br>
+		
+			<br>
+			<input type="text" name="city" value="${loggedInUser.address.city }" ><br>
+		
+			<br>
+			<input type="text" name="state" value="${loggedInUser.address.state }"><br>
+		
+			<br>
+			<input type="text" name="country" value="${loggedInUser.address.country }"><br>
+		
+			<br>
+		
+		
 			<button class="btn btn-primary">update userinfo</button>
-			</form>
+		</form>
 			
 		</c:when>
 		<c:otherwise>
