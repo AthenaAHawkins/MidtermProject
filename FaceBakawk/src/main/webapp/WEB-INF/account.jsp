@@ -105,7 +105,17 @@
 		<form action="updateUserAccount.do" method="post">
 
 
+				<label for=firstName>Enter in your new first Name: </label>
+				<br>
+				 <input
+					type="text" class="form-control" name="firstName"
+					value="${loggedInUser.firstName }">
 
+				<label for=lastName>Enter in your new last Name: </label>
+				<br>
+				 <input
+					type="text" class="form-control" name="lastName"
+					value="${loggedInUser.lastName }">
 
 
 				<label for="username">Enter in the new username: </label>
