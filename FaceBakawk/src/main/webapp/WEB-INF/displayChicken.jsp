@@ -7,21 +7,16 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<jsp:include page="bootStrapHead.jsp"/>
 <body>
 <jsp:include page="navbar.jsp"/>
 	<h1>Chicken Details</h1>
 
 
 
-<c:choose>
-    <c:when test="${not empty chicken.pictureURL}">
-        <img src="${chicken.pictureURL}" alt="Chicken Picture">
-    </c:when>
-    <c:otherwise>
-        <img src="${chicken.breed.pictureURL}" alt="Breed Picture">
-    </c:otherwise>
-</c:choose>
+	<%-- <c:forEach var="chicken" items="${chickenList}"> --%>
+
+	<img src="${chicken.pictureURL}" alt="${chicken.name}" width="300"
+		height="200"> 
 	<h2> ${chicken.name} </h2>
 	<br>Owner:
 	 <a href="getUser.do?userId=${loggedInUser.id}"> ${chicken.owner.username}</a>
@@ -47,6 +42,6 @@
 	<%-- </c:forEach> --%>
 
 
-<jsp:include page="bootStrapFoot.jsp"/>
+
 </body>
 </html>

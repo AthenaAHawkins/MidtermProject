@@ -4,8 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <title>New Chicken Added Succesfully</title>
+<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
   <h1>Chicken Added Successfully</h1>
   <button onclick="redirectToAccount()">Back to Account</button>
 
@@ -14,5 +16,6 @@
       window.location.href = 'account.do';
     }
   </script>
+  <jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>
