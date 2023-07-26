@@ -2,6 +2,7 @@ package com.skilldistillery.facebakawk.data;
 
 import java.util.List;
 
+import com.skilldistillery.facebakawk.entities.Address;
 import com.skilldistillery.facebakawk.entities.User;
 
 public interface UserDAO {
@@ -16,7 +17,7 @@ public interface UserDAO {
 
 	User create(User user);
 
-	User updateUser(int userId, User user);
+	void updateUser(User user, Address address);
 
 	boolean deleteById(int userId);
 }

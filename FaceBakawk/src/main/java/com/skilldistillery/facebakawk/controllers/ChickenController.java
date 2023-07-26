@@ -25,7 +25,7 @@ public class ChickenController {
 	private BreedDAO breedDAO;
 
 	@Autowired
-	private ChickenDAO chickenDAO;
+	private ChickenDAO chickenDAO; 
 
 	@Autowired
 	private UserDAO userDAO;
@@ -63,15 +63,15 @@ public class ChickenController {
 	}
 
 	@RequestMapping(path = "addChicken.do", method = RequestMethod.POST)
-	public String addChicken(Model model, Chicken chicken, Breed breed, HttpSession session) {
+	public String addChicken(Model model, Chicken chicken, HttpSession session) {
 
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
-			breedDAO.create(breed);
-			chicken.setBreed(breed);
-			user.addChicken(chicken);
+//			chicken.setBreed(breed);
+//			user.addChicken(chicken);
+			chicken.setOwner(user);
 			chickenDAO.create(chicken);
-			userDAO.updateUser(user.getId(), user);
+//			userDAO.updateUser(user.getId(), user);
 			model.addAttribute("chicken", chicken);
 			model.addAttribute("userId", user.getId());
 			model.addAttribute("chickenList", chickenDAO.findAll());
@@ -83,7 +83,8 @@ public class ChickenController {
 	}
 
 	@RequestMapping(path = { "goToAddChicken.do" })
-	public String redirectToAddChicken() {
+	public String redirectToAddChicken(Model model) {
+		model.addAttribute("breedList", breedDAO.findAll());
 		return "addChicken";
 	}
 
