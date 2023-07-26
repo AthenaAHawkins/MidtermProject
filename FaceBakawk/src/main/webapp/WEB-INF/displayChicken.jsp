@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Chicken Details</title>
+<jsp:include page="bootStrapHead.jsp" />
+<link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
@@ -25,7 +27,7 @@
 	<br>Owner:
 	 <a href="getUser.do?userId=${loggedInUser.id}"> ${chicken.owner.username}</a>
 	<br>Breed:
-	${chicken.breed.name}
+	<a href="getBreed.do?breedId=${chicken.breed.id}">${chicken.breed.name}</a>
 	<br>Gender:
 	 ${chicken.gender} 
 	<br>Height:
@@ -46,6 +48,6 @@
 	<%-- </c:forEach> --%>
 
 
-
+	<jsp:include page="bootStrapFoot.jsp" />
 </body>
 </html>
