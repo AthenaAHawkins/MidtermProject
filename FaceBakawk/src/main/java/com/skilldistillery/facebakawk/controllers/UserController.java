@@ -68,13 +68,8 @@ public class UserController {
 		User userInSession = (User) session.getAttribute("loggedInUser");
 
 		if (userInSession != null) {
-//			addressDAO.updateAddress(addressId, address);
-//			User loggedInUser = userDAO.findUserById(userInSession.getId());
-
-//			loggedInUser.setAddress(address);
 			user.setId(userInSession.getId());
 			userDAO.updateUser(user, address);
-			
 			refreshSessionData(session);
 			return "home";
 		}

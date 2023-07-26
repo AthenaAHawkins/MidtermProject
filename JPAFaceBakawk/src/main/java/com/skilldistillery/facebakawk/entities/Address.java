@@ -126,4 +126,12 @@ public class Address {
 				+ zipcode + ", phoneNumber=" + phoneNumber + "]";
 	}
 
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
 }

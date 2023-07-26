@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.facebakawk.entities.Address;
 import com.skilldistillery.facebakawk.entities.Event;
 
 @Service
@@ -51,25 +52,29 @@ public class EventDAOImpl implements EventDAO {
 	}
 
 	@Override
-	public Event updateEvent(int eventId, Event event) {
-		Event e = em.find(Event.class, eventId);
-		e.setTitle(event.getTitle());
-		e.setCurrencies(event.getCurrencies());
-		e.setStartTime(event.getStartTime());
-		e.setEndTime(event.getEndTime());
-		e.setEventDate(event.getEventDate());
-		e.setCreateDate(event.getCreateDate());
-		e.setDescription(event.getDescription());
-		e.setPictureURL(event.getPictureURL());
-		e.setCreator(event.getCreator());
-		e.setAddress(event.getAddress());
-		e.setEventComments(event.getEventComments());	
-		e.setAttendees(event.getAttendees());
-		e.setLastUpdate(event.getLastUpdate());
-		e.setId(event.getId());	
-		em.merge(e);
-		em.flush();
-		return e;
+	public void updateEvent(Event event,Address address) {
+		Event managedEvent = em.find(Event.class, event.getId());
+		System.out.println("\n\n\n\nEvent in eventDAO "+event);
+		System.out.println("\n\n\n\nEvent address in eventDAO "+event.getAddress());
+		
+		if(managedEvent != null) {
+		managedEvent.getAddress().setStreet(address.getStreet());
+		managedEvent.getAddress().setCity(address.getCity());
+		managedEvent.getAddress().setState(address.getState());
+		managedEvent.getAddress().setCountry(address.getCountry());
+		managedEvent.getAddress().setZipCode(address.getZipCode());
+		managedEvent.setTitle(event.getTitle());
+		managedEvent.setCurrencies(event.getCurrencies());
+		managedEvent.setStartTime(event.getStartTime());
+		managedEvent.setEndTime(event.getEndTime());
+		managedEvent.setEventDate(event.getEventDate());
+		managedEvent.setDescription(event.getDescription());
+		managedEvent.setPictureURL(event.getPictureURL());
+		managedEvent.setAddress(event.getAddress());
+		managedEvent.setId(event.getId());	
+		}else {
+			System.out.println("event was null");
+		}
 	}
 
 	@Override

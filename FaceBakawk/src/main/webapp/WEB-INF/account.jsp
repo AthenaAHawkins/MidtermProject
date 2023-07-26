@@ -96,6 +96,7 @@
 							${event.title}</a></td>
 					<td><img src="${event.pictureURL}" alt="${event.title}"
 						width="300" height="200"></td>
+					<td><a href="updateEventButton.do?eventId=${event.id }">edit event</a></td>	 
 				</tr>
 			</c:forEach>
 		</tbody>

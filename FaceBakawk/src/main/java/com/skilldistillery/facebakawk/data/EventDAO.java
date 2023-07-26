@@ -2,6 +2,7 @@ package com.skilldistillery.facebakawk.data;
 
 import java.util.List;
 
+import com.skilldistillery.facebakawk.entities.Address;
 import com.skilldistillery.facebakawk.entities.Event;
 
 public interface EventDAO {
@@ -13,7 +14,7 @@ public interface EventDAO {
 
 	Event create(Event event);
 
-	Event updateEvent(int eventId, Event event);
+	void updateEvent(Event event, Address address);
 
 	boolean deleteById(int eventId);
 

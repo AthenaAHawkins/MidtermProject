@@ -20,7 +20,7 @@
 		<input type="text" name="title" value="${event.title}" ><br>
  		
 		<label for="description">About your Event:</label><br>
-		<textarea name="description" rows="5" cols="40" value="${event.description}"></textarea><br>
+		<textarea name="description" rows="5" cols="40">${event.description }</textarea><br>
  		
  		
  		
@@ -32,7 +32,7 @@
 				
 		<td>	
 		<select name="currency">
-        <option value=>${event.currencies.type }</option>
+ 		 <option value="${currency.type }"></option> 
         </select>
         </td>
 				</tr>
@@ -45,23 +45,24 @@
  		
  		<h2>Address:</h2>
 		
-		<input type="hidden" name="addressId" value="${address.id} ">
-		<input type="hidden" name="creatorId" value="${event.creator.id} ">
+		<input type="hidden" name="id" value="${event.id} ">
+		<input type="hidden" name="address.id" value="${event.address.id} ">
+		<input type="hidden" name="creator.id" value="${event.creator.id} ">
 		
-		<label for="street">street:</label><br>
-		<input type="text" name="street" value="${event.street}"><br>
+		<label for="address.street">street:</label><br>
+		<input type="text" name="address.street" value="${event.address.street}"><br>
 		
-		<label for="city">City:</label><br>
-		<input type="text" name="city" value="${event.city}" ><br>
+		<label for="address.city">City:</label><br>
+		<input type="text" name="address.city" value="${event.address.city}" ><br>
 		
-		<label for="state">State</label><br>
-		<input type="text" name="state" value="${event.state}"><br>
+		<label for="address.state">State</label><br>
+		<input type="text" name="address.state" value="${event.address.state}"><br>
 		
-		<label for="country">Country:</label><br>
-		<input type="text" name="country" value="${event.country}" ><br>
+		<label for="address.country">Country:</label><br>
+		<input type="text" name="address.country" value="${event.address.country}" ><br>
 		
-		<label for="zipcode">Zipcode:</label><br>
-		<input type="text" name="zipcode" value="${event.zipcode}"><br>
+		<label for="address.zipcode">Zipcode:</label><br>
+		<input type="text" name="address.zipcode" value="${event.address.zipcode}"><br>
 		
 		<label for="eventDate">*Event Date:</label><br>
         <input type="date" name="eventDate" required value="${event.eventDate}"><br> 
@@ -69,13 +70,13 @@
 		<label for="startTime">*Start Time:</label><br>
         <input type="time" name="startTime" required value="${event.startTime}" ><br> 
 		
-        <input type="submit" value="Add">
+        <input type="submit" value="update">
         <br>
         <br>
         <h6>*Required Field</h6>
-        <a href="displayEvent.do">Back to Home</a>
  		
             </form>
+        <a href="home.do">Back to Home</a>
 </div>
 
 
