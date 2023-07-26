@@ -24,21 +24,13 @@
  		
  		
  		
-<table class="table table-striped table-hover">
-		<thead class="table-dark">
-		<tbody>
-			<c:forEach var="currency" items="${event.currencies}">
-				<tr>
-				
-		<td>	
+		<label for="currency">Event Currency</label><br>
 		<select name="currency">
- 		 <option value="${currency.type }"></option> 
-        </select>
-        </td>
-				</tr>
+			<c:forEach var="currency" items="${event.currencies}">
+				
+ 		 <option value="${currency.id}">${currency.type }</option> 
 		</c:forEach>
-		</tbody>
-</table>
+        </select>
 	
 	
 	
