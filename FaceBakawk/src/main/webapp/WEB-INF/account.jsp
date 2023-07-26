@@ -38,6 +38,7 @@
 	</c:choose>
 
 	<a href="goToAddChicken.do">Create Chicken</a>
+	<a href="goToUpdateChicken.do">Update Chicken</a>
 	<br>
 	<br>
 	<a href="goToAddEvent.do">Create An Event</a>
@@ -61,7 +62,11 @@
 									src="${chicken.breed.pictureURL}" alt="Breed Picture"
 									width="300" height="200"></a>
 							</c:otherwise>
+							
 						</c:choose></td>
+						<td><a href="goToUpdateChicken.do?chickenId=${chicken.id}">
+							Update Chicken Info</a></td>
+						
 				</tr>
 			</c:forEach>
 		</tbody>
