@@ -14,17 +14,14 @@
 
 
 
-	<%-- <c:forEach var="chicken" items="${chickenList}"> --%>
-<%-- <c:choose>
-<c:when test="${not empty chicken }"> --%>
-	<img src="${chicken.pictureURL}" alt="${chicken.name}" width="300"
-		height="200"> 
-		<%-- <c:otherwise> --%>
-			<img src="${chicken.breed.pictureURL }" alt="${chicken.name}" width="300"
-		height="200"> >
-	<%-- 	</c:otherwise>
-		</c:when>
-</c:choose> --%>
+<c:choose>
+    <c:when test="${not empty chicken.pictureURL}">
+        <img src="${chicken.pictureURL}" alt="Chicken Picture">
+    </c:when>
+    <c:otherwise>
+        <img src="${chicken.breed.pictureURL}" alt="Breed Picture">
+    </c:otherwise>
+</c:choose>
 	<h2> ${chicken.name} </h2>
 	<br>Owner:
 	 <a href="getUser.do?userId=${loggedInUser.id}"> ${chicken.owner.username}</a>
