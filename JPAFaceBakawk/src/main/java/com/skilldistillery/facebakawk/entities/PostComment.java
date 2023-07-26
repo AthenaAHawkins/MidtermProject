@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Table(name="post_comment")
 public class PostComment {
@@ -23,6 +25,7 @@ public class PostComment {
 	private int id;
 
 	@Column(name="comment_date")
+	@CreationTimestamp
 	private LocalDateTime commentDate;
 	
 	@Column(name="post_content")

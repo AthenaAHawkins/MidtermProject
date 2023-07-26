@@ -30,13 +30,18 @@
 			</c:forEach>
 		</tbody>
 	</table>
-					<form action="displayPost.do" method="POST">
-					
-					<label for="postComment">Comment:</label><br>
-					<input type="text" name="postComment" ><br>
-					
+	<c:if test="${not empty sessionScope.loggedInUser }">
+	
+					<form action="addComment.do" method="POST">
+					<label for="postContent">Comment:</label><br>
+					<input type="text" name="postContent" ><br>
+					<input type="hidden" name="post.id" value="${post.id }"><br>
+					<input type="hidden" name="user.id" value="${sessionScope.loggedInUser.id }"><br>
 					
 					  <input type="submit" value="Comment On Post">
+					  
 					 </form>
+		 </c:if>
+					  <a href="home.do">home</a>
 </body>
 </html>

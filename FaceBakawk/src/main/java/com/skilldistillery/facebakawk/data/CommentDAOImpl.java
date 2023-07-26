@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.facebakawk.entities.Post;
 import com.skilldistillery.facebakawk.entities.PostComment;
 
 @Service
@@ -25,14 +24,14 @@ public class CommentDAOImpl implements CommentDAO {
 		return c;
 	}
 	@Override
-	public PostComment addCommentToPost(String userComment, Post post) {
-		post.setContent(userComment);
-        em.persist(post);
-		return null;
+	public PostComment addCommentToPost(PostComment userComment) {
+		
+        em.persist(userComment);
+		return userComment;
 	}
 	public List<PostComment> findAllCommentsForPost(int postId){
 		
-		String jpql = "SELECT comment FROM PostComment comment where id = :postId";
+		String jpql = "SELECT comment FROM PostComment comment where post.id = :postId";
 		TypedQuery<PostComment> query = em.createQuery(jpql, PostComment.class);
 		query.setParameter("postId", postId);
 		return query.getResultList();

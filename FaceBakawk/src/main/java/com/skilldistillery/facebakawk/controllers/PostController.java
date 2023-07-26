@@ -28,12 +28,12 @@ public class PostController {
 	
 	@RequestMapping(path = { "displayPost.do" })
 	public String displayPost(Model model, Integer postId) {
+		System.out.println("\n\n\n\n\n\n PostID in post controller"+postId);
 		Post post = postDAO.findPostById(postId);
 		model.addAttribute("post", post);
 		
 		System.out.println("\n\n\n\n\n\n\nPOST ID"+ postId);
 		
-//		commentDAO.addCommentToPost(postComment, postDAO.findPostById(postId));
 		List<PostComment> commentList = commentDAO.findAllCommentsForPost(postId); 
 		model.addAttribute("commentList", commentList);
 		
@@ -52,7 +52,10 @@ public class PostController {
 	@RequestMapping(path= {"addComment.do"})
 	public String addComment(Model model, PostComment userComment) {
 		
-		return "displayPost";
+		commentDAO.addCommentToPost(userComment);
+		
+		
+		return "redirect:displayPost.do?postId="+userComment.getPost().getId();
 	}
 	
 
