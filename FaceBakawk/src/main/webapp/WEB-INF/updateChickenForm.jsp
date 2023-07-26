@@ -11,7 +11,7 @@
 <body>
 	<jsp:include page="navbar.jsp" />
 	<form action="updateChickenInfo.do" method="post">
-
+	<input type="hidden" name="id"  value="${chicken.id}" > 
 
 
 

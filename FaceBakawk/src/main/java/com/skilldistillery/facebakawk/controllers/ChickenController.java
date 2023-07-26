@@ -52,7 +52,7 @@ public class ChickenController {
 	}
 
 	@RequestMapping(path = { "updateChickenInfo.do" }, method = RequestMethod.POST)
-	public String updateChicken(HttpSession session, Chicken chicken, User user) {
+	public String updateChicken(HttpSession session, Chicken chicken, Integer chickenId) {
 		User userInSession = (User) session.getAttribute("loggedInUser");
 
 		if (userInSession != null) {
@@ -60,8 +60,8 @@ public class ChickenController {
 //			User loggedInUser = userDAO.findUserById(userInSession.getId());
 
 //			loggedInUser.setAddress(address);
-			user.setId(userInSession.getId());
-			chickenDAO.updateChicken(user, chicken);
+			
+			chickenDAO.updateChicken(userInSession, chicken);
 
 			refreshSessionData(session);
 			return "account";
@@ -103,7 +103,7 @@ public class ChickenController {
 	@RequestMapping(path = { "goToUpdateChicken.do" })
 	public String redirectToUpdateChicken(Model model, Integer chickenId) {
 		Chicken chicken = chickenDAO.findChickenById(chickenId);
-		model.addAttribute("chickenList", chicken);
+		model.addAttribute("chicken", chicken);
 		return "updateChickenForm";
 	}
 

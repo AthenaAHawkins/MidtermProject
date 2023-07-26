@@ -55,14 +55,14 @@ public class ChickenDAOImpl implements ChickenDAO {
 
 	@Override
 	public void updateChicken(User user, Chicken chicken) {
-		Chicken manageChicken = em.find(Chicken.class, user.getId());
-		manageChicken.setName(chicken.getName());
+		Chicken manageChicken = em.find(Chicken.class, chicken.getId());
+		if (manageChicken != null) {
+			manageChicken.setName(chicken.getName());
+			manageChicken.setWantsChicks(chicken.isWantsChicks());
+			manageChicken.setDescription(chicken.getDescription());
+			manageChicken.setPictureURL(chicken.getPictureURL());
+		}
 
-		manageChicken.setWantsChicks(chicken.isWantsChicks());
-		manageChicken.setDescription(chicken.getDescription());
-		manageChicken.setPictureURL(chicken.getPictureURL());
-		manageChicken.getOwner().setFirstName(user.getFirstName());
-		manageChicken.getOwner().setLastName(user.getLastName());
 
 	}
 
