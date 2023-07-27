@@ -16,8 +16,9 @@
 			<input type="hidden" name=postId value = "${post.id }">
 			<label for="title">Post Title </label><br>
 			<input type="text" class="form-control" name="title" value="${post.title}">
-			<label for="content">Post Content </label><br>
-			<input type="text" class="form-control" name="content" value="${post.content}">
+			<label for="content">Post Content</label><br>
+			<textarea name="content" rows="5" cols="40">${post.content}</textarea>
+
 			
 			<button class="btn btn-primary">Update Post</button>
 		</form>

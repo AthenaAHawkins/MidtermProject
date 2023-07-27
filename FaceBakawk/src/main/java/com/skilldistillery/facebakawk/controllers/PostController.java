@@ -62,7 +62,8 @@ public class PostController {
 			post.setUser(user);
 			postDAO.create(post);
 			model.addAttribute("post", post);
-			return "forumMainPage";
+			refreshSessionData(session);
+			return displayAllPosts(model);
 		} else {
 			return "logIn";
 		}
@@ -111,10 +112,10 @@ public class PostController {
 	}
 
 	@RequestMapping(path = { "disablePost.do" }, method = RequestMethod.GET)
-	public String disablePost(Integer postId, HttpSession session) {
+	public String disablePost(Model model, Integer postId, HttpSession session) {
 		postDAO.deleteById(postId);
 
-		return "forumMainPage";
+		return displayAllPosts(model);
 
 	}
 
