@@ -46,6 +46,7 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public Post create(Post post) {
+		post.setEnabled(true);
 		em.persist(post);
 		em.flush();
 		return post;
@@ -72,12 +73,12 @@ public class PostDAOImpl implements PostDAO {
 			return false;
 		}
 
-		if (!em.contains(e)) {
+		else {
+			e.setEnabled(false);
 			success = true;
 		}
 
-		em.remove(e); // performs the delete on the managed entity
-		em.flush();
+		
 
 		return success;
 	}

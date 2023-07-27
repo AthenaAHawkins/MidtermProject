@@ -27,7 +27,9 @@ public class Post {
 
 	@Column(name = "post_date")
 	private LocalDateTime postDate;
+	
 	private Boolean enabled;
+	
 	@Column(name = "picture_url")
 	private String pictureURL;
 
