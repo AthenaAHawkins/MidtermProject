@@ -21,7 +21,9 @@ public class Chicken {
 
 	private String name;
 
-	private LocalDate birthday;
+	private LocalDateTime birthday;
+	
+
 	private Boolean enabled;
 	@Column(name = "inches")
 	private Double height;
@@ -32,6 +34,10 @@ public class Chicken {
 
 	@Column(name = "wants_chicks")
 	private boolean wantsChicks;
+
+	public void setBirthday(LocalDateTime birthday) {
+		this.birthday = birthday;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -68,12 +74,10 @@ public class Chicken {
 		this.name = name;
 	}
 
-	public LocalDate getBirthday() {
-		return birthday;
-	}
+																																																																																																																																																																																											
 
-	public void setBirthday(LocalDate birthday) {
-		this.birthday = birthday;
+	public LocalDateTime getBirthday() {
+		return birthday;
 	}
 
 	public Double getHeight() {
@@ -160,9 +164,10 @@ public class Chicken {
 
 	@Override
 	public String toString() {
-		return "Chicken [id=" + id + ", name=" + name + ", birthday=" + birthday + ", height=" + height + ", gender="
-				+ gender + ", musicTaste=" + musicTaste + ", wantsChicks=" + wantsChicks + ", description="
-				+ description + ", createDate=" + createDate + "]";
+		return "Chicken [id=" + id + ", name=" + name + ", birthday=" + birthday + ", enabled=" + enabled + ", height="
+				+ height + ", gender=" + gender + ", musicTaste=" + musicTaste + ", wantsChicks=" + wantsChicks
+				+ ", owner=" + owner + ", breed=" + breed + ", description=" + description + ", createDate="
+				+ createDate + ", pictureURL=" + pictureURL + "]";
 	}
 
 	public String getPictureURL() {

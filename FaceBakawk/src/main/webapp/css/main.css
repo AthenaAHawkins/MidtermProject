@@ -1,1 +1,24 @@
-@charset "UTF-8";
+body{
+
+background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://post.healthline.com/wp-content/uploads/2020/02/chicken-grass-field-1200x628-facebook.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100%;
+	padding: 30px;
+}
+
+th{
+	color: brown;
+}
+td{
+	color: lightseagreen;
+}
+tr{
+	color: deeppink;
+}
+h6{
+	color: darkblue;
+	font-family: 'Times New Roman', Times, serif;
+}

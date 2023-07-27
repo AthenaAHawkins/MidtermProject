@@ -61,7 +61,7 @@
         <h6>*Required Field</h6>
         <br>
         <br>
-        <a href="account.do">Back to Home</a>
+        <a href="account.do">Back to Profile</a>
             </form>
 </div>
 <jsp:include page="bootStrapFoot.jsp"/>

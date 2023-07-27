@@ -21,6 +21,7 @@ public class AccountController {
 		refreshSessionData(session);
 		User inSession = (User) session.getAttribute("loggedInUser");
 		if (inSession != null) {
+			refreshSessionData(session);
 			model.addAttribute("chickenList", inSession.getChickens());
 
 			return "account";

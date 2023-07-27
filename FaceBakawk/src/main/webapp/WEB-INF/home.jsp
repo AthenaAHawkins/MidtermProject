@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>FaceBaKawk</title>
 <jsp:include page="bootStrapHead.jsp"/>
+
 </head>
 <body>
 
