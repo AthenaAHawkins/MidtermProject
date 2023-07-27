@@ -5,9 +5,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Update Event</title>
+<jsp:include page="bootStrapHead.jsp"/>
+<link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
 
 <div>
     <form action="updateEvent.do" method="POST">
@@ -71,6 +74,6 @@
         <a href="home.do">Back to Home</a>
 </div>
 
-
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

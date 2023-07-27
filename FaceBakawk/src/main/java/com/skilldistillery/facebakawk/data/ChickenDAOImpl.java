@@ -71,7 +71,6 @@ public class ChickenDAOImpl implements ChickenDAO {
 	@Override
 	public boolean deleteById(int chickenId) {
 
-
 		boolean success = false;
 		Chicken manageChicken = em.find(Chicken.class, chickenId);
 

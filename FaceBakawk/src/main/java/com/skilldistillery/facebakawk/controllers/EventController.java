@@ -54,10 +54,11 @@ public class EventController {
 		}
 	}
 
-	@RequestMapping(path = { "deleteEvent.do" })
-	public String deleteEvent(Model model, Integer eventId) {
+	@RequestMapping(path = { "deleteEvent.do" }, method=RequestMethod.POST)
+	public String deleteEvent(Model model, Integer eventId, HttpSession session) {
 		eventDAO.deleteById(eventId);
-		return "home";
+		refreshSessionData(session);
+		return "account";
 	}
 
 	@RequestMapping(path = "addEvent.do", method = RequestMethod.GET)

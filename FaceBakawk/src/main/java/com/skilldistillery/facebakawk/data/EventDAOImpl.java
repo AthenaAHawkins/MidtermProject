@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.facebakawk.entities.Address;
+import com.skilldistillery.facebakawk.entities.Chicken;
 import com.skilldistillery.facebakawk.entities.Event;
 import com.skilldistillery.facebakawk.entities.User;
 
@@ -91,18 +92,18 @@ public class EventDAOImpl implements EventDAO {
 	public boolean deleteById(int eventId) {
 
 		boolean success = false;
-		Event e = em.find(Event.class, eventId);
+		Event managedEvent = em.find(Event.class, eventId);
 
-		if (e == null) {
+		if (managedEvent == null) {
 			return false;
 		}
 
-		if (!em.contains(e)) {
+		else {
+			managedEvent.setEnabled(false);
 			success = true;
 		}
 
-		em.remove(e); // performs the delete on the managed entity
-		em.flush();
+		
 
 		return success;
 	}
