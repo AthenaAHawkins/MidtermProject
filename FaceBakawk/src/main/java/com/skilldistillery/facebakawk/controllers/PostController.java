@@ -48,6 +48,13 @@ public class PostController {
 		}
 	}
 
+	@RequestMapping(path = { "addPost.do" })
+	public String addPosts(Model model, Post post, Integer postId) {
+		Post postToBeAdded = postDAO.create(post);
+		model.addAttribute("post", postToBeAdded);
+		return "forumMainPage";
+	}
+
 	@RequestMapping(path = { "displayAllPosts.do" })
 	public String displayAllPosts(Model model) {
 		List<Post> postList = postDAO.findAll();
@@ -67,7 +74,7 @@ public class PostController {
 	public String updatePost(Model model, Post post, Integer postId) {
 		postDAO.updatePost(postId, post);
 		model.addAttribute("updatedPost", post);
-		return "updatePost";
+		return "postUpdatedSuccess";
 
 	}
 
