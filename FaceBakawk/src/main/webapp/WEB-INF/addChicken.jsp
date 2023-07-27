@@ -75,8 +75,9 @@
         <br>
         <br>
         <h6>*Required Field</h6>
-        <a href="account.do">Back to Home</a>
-            </form>
+        <a href="account.do" id="unique-text">Back to Home</a>
+		</form>
+
 </div>
 <jsp:include page="bootStrapFoot.jsp"/>
 </body>
