@@ -25,7 +25,8 @@
 		<tbody>
 			<c:forEach var="postComment" items="${commentList}">
 				<tr>
-					<td>User: ${postComment.user.username }</td>
+					<td><img src="${postComment.user.pictureURL }" alt="This you?"
+					width="30" height="30">${postComment.user.username }</td>
 					<td>
 					<td>Comment: ${postComment.postContent }</td>
 				</tr>
