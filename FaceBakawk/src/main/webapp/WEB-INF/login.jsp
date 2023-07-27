@@ -5,18 +5,19 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Log In</title>
-	<link rel="stylesheet" href="login.css">
+	<jsp:include page="bootStrapHead.jsp"/>
+	<link rel="stylesheet" href="css/login.css">
+	
 	
 	
 
 	
 	
-	<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
-
-	<%--Edit the file nav.jsp to change nav links --%>
 	<jsp:include page="navbar.jsp"/>
+<div class="container">
+	<%--Edit the file nav.jsp to change nav links --%>
 	
 	<h2>Log In</h2>
 	
@@ -28,6 +29,7 @@
 	
 	<a href="goToAddUser.do">Create Account</a>
 	
+</div>
 	<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>
