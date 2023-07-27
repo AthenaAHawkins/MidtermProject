@@ -46,8 +46,8 @@ public class ChickenController {
 	@RequestMapping(path = { "disbaleChicken.do" }, method=RequestMethod.POST)
 	public String deleteChicken(Model model, Integer chickenId,HttpSession session) {
 		chickenDAO.deleteById(chickenId);
-
-		return "home";
+		refreshSessionData(session);
+		return "account";
 	}
 
 	public void refreshSessionData(HttpSession session) {
