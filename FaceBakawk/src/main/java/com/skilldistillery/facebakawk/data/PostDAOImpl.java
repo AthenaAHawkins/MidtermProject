@@ -21,7 +21,7 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public List<Post> findAll() {
-		String jpql = "SELECT post FROM Post post";
+		String jpql = "SELECT post FROM Post post WHERE enabled IS true";
 		return em.createQuery(jpql, Post.class).getResultList();
 	}
 

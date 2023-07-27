@@ -45,11 +45,13 @@ public class EventController {
 		if (eventGettingUpdated != null) {
 			event.setId(eventGettingUpdated.getId());
 			eventDAO.updateEvent(event, event.getAddress());
-			
-			refreshSessionData(session);
-		}
 
-		return "displayEvent";
+			refreshSessionData(session);
+			return "displayEvent";
+		}
+		else {
+			return "disabledPage";
+		}
 	}
 
 	@RequestMapping(path = { "deleteEvent.do" })
@@ -65,7 +67,7 @@ public class EventController {
 
 	@RequestMapping(path = "updateEventButton.do")
 	public String goToUpdateForm(Model model, Integer eventId) {
-		System.out.println("EVENT ID IN UPDATE BUTTON "+eventId);
+		System.out.println("EVENT ID IN UPDATE BUTTON " + eventId);
 		Event event = eventDAO.findEventById(eventId);
 
 		model.addAttribute("event", event);
