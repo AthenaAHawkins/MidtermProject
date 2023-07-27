@@ -1,0 +1,12 @@
+@charset "UTF-8";
+body{
+	
+background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://cdn.discordapp.com/attachments/1114627059638087822/1131670614919348315/DALLE_2023-07-20_12.34.52_-_chickens_kissing.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100%;
+	padding: 30px;
+
+}

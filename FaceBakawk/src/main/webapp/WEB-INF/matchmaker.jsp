@@ -6,6 +6,7 @@
 <head>
    <title>Chicken Pairs</title>
    <jsp:include page="bootStrapHead.jsp"/>
+<link rel="stylesheet" href="css/matchmaker.css">
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
@@ -15,6 +16,7 @@
        <c:forEach var="pair" items="${matchedPairs}">
            <tr>
                <td>${pair[0].name}</td>
+               <td><img	src="https://png.pngtree.com/png-vector/20190909/ourmid/pngtree-red-heart-icon-isolated-png-image_1726594.jpg" alt="Chicken Picture" width="100" height="75"></td>
                <td>${pair[1].name}</td>
            </tr>
        </c:forEach>
