@@ -16,7 +16,7 @@ import com.skilldistillery.facebakawk.data.MatchmakerDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
 import com.skilldistillery.facebakawk.entities.Breed;
 import com.skilldistillery.facebakawk.entities.Chicken; 
-import com.skilldistillery.facebakawk.entities.User;
+import com.skilldistillery.facebakawk.entities.User; 
 
 @Controller
 public class ChickenController {

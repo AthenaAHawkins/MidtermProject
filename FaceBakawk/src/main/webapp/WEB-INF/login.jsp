@@ -5,6 +5,12 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Log In</title>
+	<link rel="stylesheet" href="login.css">
+	
+	
+
+	
+	
 	<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
