@@ -34,8 +34,13 @@ public class ChickenController {
 	@RequestMapping(path = { "getChicken.do" })
 	public String displayChicken(Model model, Integer chickenId) {
 		Chicken chicken = chickenDAO.findChickenById(chickenId);
-		model.addAttribute("chicken", chicken);
-		return "displayChicken";
+		if (chicken.getEnabled()) {
+			model.addAttribute("chicken", chicken);
+
+			return "displayChicken";
+		} else {
+			return "disabledPage";
+		}
 	}
 
 	@RequestMapping(path = { "deleteChicken.do" })
@@ -45,6 +50,7 @@ public class ChickenController {
 
 		return "home";
 	}
+
 	public void refreshSessionData(HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("loggedInUser");
 		session.setAttribute("loggedInUser",
@@ -60,7 +66,7 @@ public class ChickenController {
 //			User loggedInUser = userDAO.findUserById(userInSession.getId());
 
 //			loggedInUser.setAddress(address);
-			
+
 			chickenDAO.updateChicken(userInSession, chicken);
 
 			refreshSessionData(session);
@@ -99,7 +105,7 @@ public class ChickenController {
 		model.addAttribute("breedList", breedDAO.findAll());
 		return "addChicken";
 	}
-	
+
 	@RequestMapping(path = { "goToUpdateChicken.do" })
 	public String redirectToUpdateChicken(Model model, Integer chickenId) {
 		Chicken chicken = chickenDAO.findChickenById(chickenId);
