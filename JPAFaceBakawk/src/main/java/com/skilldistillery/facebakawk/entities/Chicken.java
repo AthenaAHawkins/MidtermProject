@@ -2,6 +2,7 @@ package com.skilldistillery.facebakawk.entities;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -21,7 +22,7 @@ public class Chicken {
 
 	private String name;
 
-	private LocalDateTime birthday;
+	private LocalDate birthday;
 	
 
 	private Boolean enabled;
@@ -35,9 +36,6 @@ public class Chicken {
 	@Column(name = "wants_chicks")
 	private boolean wantsChicks;
 
-	public void setBirthday(LocalDateTime birthday) {
-		this.birthday = birthday;
-	}
 
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -76,9 +74,7 @@ public class Chicken {
 
 																																																																																																																																																																																											
 
-	public LocalDateTime getBirthday() {
-		return birthday;
-	}
+
 
 	public Double getHeight() {
 		return height;
@@ -184,6 +180,14 @@ public class Chicken {
 
 	public void setEnabled(Boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public LocalDate getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(LocalDate birthday) {
+		this.birthday = birthday;
 	}
 
 }

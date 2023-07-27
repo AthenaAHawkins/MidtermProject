@@ -14,7 +14,7 @@
 <h1>Upcoming Events</h1>
 
 <c:if test="${not empty sessionScope.loggedInUser}">
-<p>Create an Event</p>
+<br>
  <p><a href="goToAddEvent.do">Create an Event</a></p>
  
 </c:if>
@@ -22,11 +22,13 @@
 
 <table>
     <c:forEach items="${eventList}" var="event">
+    <c:if test="${event.enabled == true }">
         <tr>
             <td><a href="displayEvent.do?eventId=${event.id}">${event.title}</a></td>
             <td>${event.creator.username}</td>
             <td>${event.eventDate}</td>
         </tr>
+    </c:if>
     </c:forEach>
 </table>
 

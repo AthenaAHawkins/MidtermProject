@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Update post</title>
+<jsp:include page="bootStrapHead.jsp"/>
+<link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
 </head>
 <body>
+<jsp:include page="navbar.jsp"/>
 
 		
 		<h3>Update Post</h3>
@@ -23,6 +26,6 @@
 			<button class="btn btn-primary">Update Post</button>
 		</form>
 		
-
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

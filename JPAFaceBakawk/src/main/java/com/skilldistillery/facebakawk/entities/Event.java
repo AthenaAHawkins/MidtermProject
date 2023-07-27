@@ -57,6 +57,8 @@ public class Event {
 	@ManyToOne
 	@JoinColumn(name = "creator_id")
 	private User creator;
+	
+	private Boolean enabled;
 
 	@ManyToOne
 	@JoinColumn(name = "address_id")
@@ -233,6 +235,14 @@ public class Event {
 
 	public LocalTime getEndTime() {
 		return endTime;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 }

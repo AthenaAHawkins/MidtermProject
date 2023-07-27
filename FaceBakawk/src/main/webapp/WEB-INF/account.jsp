@@ -93,6 +93,7 @@
 							${event.title}</a></td>
 					<td><img src="${event.pictureURL}" alt="${event.title}"
 						width="300" height="200"></td>
+						
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -105,13 +106,23 @@
 		<thead class="table-dark">
 		<tbody>
 			<c:forEach var="event" items="${loggedInUser.eventsCreated}">
+		<c:if test="${event.enabled == true }">
 				<tr>
 					<td><a href="displayEvent.do?eventId=${event.id}">
 							${event.title}</a></td>
 					<td><img src="${event.pictureURL}" alt="${event.title}"
 						width="300" height="200"></td>
-					<td><a href="updateEventButton.do?eventId=${event.id }">edit event</a></td>	 
+					<td>
+						<a href="updateEventButton.do?eventId=${event.id }">edit event</a>
+					</td>	 
+					<td>
+						<form action="deleteEvent.do" method="post">
+							<input type="hidden" name="eventId" value="${event.id }">
+							<button class="btn btn-danger" >Terminate the event</button>
+						</form>
+					</td>
 				</tr>
+		</c:if>
 			</c:forEach>
 		</tbody>
 	</table>
