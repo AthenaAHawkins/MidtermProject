@@ -47,7 +47,7 @@ public class ChickenController {
 	public String deleteChicken(Model model, Integer chickenId,HttpSession session) {
 		chickenDAO.deleteById(chickenId);
 		refreshSessionData(session);
-		return "account";
+		return "chickendisabled";
 	}
 
 	public void refreshSessionData(HttpSession session) {
