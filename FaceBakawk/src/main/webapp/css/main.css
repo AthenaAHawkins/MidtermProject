@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-body{
-=======
  body {
       background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://post.healthline.com/wp-content/uploads/2020/02/chicken-grass-field-1200x628-facebook.jpg);
       background-repeat: no-repeat;
@@ -12,7 +8,7 @@ body{
       padding: 30px;
       font-family: Arial, sans-serif;
     }
->>>>>>> 217f76630c5af5adfabf407dbe7008d0da3bcf3b
+
 
     .container {
       max-width: 600px;
@@ -23,7 +19,7 @@ body{
       border-radius: 5px;
     }
 
-<<<<<<< HEAD
+
 th{
 	color: brown;
 }
@@ -46,7 +42,7 @@ h6{
 	height: 100%;
 	padding: 30px;
 }
-=======
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -79,4 +75,4 @@ h6{
     }
     
     
->>>>>>> 217f76630c5af5adfabf407dbe7008d0da3bcf3b
+
