@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.facebakawk.entities.Address;
 import com.skilldistillery.facebakawk.entities.Event;
+import com.skilldistillery.facebakawk.entities.User;
 
 @Service
 @Transactional
@@ -77,11 +78,20 @@ public class EventDAOImpl implements EventDAO {
 		}
 	}
 
+	
 	@Override
-	public boolean deleteById(int userId) {
+	public Event rsvpUserToEvent(int eventId, int userId) {
+		Event managedEvent= em.find(Event.class, eventId );
+		User managedUser = em.find(User.class, userId );
+		managedEvent.addAttendee(managedUser);
+		return managedEvent;
+		
+	} 
+	@Override
+	public boolean deleteById(int eventId) {
 
 		boolean success = false;
-		Event e = em.find(Event.class, userId);
+		Event e = em.find(Event.class, eventId);
 
 		if (e == null) {
 			return false;

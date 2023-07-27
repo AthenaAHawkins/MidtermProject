@@ -103,6 +103,12 @@ public class EventController {
 	public String redirectToAddEvent() {
 		return "addEvent";
 	}
+	@RequestMapping(path = { "rsvp.do" },method = RequestMethod.POST)
+	public String rsvpToEvent(Integer eventId, Integer userId, Model model) {
+		Event updatedEvent = eventDAO.rsvpUserToEvent(eventId, userId);
+		model.addAttribute("event",updatedEvent);
+		return displayEvent(model, eventId);
+	}
 
 	@RequestMapping(path = { "searchEvent.do" })
 	public String searchEvent(Model model, String searchTerm) {

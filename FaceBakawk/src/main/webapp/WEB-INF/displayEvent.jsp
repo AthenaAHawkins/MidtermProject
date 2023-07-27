@@ -28,12 +28,31 @@
 	 <p><em>Where: ${event.address.city }, ${event.address.state }, Street: ${event.address.street } </em></p>
 
 
+				<c:if test="${not empty sessionScope.loggedInUser }">
+	
+					<form action="rsvp.do" method="POST">
+					<input type="hidden" name="eventId" value="${event.id }"><br>
+					<input type="hidden" name="userId" value="${sessionScope.loggedInUser.id }"><br>
+					
+					  <input type="submit" value="RSVP to event">
+					  
+					 </form>
+				 </c:if>
 
 
-
-
-	<%-- </c:forEach> --%>
-
+<table class="table table-striped table-hover">
+		<thead class="table-dark">
+		<tbody>
+			<c:forEach var="attendee" items="${event.attendees}">
+				<tr>
+					<td><img src="${attendee.pictureURL }" alt="This you?"
+					width="30" height="30"><a href="getUser.do?userId=${attendee.id}">${attendee.username}</a>
+</td>
+					
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 
 <jsp:include page="bootStrapFoot.jsp"/>
 </body>

@@ -17,5 +17,6 @@ public interface EventDAO {
 	void updateEvent(Event event, Address address);
 
 	boolean deleteById(int eventId);
-
+	
+	Event rsvpUserToEvent(int eventId, int userId);
 }
