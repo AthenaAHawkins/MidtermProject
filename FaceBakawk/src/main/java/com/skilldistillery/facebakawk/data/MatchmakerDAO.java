@@ -12,7 +12,7 @@ public interface MatchmakerDAO {
 
 	int compatibilityLevel(Chicken chickOne, Chicken chickTwo);
 
-	String getSign(LocalDateTime birthday);
+	String getSign(LocalDate birthday);
 
 	int signCompatibility(String sign, String otherSign);
 

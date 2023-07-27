@@ -1,7 +1,6 @@
 package com.skilldistillery.facebakawk.data;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +80,7 @@ public class MatchmakerDAOImpl implements MatchmakerDAO {
 	}
 
 	@Override
-	public String getSign(LocalDateTime birthday) {
+	public String getSign(LocalDate birthday) {
 		int day = birthday.getDayOfMonth();
 		int month = birthday.getMonthValue();
 

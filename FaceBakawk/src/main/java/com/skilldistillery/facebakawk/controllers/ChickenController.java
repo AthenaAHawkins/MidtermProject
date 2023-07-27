@@ -1,5 +1,6 @@
 package com.skilldistillery.facebakawk.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,8 +15,7 @@ import com.skilldistillery.facebakawk.data.BreedDAO;
 import com.skilldistillery.facebakawk.data.ChickenDAO;
 import com.skilldistillery.facebakawk.data.MatchmakerDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
-import com.skilldistillery.facebakawk.entities.Breed;
-import com.skilldistillery.facebakawk.entities.Chicken; 
+import com.skilldistillery.facebakawk.entities.Chicken;
 import com.skilldistillery.facebakawk.entities.User; 
 
 @Controller
@@ -80,8 +80,10 @@ public class ChickenController {
 	}
 
 	@RequestMapping(path = "addChicken.do", method = RequestMethod.POST)
-	public String addChicken(Model model, Chicken chicken, HttpSession session) {
-
+	public String addChicken(Model model, Chicken chicken, HttpSession session, String birthday) {
+		
+		LocalDate birthdayOfChicken = LocalDate.parse(birthday);
+		chicken.setBirthday(birthdayOfChicken);
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
 //			chicken.setBreed(breed);
