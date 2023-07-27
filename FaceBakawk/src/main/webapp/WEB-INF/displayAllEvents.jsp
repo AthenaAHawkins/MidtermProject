@@ -14,7 +14,7 @@
 <h1>Upcoming Events</h1>
 
 <c:if test="${not empty sessionScope.loggedInUser}">
-<p>Create an Event</p>
+<br>
  <p><a href="goToAddEvent.do">Create an Event</a></p>
  
 </c:if>
