@@ -33,12 +33,12 @@
       
 				<c:choose>
 							<c:when test="${not empty spotlight.pictureURL}">
-								<a href="getChicken.do?spotlightId=${spotlight.id}"> <img
+								<a href="getChicken.do?chickenId=${spotlight.id}"> <img
 									src="${spotlight.pictureURL}" alt="Chicken Picture" width="300"
 									height="200"></a>
 							</c:when>
 							<c:otherwise>
-								<a href="getChicken.do?spotlightId=${spotlight.id}"> <img
+								<a href="getChicken.do?chickenId=${spotlight.id}"> <img
 									src="${spotlight.breed.pictureURL}" alt="Breed Picture"
 									width="300" height="200"></a>
 							</c:otherwise>
