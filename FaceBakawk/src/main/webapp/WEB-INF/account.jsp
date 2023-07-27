@@ -8,15 +8,16 @@
 <title>Account Profile</title>
 
 
-<jsp:include page="bootStrapHead.jsp" />
+<link rel="stylesheet" href="css/account.css">
+<jsp:include page="bootStrapHead.jsp"/>
 <link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
 </head>
 
-<body>
+<body id="accountpage">
 
 	<%--Edit the file nav.jsp to change nav links --%>
 	<jsp:include page="navbar.jsp" />
-
+<div class="container" >
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser }">
 			<h2>Your Account Details</h2>
@@ -189,6 +190,7 @@
 			<input type="hidden" name="userId" value="${loggedInUser.id }">
 			<button class="btn btn-danger" >Deactivate</button>
 		</form>
+</div>
 	<jsp:include page="bootStrapFoot.jsp" />
 </body>
 </html>

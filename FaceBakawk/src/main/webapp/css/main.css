@@ -1,3 +1,4 @@
+
 body{
 
 background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://post.healthline.com/wp-content/uploads/2020/02/chicken-grass-field-1200x628-facebook.jpg);
@@ -21,4 +22,13 @@ tr{
 h6{
 	color: darkblue;
 	font-family: 'Times New Roman', Times, serif;
+}
+#accountpage{
+	background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://static01.nyt.com/images/2010/04/21/dining/21chickenspan-1/21chicken_CA0-articleLarge.jpg?year=2010&h=356&w=600&s=71250760ee5191c27157d0ed8a66ee51d08faef684d57999a2e50bfc3308370f&k=ZQJBKqZ0VN);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100%;
+	padding: 30px;
 }
