@@ -17,7 +17,7 @@
 
 <c:choose>
     <c:when test="${not empty chicken.pictureURL}">
-        <img src="${chicken.pictureURL}" alt="Chicken Picture">
+        <img src="${chicken.pictureURL}" alt="Chicken Picture" width="300" height="200">
     </c:when>
     <c:otherwise>
         <img src="${chicken.breed.pictureURL}" alt="Breed Picture">
