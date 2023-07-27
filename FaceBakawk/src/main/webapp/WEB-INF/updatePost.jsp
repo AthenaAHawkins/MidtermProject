@@ -8,5 +8,20 @@
 </head>
 <body>
 
+		
+		<h3>Update Post</h3>
+		<form action="updatePost.do" method="post">
+
+			
+			<input type="hidden" name=postId value = "${post.id }">
+			<label for="title">Post Title </label><br>
+			<input type="text" class="form-control" name="title" value="${post.title}">
+			<label for="content">Post Content </label><br>
+			<input type="text" class="form-control" name="content" value="${post.content}">
+			
+			<button class="btn btn-primary">Update Post</button>
+		</form>
+		
+
 </body>
 </html>

@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.facebakawk.data.CommentDAO;
 import com.skilldistillery.facebakawk.data.PostDAO;
+import com.skilldistillery.facebakawk.data.UserDAO;
+import com.skilldistillery.facebakawk.entities.Post;
 import com.skilldistillery.facebakawk.entities.Post;
 import com.skilldistillery.facebakawk.entities.PostComment;
+import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
 public class PostController {
@@ -22,6 +25,9 @@ public class PostController {
 	
 	@Autowired
 	private CommentDAO commentDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 	
 //	@RequestMapping(path = { "goToForumMain.do" })
 //	public String goToForumMain() {
@@ -61,13 +67,24 @@ public class PostController {
 	}
 	
 	@RequestMapping(path= {"updatePost.do"})
-	public String updatePost(Model model, Post post, Integer postId) {
+	public String updatePost(Model model, Post post, Integer postId, HttpSession session) {
 	postDAO.updatePost(postId, post);
+	refreshSessionData(session);
 	model.addAttribute("updatedPost", post);
-	return "updatePost";
+	return displayAllPosts(model);
 	
 }
 	
+	@RequestMapping(path = { "goToUpdatePost.do" })
+	public String redirectToUpdatePost(Model model, Integer postId) {
+		Post post = postDAO.findPostById(postId);
+		model.addAttribute("post", post);
+		return "updatePost";
+	}
 	
-	
+	public void refreshSessionData(HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		session.setAttribute("loggedInUser",
+				userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
+	}
 }

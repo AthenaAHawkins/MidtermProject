@@ -15,7 +15,6 @@
 <c:if test="${not empty sessionScope.loggedInUser}">
 <p>Create an Event</p>
  <p><a href="createPost.do">Create an Event</a></p>
-  <p><a href="updatePost.do">Update an Event</a></p>
  
  
 </c:if>
@@ -26,6 +25,11 @@
             <td><a href="displayPost.do?postId=${post.id}">${post.title}</a></td>
             <td>${post.user.username}</td>
             <td>${post.postDate}</td>
+            
+            
+  <c:if test="${sessionScope.loggedInUser.id == post.user.id}">         
+  <td><a href="goToUpdatePost.do?postId=${post.id}">Update an Event</a></td>
+  </c:if>
         </tr>
     </c:forEach>
 </table>
