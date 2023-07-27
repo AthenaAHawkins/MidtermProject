@@ -47,6 +47,7 @@
 		<thead class="table-dark">
 		<tbody>
 			<c:forEach var="chicken" items="${loggedInUser.chickens}">
+			<c:if test="${chicken.enabled == true }">
 				<tr>
 					<td><a href="getChicken.do?chickenId=${chicken.id}">
 							${chicken.name}</a></td>
@@ -65,8 +66,15 @@
 						</c:choose></td>
 						<td><a href="goToUpdateChicken.do?chickenId=${chicken.id}">
 							Update Chicken Info</a></td>
+							<td>
+							<form action="disbaleChicken.do" method="post">
+			<input type="hidden" name="chickenId" value="${chicken.id }">
+			<button class="btn btn-danger" >Turn into Tendies</button>
+		</form>
+							</td>
 						
 				</tr>
+			</c:if>
 			</c:forEach>
 		</tbody>
 	</table>
@@ -160,13 +168,13 @@
 				<br>
 
 
-				<button class="btn btn-primary">update userinfo</button>
+				<button class="btn btn-primary">Update User Info</button>
 
 		</form>
 					<br>
 		<form action="disbaleUser.do" method="post">
 			<input type="hidden" name="userId" value="${loggedInUser.id }">
-			<button class="btn btn-danger" >disable</button>
+			<button class="btn btn-danger" >Deactivate</button>
 		</form>
 	<jsp:include page="bootStrapFoot.jsp" />
 </body>

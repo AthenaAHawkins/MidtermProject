@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.facebakawk.entities.Chicken;
+import com.skilldistillery.facebakawk.entities.Post;
 import com.skilldistillery.facebakawk.entities.User; 
 
 @Service
@@ -68,21 +69,22 @@ public class ChickenDAOImpl implements ChickenDAO {
 	}
 
 	@Override
-	public boolean deleteById(int userId) {
+	public boolean deleteById(int chickenId) {
+
 
 		boolean success = false;
-		Chicken u = em.find(Chicken.class, userId);
+		Chicken manageChicken = em.find(Chicken.class, chickenId);
 
-		if (u == null) {
+		if (manageChicken == null) {
 			return false;
 		}
 
-		if (!em.contains(u)) {
+		else {
+			manageChicken.setEnabled(false);
 			success = true;
 		}
 
-		em.remove(u); // performs the delete on the managed entity
-		em.flush();
+		
 
 		return success;
 	}

@@ -50,11 +50,13 @@
 		<thead class="table-dark">
 		<tbody>
 			<c:forEach var="chicken" items="${user.chickens}">
+			<c:if test="${chicken.enabled == true }">
 				<tr>
 					<td><a href="getChicken.do?chickenId=${chicken.id}"> ${chicken.name}</a></td>
 					<td><img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
 						height="200"></td>
 				</tr>
+			</c:if>
 			</c:forEach>
 		</tbody>
 	</table>
