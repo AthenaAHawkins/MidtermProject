@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.facebakawk.data.CommentDAO;
 import com.skilldistillery.facebakawk.data.PostDAO;
@@ -25,10 +26,9 @@ public class PostController {
 
 	@Autowired
 	private CommentDAO commentDAO;
-	
+
 	@Autowired
 	private UserDAO userDAO;
-	
 
 //	@RequestMapping(path = { "goToForumMain.do" })
 //	public String goToForumMain() {
@@ -55,11 +55,17 @@ public class PostController {
 		}
 	}
 
-	@RequestMapping(path = { "addPost.do" })
-	public String addPosts(Model model, Post post, Integer postId) {
-		Post postToBeAdded = postDAO.create(post);
-		model.addAttribute("post", postToBeAdded);
-		return "forumMainPage";
+	@RequestMapping(path = { "addPost.do" },method=RequestMethod.POST)
+	public String addPosts(Model model, Post post, HttpSession session) {
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+			post.setUser(user);
+			postDAO.create(post);
+			model.addAttribute("post", post);
+			return "forumMainPage";
+		} else {
+			return "logIn";
+		}
 	}
 
 	@RequestMapping(path = { "displayAllPosts.do" })
@@ -77,27 +83,39 @@ public class PostController {
 		return "redirect:displayPost.do?postId=" + userComment.getPost().getId();
 	}
 
-	
-	@RequestMapping(path= {"updatePost.do"})
+	@RequestMapping(path = { "updatePost.do" })
 	public String updatePost(Model model, Post post, Integer postId, HttpSession session) {
-	postDAO.updatePost(postId, post);
-	refreshSessionData(session);
-	model.addAttribute("updatedPost", post);
-	return displayAllPosts(model);
-	
-}
-	
+		postDAO.updatePost(postId, post);
+		refreshSessionData(session);
+		model.addAttribute("updatedPost", post);
+		return displayAllPosts(model);
+
+	}
+
 	@RequestMapping(path = { "goToUpdatePost.do" })
 	public String redirectToUpdatePost(Model model, Integer postId) {
 		Post post = postDAO.findPostById(postId);
 		model.addAttribute("post", post);
 		return "updatePost";
 	}
-	
+
+	@RequestMapping(path = { "goToAddPost.do" })
+	public String redirectToAddPost(Model model, Integer postId) {
+		return "addPost";
+	}
+
 	public void refreshSessionData(HttpSession session) {
 		User loggedInUser = (User) session.getAttribute("loggedInUser");
 		session.setAttribute("loggedInUser",
 				userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
+	}
+
+	@RequestMapping(path = { "disablePost.do" }, method = RequestMethod.GET)
+	public String disablePost(Integer postId, HttpSession session) {
+		postDAO.deleteById(postId);
+
+		return "forumMainPage";
+
 	}
 
 }

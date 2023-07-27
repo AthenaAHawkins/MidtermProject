@@ -13,8 +13,7 @@
 <h1>Forum</h1>
 
 <c:if test="${not empty sessionScope.loggedInUser}">
-<p>Create an Event</p>
- <p><a href="createPost.do">Create an Event</a></p>
+ <p><a href="goToAddPost.do">Create a Post</a></p>
  
  
 </c:if>
@@ -28,7 +27,8 @@
             
             
   <c:if test="${sessionScope.loggedInUser.id == post.user.id}">         
-  <td><a href="goToUpdatePost.do?postId=${post.id}">Update an Event</a></td>
+  <td><a href="goToUpdatePost.do?postId=${post.id}">Update post</a></td>
+  <td><a href="disablePost.do?postId=${post.id }">Delete post</a>
   </c:if>
         </tr>
     </c:forEach>
