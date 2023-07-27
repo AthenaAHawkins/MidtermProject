@@ -21,17 +21,9 @@
 
 		height="200"> 
 	<h3>User Name: ${user.username}</h3>
-	<h2>${user.username}</h2>
-	<h2> ${user.firstName} , ${user.lastName }</h2>
-
-	<br><h2>
-	Chicken:
-	<c:forEach var="chicken" items="${user.chickens}">
-	 <a href="getChicken.do?chickenId=${chicken.owner.id}"> <img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
-						height="200"></a><br>
-	 
-	 
-	 </c:forEach></h2>
+	
+	<h2> ${user.firstName} &nbsp; ${user.lastName }</h2>
+	
 	<br>
 	<h2>Description:
 	 ${user.description}</h2>

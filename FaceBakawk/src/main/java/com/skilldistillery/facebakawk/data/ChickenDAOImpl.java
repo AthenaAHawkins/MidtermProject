@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.facebakawk.entities.Chicken;
-import com.skilldistillery.facebakawk.entities.User;
+import com.skilldistillery.facebakawk.entities.User; 
 
 @Service
 @Transactional
@@ -47,6 +47,7 @@ public class ChickenDAOImpl implements ChickenDAO {
 
 	@Override
 	public Chicken create(Chicken chicken) {
+		chicken.setEnabled(true);
 		em.persist(chicken);
 		em.flush();
 		return chicken;

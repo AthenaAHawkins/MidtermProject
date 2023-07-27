@@ -26,7 +26,8 @@
 			<c:forEach var="postComment" items="${commentList}">
 				<tr>
 					<td><img src="${postComment.user.pictureURL }" alt="This you?"
-					width="30" height="30">${postComment.user.username }</td>
+					width="30" height="30"><a href="getUser.do?userId=${postComment.user.id}">${postComment.user.username}</a>
+</td>
 					<td>
 					<td>Comment: ${postComment.postContent }</td>
 				</tr>
