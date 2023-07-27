@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.data;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,7 +10,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.facebakawk.entities.Breed;
 import com.skilldistillery.facebakawk.entities.Chicken;
 import com.skilldistillery.facebakawk.entities.User;
 
@@ -84,6 +84,19 @@ public class ChickenDAOImpl implements ChickenDAO {
 		em.flush();
 
 		return success;
+	}
+
+	@Override
+	public Chicken spotlightChicken() {
+		List<Chicken> allChickens = findAll();
+		if(allChickens.isEmpty()) {
+			return null;
+		}
+		
+		Random rdm = new Random();
+		int spotlight = rdm.nextInt(allChickens.size());
+		return allChickens.get(spotlight);
+	
 	}
 
 }

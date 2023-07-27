@@ -17,6 +17,7 @@ import com.skilldistillery.facebakawk.data.ChickenDAO;
 import com.skilldistillery.facebakawk.data.EventDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
 import com.skilldistillery.facebakawk.entities.Address;
+import com.skilldistillery.facebakawk.entities.Chicken;
 import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
@@ -38,6 +39,8 @@ public class UserController {
 	public String home(Model model) {
 		model.addAttribute("chickenList", chickenDAO.findAll());
 		model.addAttribute("eventList", eventDAO.findAll());
+		Chicken spotlight = chickenDAO.spotlightChicken();
+		model.addAttribute("spotlight", spotlight);
 		return "home";
 	}
 

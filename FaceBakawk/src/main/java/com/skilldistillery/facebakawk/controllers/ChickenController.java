@@ -128,5 +128,12 @@ public class ChickenController {
 		model.addAttribute("matchedPairs", matchedPairs);
 		return "matchmaker";
 	}
+	@RequestMapping(path= {"spotlight.do"})
+	public String spotlightChicken(Model model, Chicken chicken) {
+		Chicken spotlight = chickenDAO.spotlightChicken();
+		model.addAttribute("spotlight", spotlight);
+		return "home";
+		
+	}
 
 }

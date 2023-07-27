@@ -18,5 +18,7 @@ public interface ChickenDAO {
 	void updateChicken(User user, Chicken chicken);
 
 	boolean deleteById(int chickenId);
+	
+	Chicken spotlightChicken();
 
 }
