@@ -1,6 +1,7 @@
 package com.skilldistillery.facebakawk.data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.skilldistillery.facebakawk.entities.Chicken;
@@ -11,7 +12,7 @@ public interface MatchmakerDAO {
 
 	int compatibilityLevel(Chicken chickOne, Chicken chickTwo);
 
-	String getSign(LocalDate birthday);
+	String getSign(LocalDateTime birthday);
 
 	int signCompatibility(String sign, String otherSign);
 

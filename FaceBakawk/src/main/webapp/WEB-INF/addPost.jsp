@@ -22,7 +22,7 @@
 		<textarea name="content" rows="5" cols="40"></textarea>
 		<input type="submit" value="Post"> <br>
 		 <a
-			href="account.do">Back to Home</a>
+			href="account.do">Back to Profile</a>
 	</form>
 	<jsp:include page="bootStrapFoot.jsp" />
 

@@ -23,8 +23,8 @@
 		<label for="name">*Name:</label><br>
 		<input type="text" name="name" required><br>
  		
- 		<label for="birthday">Birthday:</label><br>
-		<input type="date" name="birthday"  ><br> 
+ 		<label for="birthday">*Birthday:</label><br>
+		<input type="datetime-local" name="birthday" required ><br> 
 		
 		<label for="description">About your chicken:</label><br>
 		<textarea name="description" rows="5" cols="40"></textarea><br>
