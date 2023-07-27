@@ -30,7 +30,7 @@
 				<li>city: ${loggedInUser.address.city }</li>
 			</ul>
 		
-
+			
 		</c:when>
 		<c:otherwise>
 			<h1>Not logged In.</h1>
@@ -38,7 +38,6 @@
 	</c:choose>
 
 	<a href="goToAddChicken.do">Create Chicken</a>
-	<a href="goToUpdateChicken.do">Update Chicken</a>
 	<br>
 	<br>
 	<a href="goToAddEvent.do">Create An Event</a>
@@ -149,15 +148,26 @@
 					<br>
 					<br>
 
-				<label for="state">Enter in the new state: </label> <br> <input
-					type="text" name="state" value="${loggedInUser.address.state }"><br>
-				<br> <label for="country">Enter in the new country: </label><br> <input
+				<label for="state">Enter in the new state: </label> 
+				<br> 
+				<input type="text" name="state" value="${loggedInUser.address.state }">
+				<br>
+				<br> 
+				<label for="country">Enter in the new country: </label>
+				<br> 
+				<input
 					type="text" name="country" value="${loggedInUser.address.country }"><br>
 				<br>
 
 
 				<button class="btn btn-primary">update userinfo</button>
-			</form>
+
+		</form>
+					<br>
+		<form action="disbaleUser.do" method="post">
+			<input type="hidden" name="userId" value="${loggedInUser.id }">
+			<button class="btn btn-danger" >disable</button>
+		</form>
 	<jsp:include page="bootStrapFoot.jsp" />
 </body>
 </html>

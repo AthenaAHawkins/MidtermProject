@@ -91,23 +91,14 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean deleteById(int userId) {
-
-		boolean success = false;
-		User u = em.find(User.class, userId);
-
-		if (u == null) {
-			return false;
+	public boolean disableUser(int userId) {
+	User managedUser = em.find(User.class, userId);
+		
+		if(managedUser != null) {
+			managedUser.setEnabled(false);
+			return true;
 		}
-
-		if (!em.contains(u)) {
-			success = true;
-		}
-
-		em.remove(u); // performs the delete on the managed entity
-		em.flush();
-
-		return success;
+		return false;
 	}
 
 }

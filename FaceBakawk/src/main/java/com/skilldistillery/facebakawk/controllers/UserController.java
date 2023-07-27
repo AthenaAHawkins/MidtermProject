@@ -55,12 +55,15 @@ public class UserController {
 		return "displayUser";
 	}
 
-	@RequestMapping(path = { "deleteUser.do" })
-	public String deleteUser(Model model, Integer userId) {
-
-		userDAO.deleteById(userId);
-
-		return "home";
+	@RequestMapping(path = { "disbaleUser.do" }, method=RequestMethod.POST)
+	public String deleteUser(Integer userId,HttpSession session, User user) {
+		User userInSession = (User) session.getAttribute("loggedInUser");
+		if(userInSession != null) {
+			
+			userDAO.disableUser(userId);
+			return "home";
+		}
+		return "account";
 	}
 
 	@RequestMapping(path = { "updateUserAccount.do" }, method = RequestMethod.POST)

@@ -19,5 +19,5 @@ public interface UserDAO {
 
 	void updateUser(User user, Address address);
 
-	boolean deleteById(int userId);
+	boolean disableUser(int userId);
 }
