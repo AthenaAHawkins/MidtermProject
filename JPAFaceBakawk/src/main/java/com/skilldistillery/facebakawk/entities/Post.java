@@ -27,7 +27,7 @@ public class Post {
 
 	@Column(name = "post_date")
 	private LocalDateTime postDate;
-
+	private Boolean enabled;
 	@Column(name = "picture_url")
 	private String pictureURL;
 
@@ -143,6 +143,14 @@ public class Post {
 
 	public void setPostLikers(List<User> postLikers) {
 		this.postLikers = postLikers;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 }

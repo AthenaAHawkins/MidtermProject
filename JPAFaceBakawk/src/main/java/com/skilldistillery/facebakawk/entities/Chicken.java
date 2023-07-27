@@ -22,10 +22,9 @@ public class Chicken {
 	private String name;
 
 	private LocalDate birthday;
-
+	private Boolean enabled;
 	@Column(name = "inches")
 	private Double height;
-
 	private char gender;
 
 	@Column(name = "music_taste")
@@ -172,6 +171,14 @@ public class Chicken {
 
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
+	}
+
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
 
 }
