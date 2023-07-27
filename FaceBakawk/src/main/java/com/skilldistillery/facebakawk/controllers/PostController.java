@@ -2,6 +2,8 @@ package com.skilldistillery.facebakawk.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,7 +60,13 @@ public class PostController {
 		return "redirect:displayPost.do?postId="+userComment.getPost().getId();
 	}
 	
-
+	@RequestMapping(path= {"updatePost.do"})
+	public String updatePost(Model model, Post post, Integer postId) {
+	postDAO.updatePost(postId, post);
+	model.addAttribute("updatedPost", post);
+	return "updatePost";
+	
+}
 	
 	
 	
