@@ -1,15 +1,29 @@
+<<<<<<< HEAD
 
 body{
+=======
+ body {
+      background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://post.healthline.com/wp-content/uploads/2020/02/chicken-grass-field-1200x628-facebook.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      background-size: cover;
+      height: 100%;
+      padding: 30px;
+      font-family: Arial, sans-serif;
+    }
+>>>>>>> 217f76630c5af5adfabf407dbe7008d0da3bcf3b
 
-background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://post.healthline.com/wp-content/uploads/2020/02/chicken-grass-field-1200x628-facebook.jpg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover;
-	height: 100%;
-	padding: 30px;
-}
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+    }
 
+<<<<<<< HEAD
 th{
 	color: brown;
 }
@@ -32,3 +46,37 @@ h6{
 	height: 100%;
 	padding: 30px;
 }
+=======
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    #unique-text {
+      font-size: 24px;
+      color: red;
+    }
+
+    
+    .transparent-input {
+      background-color: rgba(255, 255, 255, 0.5); 
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .transparent-input input {
+      background-color: transparent;
+      border: none;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5px;
+    }
+
+    .transparent-input input:focus {
+      outline: none;
+    }
+    
+    
+>>>>>>> 217f76630c5af5adfabf407dbe7008d0da3bcf3b
