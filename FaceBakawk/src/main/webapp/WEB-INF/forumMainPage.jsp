@@ -12,6 +12,14 @@
 <jsp:include page="navbar.jsp"/>
 <h1>Forum</h1>
 
+<c:if test="${not empty sessionScope.loggedInUser}">
+<p>Create an Event</p>
+ <p><a href="createPost.do">Create an Event</a></p>
+  <p><a href="updatePost.do">Update an Event</a></p>
+ 
+ 
+</c:if>
+
 <table>
     <c:forEach items="${postList}" var="post">
         <tr>
