@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 	<a class="navbar-brand" href="home.do">Home</a>
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
 		data-bs-target="#navbarSupportedContent"
