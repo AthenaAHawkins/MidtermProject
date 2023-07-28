@@ -47,6 +47,7 @@ public class EventDAOImpl implements EventDAO {
 
 	@Override
 	public Event create(Event event) {
+		event.setEnabled(true);
 		em.persist(event);
 		em.flush();
 		return event;
