@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `content` TEXT NOT NULL,
   `user_id` INT NOT NULL,
   `post_date` DATETIME NULL,
-  `picture_url` VARCHAR(45) NULL,
+  `picture_url` VARCHAR(2000) NULL,
   `enabled` TINYINT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_forum_user1_idx` (`user_id` ASC),
@@ -440,8 +440,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `event` (`id`, `title`, `start_time`, `end_time`, `event_date`, `description`, `address_id`, `picture_url`, `creator_id`, `create_date`, `last_update`, `enabled`) VALUES (1, 'Eggercise In the park', '08:00:00', NULL, '2023-08-28', 'Come do yolkga in the park', 1, NULL, 1, NULL, NULL, 1);
-INSERT INTO `event` (`id`, `title`, `start_time`, `end_time`, `event_date`, `description`, `address_id`, `picture_url`, `creator_id`, `create_date`, `last_update`, `enabled`) VALUES (2, 'Eggscaperoom', '23:00:00', NULL, '2024-11-05', 'Put your escape skills to the test', 1, NULL, 1, NULL, NULL, 1);
+INSERT INTO `event` (`id`, `title`, `start_time`, `end_time`, `event_date`, `description`, `address_id`, `picture_url`, `creator_id`, `create_date`, `last_update`, `enabled`) VALUES (1, 'Eggercise In the park', '08:00:00', NULL, '2023-08-28', 'Come do yolkga in the park', 1, 'https://sadanduseless.b-cdn.net/wp-content/uploads/2021/12/chicken-yoga7.jpg', 1, NULL, NULL, 1);
+INSERT INTO `event` (`id`, `title`, `start_time`, `end_time`, `event_date`, `description`, `address_id`, `picture_url`, `creator_id`, `create_date`, `last_update`, `enabled`) VALUES (2, 'Eggscaperoom', '23:00:00', NULL, '2024-11-05', 'Put your escape skills to the test', 1, 'https://www.backyardchickens.com/hredirect2.php?c=6634252', 1, NULL, NULL, 1);
 
 COMMIT;
 
@@ -451,8 +451,8 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `chickendb`;
-INSERT INTO `post` (`id`, `title`, `content`, `user_id`, `post_date`, `picture_url`, `enabled`) VALUES (1, 'Why are chickens so cute?', 'I love them', 1, NULL, NULL, 1);
-INSERT INTO `post` (`id`, `title`, `content`, `user_id`, `post_date`, `picture_url`, `enabled`) VALUES (2, 'Falcon defense tips', 'Buy a bigger friendlier falcon', 2, NULL, NULL, 1);
+INSERT INTO `post` (`id`, `title`, `content`, `user_id`, `post_date`, `picture_url`, `enabled`) VALUES (1, 'Why are chickens so cute?', 'I love them', 1, NULL, 'https://img.freepik.com/premium-vector/cute-chicken-illustration_533500-14.jpg?w=2000', 1);
+INSERT INTO `post` (`id`, `title`, `content`, `user_id`, `post_date`, `picture_url`, `enabled`) VALUES (2, 'Falcon defense tips', 'Tenderize them', 2, NULL, 'https://image-cdn.neatoshop.com/styleimg/106384/none/yellow/default/462070-20;1594110398y.jpg', 1);
 
 COMMIT;
 

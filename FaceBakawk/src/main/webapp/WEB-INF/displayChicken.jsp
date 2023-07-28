@@ -20,7 +20,7 @@
         <img src="${chicken.pictureURL}" alt="Chicken Picture" width="300" height="200">
     </c:when>
     <c:otherwise>
-        <img src="${chicken.breed.pictureURL}" alt="Breed Picture">
+        <img src="${chicken.breed.pictureURL}" alt="Breed Picture" width="300" height="200">
     </c:otherwise>
 </c:choose>
 	<h2> ${chicken.name} </h2>

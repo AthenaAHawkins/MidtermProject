@@ -9,4 +9,27 @@ background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)
 	height: 100%;
 	padding: 30px;
 
+#biggerName{
+	font-size:xx-large ;
+	color: rgb(184, 29, 41);
+	outline: 10px white;
+	text-align: center;
+    text-shadow: 0 0 white,0 0 white,0 0 10px white;
+}
+}
+a{
+	text-decoration: none;
+}
+td {
+    text-align:center; 
+    vertical-align: middle;
+    
+} 
+
+
+h1{
+	color: hotpink;
+    text-align:center; 
+    outline: 10px black;
+    text-shadow: 0 0 10px black,0 0 10px black,0 0 10px black;
 }
