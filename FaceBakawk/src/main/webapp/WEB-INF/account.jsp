@@ -127,7 +127,7 @@
 		</tbody>
 	</table>
 	
-<<<<<<< HEAD
+
 	<h3 class="unique-text">Update Your Info</h3>
 	<form action="updateUserAccount.do" method="post">
     <div class="form-group">
@@ -150,6 +150,11 @@
         <input type="text" class="form-control" name="password" value="${loggedInUser.password}">
     </div>
 
+    <div class="form-group">
+        <label for="pictureURL">Enter your new picture URL:</label>
+        <input type="text" class="form-control" name="pictureURL" value="${loggedInUser.pictureURL}">
+    </div>
+   
     <div class="form-group">
         <label for="description">Enter your new description:</label>
         <textarea rows="3" class="form-control" name="description">${loggedInUser.description}</textarea>
@@ -177,6 +182,7 @@
 
     <button type="submit" class="btn btn-primary">Update User Info</button>
 
+<<<<<<< HEAD
 
 	<h3>Update Your Info</h3>
 		
@@ -227,6 +233,8 @@
 					<br>
 					<br>
 <form action="updateUserAccount.do" method="post">
+=======
+>>>>>>> a6d0b0369700fc5b7a305aeace24e09ac4075114
 
 
 				
