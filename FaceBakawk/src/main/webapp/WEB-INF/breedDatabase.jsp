@@ -13,11 +13,19 @@
 <jsp:include page="navbar.jsp"/>
 <table>
     <c:forEach items="${breedList}" var="breed">
+            <thead>
+            <tr>
+            
+          <th><br><a href="getBreed.do?breedId=${breed.id}">${breed.name}</a></th>
+          </tr>
+            <tbody>
         <tr>
-            <td><a href="displayPost.do?postId=${breed.id}">${breed.name}</a></td>
-            <td>${breed.charcteristics}</td>
-            <td>${breed.pictureUrl}</td>
+         
+            <td><img src="${breed.pictureURL}" alt="Chicken Picture" width="200" height="150"></td>
+            <td>${breed.characteristic}</td>
+            
         </tr>
+            </tbody>
     </c:forEach>
 </table>
 <jsp:include page="bootStrapHead.jsp"/>
