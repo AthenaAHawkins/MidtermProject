@@ -158,6 +158,13 @@
 					type="text" class="form-control" name="password"
 					value="${loggedInUser.password }">
 					<br> 
+				<label
+					for="pictureURL">Enter in the new pic: </label> 
+					<br>
+					<input
+					type="text" class="form-control" name="pictureURL"
+					value="${loggedInUser.pictureURL }">
+					<br> 
 					<label 
 					for="description">Enter in new description: 
 					</label>

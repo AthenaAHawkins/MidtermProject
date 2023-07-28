@@ -14,7 +14,6 @@
 
 
 
-	<%-- <c:forEach var="user" items="${userList}"> --%>
 
 
 	<img src="${user.pictureURL}" alt="${user.username}" width="300"
@@ -29,19 +28,20 @@
 	 ${user.description}</h2>
 
 	
-	<br> <h2>Events Attended</h2>
-<table class="table table-striped table-hover">
-		<thead class="table-dark">
+	<br>
+<h2>Events Attended</h2>
+		<table class="table table-striped table-hover" id="eventAttendedTable">
+			<thead class="table-dark">
 			<c:forEach var="event" items="${user.eventsAttended}">
-		<tbody>
-				<tr>
-					<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
-					<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
+			<tbody>
+					<tr>
+						<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
+						<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
 						height="200"></td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	
 	
 
@@ -62,8 +62,6 @@
 	</table>
 	
 
-
-	<%-- </c:forEach> --%>
 
 <jsp:include page="bootStrapFoot.jsp"/>
 

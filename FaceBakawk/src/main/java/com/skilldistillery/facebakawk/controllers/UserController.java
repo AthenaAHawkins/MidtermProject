@@ -77,9 +77,9 @@ public class UserController {
 			user.setId(userInSession.getId());
 			userDAO.updateUser(user, address);
 			refreshSessionData(session);
-			return "home";
+			return "account";
 		}
-		return "account";
+		return "home";
 	}
 
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
