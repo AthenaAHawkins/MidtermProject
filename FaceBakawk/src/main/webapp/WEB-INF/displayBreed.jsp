@@ -15,7 +15,7 @@
 
         <img src="${breed.pictureURL}" alt="Chicken Picture" width="400" height="300">
 	<h2> ${breed.name} </h2>
-	<em>${breed.characteristic}</em>
+	<em class="breed char">${breed.characteristic}</em>
 
 
 

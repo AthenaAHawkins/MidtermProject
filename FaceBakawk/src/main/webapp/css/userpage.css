@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+body.userpage .userdeets{
+	color: black;
+	background: linear-gradient(rgba(87, 233, 45, 0.5), rgba(87, 233, 45, 0.5));
+}
