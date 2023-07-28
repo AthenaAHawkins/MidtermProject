@@ -6,17 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>FaceBaKawk</title>
+<link rel="stylesheet" type="text/css" href="css/home.css">
 <jsp:include page="bootStrapHead.jsp"/>
-
 </head>
 <body>
-
-
+<h1 id="title">FACE BA-KAWK</h1>
 <jsp:include page="navbar.jsp"/>
-<h1>WELCOME BA-KAWK!</h1>
 
+<div id="spotlight">
+</div>
 
-<h1>Chicken in the Spotlight</h1>
+<div class = "box">
+<div id="test">
+<h3>Chicken in the Spotlight</h3>
 	
     <c:if test="${empty spotlight}">
         <p>No spotlight to spotlight.</p>
@@ -25,21 +27,21 @@
        <c:if test="${spotlight.enabled ==true }">
     	
         
-         <a href="getChicken.do?chickenId=${spotlight.id}">${spotlight.name}</a> 
-         <p>proud parent: <a href="getUser.do?userId=${spotlight.owner.id}"> ${spotlight.owner.username}</a>
+         <a href="getChicken.do?chickenId=${spotlight.id}" id ="yellow">${spotlight.name}</a> 
+         <p>proud parent: <a href="getUser.do?userId=${spotlight.owner.id}" id="yellow"> ${spotlight.owner.username}</a>
         <p>Chicken Birthday: ${spotlight.birthday} </p>
-        <a href="getBreed.do?breedId=${spotlight.breed.id}">${spotlight.breed.name}</a>
+        <a href="getBreed.do?breedId=${spotlight.breed.id}" id="yellow">${spotlight.breed.name}</a>
         
       <p>Chicken Description: ${spotlight.description}</p> 
       
 				<c:choose>
 							<c:when test="${not empty spotlight.pictureURL}">
-								<a href="getChicken.do?chickenId=${spotlight.id}"> <img
+								<a href="getChicken.do?chickenId=${spotlight.id}" id="yellow"> <img
 									src="${spotlight.pictureURL}" alt="Chicken Picture" width="300"
 									height="200"></a>
 							</c:when>
 							<c:otherwise>
-								<a href="getChicken.do?chickenId=${spotlight.id}"> <img
+								<a href="getChicken.do?chickenId=${spotlight.id}" id = "yellow"> <img
 									src="${spotlight.breed.pictureURL}" alt="Breed Picture"
 									width="300" height="200"></a>
 							</c:otherwise>
@@ -55,8 +57,11 @@
        </c:if>
         
      </c:if> 
+</div>
+</div>
 
 
+       
 
 
 <jsp:include page="bootStrapFoot.jsp"/>
