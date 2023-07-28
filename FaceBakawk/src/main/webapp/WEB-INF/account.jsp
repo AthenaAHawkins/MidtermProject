@@ -127,7 +127,7 @@
 		</tbody>
 	</table>
 	
-<<<<<<< HEAD
+
 	<h3 class="unique-text">Update Your Info</h3>
 	<form action="updateUserAccount.do" method="post">
     <div class="form-group">
@@ -150,6 +150,11 @@
         <input type="text" class="form-control" name="password" value="${loggedInUser.password}">
     </div>
 
+    <div class="form-group">
+        <label for="pictureURL">Enter your new picture URL:</label>
+        <input type="text" class="form-control" name="pictureURL" value="${loggedInUser.pictureURL}">
+    </div>
+   
     <div class="form-group">
         <label for="description">Enter your new description:</label>
         <textarea rows="3" class="form-control" name="description">${loggedInUser.description}</textarea>
@@ -177,56 +182,6 @@
 
     <button type="submit" class="btn btn-primary">Update User Info</button>
 
-=======
-	<h3>Update Your Info</h3>
-		<form action="updateUserAccount.do" method="post">
-
-
-				<label for=firstName>Enter in your new first Name: </label>
-				<br>
-				 <input
-					type="text" class="form-control" name="firstName"
-					value="${loggedInUser.firstName }">
-
-				<label for=lastName>Enter in your new last Name: </label>
-				<br>
-				 <input
-					type="text" class="form-control" name="lastName"
-					value="${loggedInUser.lastName }">
-
-
-				<label for="username">Enter in the new username: </label>
-				<br>
-				 <input
-					type="text" class="form-control" name="username"
-					value="${loggedInUser.username }">
-				<br> 
-				<label
-					for="password">Enter in the new password: </label> 
-					<br>
-					<input
-					type="text" class="form-control" name="password"
-					value="${loggedInUser.password }">
-					<br> 
-				<label
-					for="pictureURL">Enter in the new pic: </label> 
-					<br>
-					<input
-					type="text" class="form-control" name="pictureURL"
-					value="${loggedInUser.pictureURL }">
-					<br> 
-					<label 
-					for="description">Enter in new description: 
-					</label>
-					<br>
-				<textarea rows="3" cols="50" name="description">${loggedInUser.description }</textarea>
-				<br> <label for="street">Enter in the new Street: </label> <br><input
-					type="text" name="street" value="${loggedInUser.address.street }"><br>
-				<br> <label for="city">Enter in the new City: </label><br> <input
-					type="text" name="city" value="${loggedInUser.address.city }">
-					<br>
-					<br>
->>>>>>> 364ac89c38bb585e790810ddf18c59d957e58633
 
 
 				
