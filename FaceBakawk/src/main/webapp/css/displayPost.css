@@ -3,18 +3,24 @@
 
 .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
-   background-color:seagreen;
-    opacity: 0.75;
+  background-color: rgb(215, 191, 218);
+  width: 70%;
+    opacity: 0.90;
    
  }
 .table-striped>tbody>tr:nth-child(even)>td, 
 .table-striped>tbody>tr:nth-child(even)>th {
-   background-color:lightseagreen;
-    opacity: 0.75;
+   background-color:  rgb(127, 116, 131);
+  width: 70%;
+    opacity: 0.90;
  }
  
  #yellow{
-	 color: yellow;
+	 color: black;
 	 text-shadow: black,black;
 	text-decoration: none;
+}
+
+p{
+	font-size: larger;
 }
