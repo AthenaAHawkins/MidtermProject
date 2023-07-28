@@ -3,16 +3,12 @@
 
 .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
-  background-color: rgb(215, 191, 218);
-  width: 70%;
-    opacity: 0.90;
+    opacity: 0.75;
    
  }
 .table-striped>tbody>tr:nth-child(even)>td, 
 .table-striped>tbody>tr:nth-child(even)>th {
-   background-color:  rgb(127, 116, 131);
-  width: 70%;
-    opacity: 0.90;
+    opacity: 0.75;
  }
  
  #yellow{

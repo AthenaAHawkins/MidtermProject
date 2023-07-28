@@ -16,10 +16,10 @@
 
 	<h2 class="unique-text"> ${post.title} </h2>
 	<br>
-	Author:
-	 <a href="getUser.do?userId=${post.user.id}">${post.user.username}</a><br>
 <img src="${post.pictureURL}" alt="${post.title}" width="300"
 		height="200"> 
+	<br>Author:
+	 <a href="getUser.do?userId=${post.user.id}">${post.user.username}</a><br>
 	 <p><em>${post.content } </em></p>
 	 
 

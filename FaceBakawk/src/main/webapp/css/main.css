@@ -109,15 +109,6 @@ label {
 }
 
 
-/* Transparent background */
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: rgba(87, 233, 45, 0.5);
-}
-.table-striped>tbody>tr:nth-child(even)>td, 
-.table-striped>tbody>tr:nth-child(even)>th {
-   background-color: rgba(25, 127, 27, 0.5);
-}
 
 
  
