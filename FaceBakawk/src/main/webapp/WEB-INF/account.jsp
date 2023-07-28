@@ -23,13 +23,15 @@
 			<h2 class="unique-text">Your Account Details</h2>
 			<%-- Output user details --%>
 
-	     <ul class="no-bullet">
-           <li><img src="${loggedInUser.pictureURL }" alt="This you?" width="300" height="200"></li>
-           <li>UserName: ${loggedInUser.username }</li>
-           <li>FirstName: ${loggedInUser.firstName }</li>
-   		   <li>LastName: ${loggedInUser.lastName }</li>
-           <li>city: ${loggedInUser.address.city }</li>
-          </ul>
+<ul class="no-bullet">
+  <li><img src="${loggedInUser.pictureURL}" alt="This you?" width="300" height="200"></li>
+  <li><span class="label">Username:</span> <span class="content">${loggedInUser.username}</span></li>
+  <li><span class="label">FirstName:</span> <span class="content">${loggedInUser.firstName}</span></li>
+  <li><span class="label">LastName:</span> <span class="content">${loggedInUser.lastName}</span></li>
+  <li><span class="label">City:</span> <span class="content">${loggedInUser.address.city}</span></li>
+</ul>
+
+
 
 			
 		</c:when>
@@ -37,11 +39,9 @@
 			<h1>Not logged In.</h1>
 		</c:otherwise>
 	</c:choose>
-
-	<a href="goToAddChicken.do">Create Chicken</a>
 	<br>
-	<br>
-	<a href="goToAddEvent.do">Create An Event</a>
+	<h2 class="unique-text">Your Chickens</h2>
+	
 
 
 	<table class="table table-striped table-hover">
@@ -79,6 +79,8 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<a href="goToAddChicken.do">Create Chicken</a>
+	<br>
 
 
 	<br>
@@ -102,6 +104,8 @@
 
 	<br>
 	<h2 class="unique-text">Events Created</h2>
+	<br>
+	<a href="goToAddEvent.do">Create An Event</a>
 	<table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
