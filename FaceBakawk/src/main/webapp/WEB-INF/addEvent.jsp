@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+<jsp:include page="navbar.jsp"/>
 <div>
     <form action="addEvent.do" method="POST">
 
