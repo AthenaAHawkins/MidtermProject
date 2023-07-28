@@ -16,6 +16,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0" data-bs-theme="dark">
+<div class="container" >
 	<div class="accordion accordion-flush" id="accordionExample">
 		<div class="accordion-item">
 			<h2 class="accordion-header">
@@ -202,6 +203,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>
