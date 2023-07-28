@@ -177,9 +177,9 @@
 
     <button type="submit" class="btn btn-primary">Update User Info</button>
 
-=======
+
 	<h3>Update Your Info</h3>
-		<form action="updateUserAccount.do" method="post">
+		
 
 
 				<label for=firstName>Enter in your new first Name: </label>
@@ -226,7 +226,7 @@
 					type="text" name="city" value="${loggedInUser.address.city }">
 					<br>
 					<br>
->>>>>>> 364ac89c38bb585e790810ddf18c59d957e58633
+<form action="updateUserAccount.do" method="post">
 
 
 				
