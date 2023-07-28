@@ -24,6 +24,9 @@
  		
 		<label for="description">About your Event:</label><br>
 		<textarea name="description" rows="5" cols="40">${event.description }</textarea><br>
+		
+		<label for="description">Show us a picture of what to expect at this event:</label><br>
+		<textarea name="description" rows="5" cols="40">${event.pictureURL }</textarea><br>
  		
  		
  		

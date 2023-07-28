@@ -28,7 +28,10 @@
   <li><span class="label">Username:</span> <span class="content">${loggedInUser.username}</span></li>
   <li><span class="label">First Name:</span> <span class="content">${loggedInUser.firstName}</span></li>
   <li><span class="label">Last Name:</span> <span class="content">${loggedInUser.lastName}</span></li>
+  <li><span class="label">Street:</span> <span class="content">${loggedInUser.address.street}</span></li>
   <li><span class="label">City:</span> <span class="content">${loggedInUser.address.city}</span></li>
+  <li><span class="label">State:</span> <span class="content">${loggedInUser.address.state}</span></li>
+  <li><span class="label">Country:</span> <span class="content">${loggedInUser.address.country}</span></li>
 </ul>
 
 
