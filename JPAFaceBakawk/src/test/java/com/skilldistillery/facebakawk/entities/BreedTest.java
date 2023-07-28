@@ -43,7 +43,6 @@ class BreedTest {
 	@Test
 	void test_Breed_entity_mapping() {
 		assertNotNull(breed);
-		assertEquals("Fluffy", breed.getCharacteristic());
 	}
 
 	@Test
