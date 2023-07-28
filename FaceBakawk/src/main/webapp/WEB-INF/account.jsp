@@ -26,8 +26,8 @@
 <ul class="no-bullet">
   <li><img src="${loggedInUser.pictureURL}" alt="This you?" width="300" height="200"></li>
   <li><span class="label">Username:</span> <span class="content">${loggedInUser.username}</span></li>
-  <li><span class="label">FirstName:</span> <span class="content">${loggedInUser.firstName}</span></li>
-  <li><span class="label">LastName:</span> <span class="content">${loggedInUser.lastName}</span></li>
+  <li><span class="label">First Name:</span> <span class="content">${loggedInUser.firstName}</span></li>
+  <li><span class="label">Last Name:</span> <span class="content">${loggedInUser.lastName}</span></li>
   <li><span class="label">City:</span> <span class="content">${loggedInUser.address.city}</span></li>
 </ul>
 
