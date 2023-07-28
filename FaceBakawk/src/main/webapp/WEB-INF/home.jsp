@@ -28,7 +28,7 @@
     	
         
          <a href="getChicken.do?chickenId=${spotlight.id}" id ="yellow">${spotlight.name}</a> 
-         <p>proud parent: <a href="getUser.do?userId=${spotlight.owner.id}" id="yellow"> ${spotlight.owner.username}</a>
+         <p>Proud Parent: <a href="getUser.do?userId=${spotlight.owner.id}" id="yellow"> ${spotlight.owner.username}</a>
         <p>Chicken Birthday: ${spotlight.birthday} </p>
         <a href="getBreed.do?breedId=${spotlight.breed.id}" id="yellow">${spotlight.breed.name}</a>
         
