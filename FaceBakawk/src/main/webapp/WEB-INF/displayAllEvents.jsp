@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>EVENT LIST</title>
 <jsp:include page="bootStrapHead.jsp"/>
 <link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
 </head>

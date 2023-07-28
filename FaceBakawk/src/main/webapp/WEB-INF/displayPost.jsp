@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Forum Comment Section</title>
+
 <jsp:include page="bootStrapHead.jsp"/>
 <link rel="stylesheet" href="css/displayPost.css">
 </head>
