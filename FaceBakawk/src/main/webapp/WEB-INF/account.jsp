@@ -20,19 +20,17 @@
 <div class="container" >
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser }">
-			<h2>Your Account Details</h2>
+			<h2 class="unique-text">Your Account Details</h2>
 			<%-- Output user details --%>
 
-			<ul>
+	     <ul class="no-bullet">
+           <li><img src="${loggedInUser.pictureURL }" alt="This you?" width="300" height="200"></li>
+           <li>UserName: ${loggedInUser.username }</li>
+           <li>FirstName: ${loggedInUser.firstName }</li>
+   		   <li>LastName: ${loggedInUser.lastName }</li>
+           <li>city: ${loggedInUser.address.city }</li>
+          </ul>
 
-				<li><img src="${loggedInUser.pictureURL }" alt="This you?"
-					width="300" height="200"></li>
-				<li>UserName: ${loggedInUser.username }</li>
-				<li>FirstName: ${loggedInUser.firstName }</li>
-				<li>LastName: ${loggedInUser.lastName }</li>
-				<li>city: ${loggedInUser.address.city }</li>
-			</ul>
-		
 			
 		</c:when>
 		<c:otherwise>
@@ -84,7 +82,8 @@
 
 
 	<br>
-	<h2>Events Attended</h2>
+	<h2 class="unique-text">Events Attended</h2>
+
 	<table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
@@ -102,7 +101,7 @@
 
 
 	<br>
-	<h2>Events Created</h2>
+	<h2 class="unique-text">Events Created</h2>
 	<table class="table table-striped table-hover">
 		<thead class="table-dark">
 		<tbody>
@@ -115,8 +114,8 @@
 						width="300" height="200"></td>
 					<td>
 						<a href="updateEventButton.do?eventId=${event.id }">edit event</a>
-					</td>	 
-					<td>
+					
+					<br> 
 						<form action="deleteEvent.do" method="post">
 							<input type="hidden" name="eventId" value="${event.id }">
 							<button class="btn btn-danger" >Terminate the event</button>
@@ -128,67 +127,67 @@
 		</tbody>
 	</table>
 	
-	<h3>Update Your Info</h3>
-		<form action="updateUserAccount.do" method="post">
 
+	<h3 class="unique-text">Update Your Info</h3>
+	<form action="updateUserAccount.do" method="post">
+    <div class="form-group">
+        <label for="firstName">Enter your new first Name:</label>
+        <input type="text" class="form-control" name="firstName" value="${loggedInUser.firstName}">
+    </div>
 
-				<label for=firstName>Enter in your new first Name: </label>
-				<br>
-				 <input
-					type="text" class="form-control" name="firstName"
-					value="${loggedInUser.firstName }">
+    <div class="form-group">
+        <label for="lastName">Enter your new last Name:</label>
+        <input type="text" class="form-control" name="lastName" value="${loggedInUser.lastName}">
+    </div>
 
-				<label for=lastName>Enter in your new last Name: </label>
-				<br>
-				 <input
-					type="text" class="form-control" name="lastName"
-					value="${loggedInUser.lastName }">
+    <div class="form-group">
+        <label for="username">Enter your new username:</label>
+        <input type="text" class="form-control" name="username" value="${loggedInUser.username}">
+    </div>
 
+    <div class="form-group">
+        <label for="password">Enter your new password:</label>
+        <input type="text" class="form-control" name="password" value="${loggedInUser.password}">
+    </div>
 
-				<label for="username">Enter in the new username: </label>
-				<br>
-				 <input
-					type="text" class="form-control" name="username"
-					value="${loggedInUser.username }">
-				<br> 
-				<label
-					for="password">Enter in the new password: </label> 
-					<br>
-					<input
-					type="text" class="form-control" name="password"
-					value="${loggedInUser.password }">
-					<br> 
-					<label 
-					for="description">Enter in new description: 
-					</label>
-					<br>
-				<textarea rows="3" cols="50" name="description">${loggedInUser.description }</textarea>
-				<br> <label for="street">Enter in the new Street: </label> <br><input
-					type="text" name="street" value="${loggedInUser.address.street }"><br>
-				<br> <label for="city">Enter in the new City: </label><br> <input
-					type="text" name="city" value="${loggedInUser.address.city }">
-					<br>
-					<br>
+    <div class="form-group">
+        <label for="pictureURL">Enter your new picture URL:</label>
+        <input type="text" class="form-control" name="pictureURL" value="${loggedInUser.pictureURL}">
+    </div>
+   
+    <div class="form-group">
+        <label for="description">Enter your new description:</label>
+        <textarea rows="3" class="form-control" name="description">${loggedInUser.description}</textarea>
+    </div>
 
-				<label for="state">Enter in the new state: </label> 
-				<br> 
-				<input type="text" name="state" value="${loggedInUser.address.state }">
-				<br>
-				<br> 
-				<label for="country">Enter in the new country: </label>
-				<br> 
-				<input
-					type="text" name="country" value="${loggedInUser.address.country }"><br>
-				<br>
+    <div class="form-group">
+        <label for="street">Enter the new Street:</label>
+        <input type="text" class="form-control" name="street" value="${loggedInUser.address.street}">
+    </div>
 
+    <div class="form-group">
+        <label for="city">Enter the new City:</label>
+        <input type="text" class="form-control" name="city" value="${loggedInUser.address.city}">
+    </div>
 
-				<button class="btn btn-primary">Update User Info</button>
+    <div class="form-group">
+        <label for="state">Enter the new state:</label>
+        <input type="text" class="form-control" name="state" value="${loggedInUser.address.state}">
+    </div>
+
+    <div class="form-group">
+        <label for="country">Enter the new country:</label>
+        <input type="text" class="form-control" name="country" value="${loggedInUser.address.country}">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update User Info</button>
+
 
 		</form>
 					<br>
 		<form action="disbaleUser.do" method="post">
 			<input type="hidden" name="userId" value="${loggedInUser.id }">
-			<button class="btn btn-danger" >Deactivate</button>
+			<button class="btn btn-danger" >Deactivate Account</button>
 		</form>
 </div>
 	<jsp:include page="bootStrapFoot.jsp" />

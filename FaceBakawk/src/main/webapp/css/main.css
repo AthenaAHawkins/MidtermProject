@@ -22,28 +22,9 @@ body{
     }
 
 
-th{
-	color: brown;
-}
-td{
-	color: lightseagreen;
-}
-tr{
-	color: deeppink;
-}
-h6{
-	color: darkblue;
-	font-family: 'Times New Roman', Times, serif;
-}
-#accountpage{
-	background: linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url(https://static01.nyt.com/images/2010/04/21/dining/21chickenspan-1/21chicken_CA0-articleLarge.jpg?year=2010&h=356&w=600&s=71250760ee5191c27157d0ed8a66ee51d08faef684d57999a2e50bfc3308370f&k=ZQJBKqZ0VN);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover;
-	height: 100%;
-	padding: 30px;
-}
+
+
+
 
     table {
       width: 100%;
@@ -76,4 +57,67 @@ h6{
       outline: none;
     }
     
+    
+
+.unique-text {
+    color: seagreen;
+    font-size: 24px;
+    font-family: "Bold Blippo", fantasy; 
+    border-bottom: 2px solid green; 
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+
+
+.no-bullet {
+    list-style: none;
+    padding: 0; 
+    margin: 0; 
+}
+
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+
+.form-control {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.btn-primary {
+    background-color: seagreen;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: seagreen;
+}
+
+
+/* Transparent background */
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: rgba(87, 233, 45, 0.5);
+}
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: rgba(25, 127, 27, 0.5);
+}
+
+
  
