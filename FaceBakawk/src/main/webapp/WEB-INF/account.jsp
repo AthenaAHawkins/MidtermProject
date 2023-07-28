@@ -187,10 +187,6 @@
     <button type="submit" class="btn btn-primary">Update User Info</button>
 
 
-
-				
-
-
 		</form>
 					<br>
 		<form action="disbaleUser.do" method="post">
