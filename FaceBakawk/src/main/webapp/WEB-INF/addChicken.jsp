@@ -75,7 +75,10 @@
         <br>
         <br>
         <h6>*Required Field</h6>
-        <a href="account.do" id="unique-text">Back to Home</a>
+        
+		</form>
+				<form action="account.do" method="post">
+			<button class="btn btn-success" >Back Home</button>
 		</form>
 
 </div>
