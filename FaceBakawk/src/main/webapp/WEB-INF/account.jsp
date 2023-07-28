@@ -16,8 +16,9 @@
 <body id="accountpage">
 
 	<%--Edit the file nav.jsp to change nav links --%>
-	<jsp:include page="navbar.jsp" />
 <div class="container" >
+	<jsp:include page="navbar.jsp" />
+	<br>
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser }">
 			<h2 class="unique-text">Your Account Details</h2>

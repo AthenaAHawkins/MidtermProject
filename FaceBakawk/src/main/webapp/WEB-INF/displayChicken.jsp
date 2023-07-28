@@ -8,6 +8,7 @@
 <title>Chicken Details</title>
 <jsp:include page="bootStrapHead.jsp" />
 <link rel="stylesheet" href="<c:url value="/static/css/navbar.css"/>">
+<link rel="stylesheet" href="css/displayChicken.css">
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
@@ -24,8 +25,8 @@
     </c:otherwise>
 </c:choose>
 	<h2> ${chicken.name} </h2>
-	<br>Owner:
-	 <a href="getUser.do?userId=${loggedInUser.id}"> ${chicken.owner.username}</a>
+	<p class="backgroundWhite">Owner:
+	 <a href="getUser.do?userId=${chicken.owner.id}"> ${chicken.owner.username}</a>
 	<br>Breed:
 	<a href="getBreed.do?breedId=${chicken.breed.id}">${chicken.breed.name}</a>
 	<br>Gender:
@@ -41,12 +42,7 @@
 	<br>Description:
 	 ${chicken.description}
 
-
-
-
-
-	<%-- </c:forEach> --%>
-
+</p>
 
 	<jsp:include page="bootStrapFoot.jsp" />
 </body>

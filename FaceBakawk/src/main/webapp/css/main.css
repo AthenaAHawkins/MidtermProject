@@ -23,7 +23,6 @@ body{
 
 
 
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -119,7 +118,11 @@ label {
     background-color: seagreen;
 }
 
-
+.backgroundWhite{
+	background-color: white;
+	color: black;
+	opacity: 0.50;
+}
 
  a {
       text-decoration: none;

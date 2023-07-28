@@ -27,10 +27,10 @@
        <c:if test="${spotlight.enabled ==true }">
     	
         
-         <a href="getChicken.do?chickenId=${spotlight.id}" id ="yellow">${spotlight.name}</a> 
+       <p>Name: <a href="getChicken.do?chickenId=${spotlight.id}" id ="yellow">${spotlight.name}</a></p> 
          <p>Proud Parent: <a href="getUser.do?userId=${spotlight.owner.id}" id="yellow"> ${spotlight.owner.username}</a>
         <p>Chicken Birthday: ${spotlight.birthday} </p>
-        <a href="getBreed.do?breedId=${spotlight.breed.id}" id="yellow">${spotlight.breed.name}</a>
+       <p>Breed: <a href="getBreed.do?breedId=${spotlight.breed.id}" id="yellow">${spotlight.breed.name}</a></p>
         
       <p>Chicken Description: ${spotlight.description}</p> 
       

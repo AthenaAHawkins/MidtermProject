@@ -22,12 +22,12 @@
         <tr>
          
             <td><img src="${breed.pictureURL}" alt="Chicken Picture" width="200" height="150"></td>
-            <td>${breed.characteristic}</td>
+            <td class="backgroundWhite">${breed.characteristic}</td>
             
         </tr>
             </tbody>
     </c:forEach>
 </table>
-<jsp:include page="bootStrapHead.jsp"/>
+<jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

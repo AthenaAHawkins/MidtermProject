@@ -48,10 +48,7 @@
 		
 		<label for="wantsChicks">Do you want chicks?:</label><br>
 		<input type="radio" name="wantsChicks" value="true"  >Yes<br>
-		<input type="radio" name="wantsChicks" value="false"  >No!!!!<br>
-		<!-- <input type="checkbox" id="wantsChicks">	
-		<label for="wantsChicks">Yes</label> -->
-		
+		<input type="radio" name="wantsChicks" value="false"  >No<br>
 		<h2>Breed:</h2>
 		
 		<select name="breed.id">
@@ -60,17 +57,6 @@
 		
 		</c:forEach>
 		</select>
-	<%-- 	<input type="hidden" name="breedId" value="${breed.id} ">
-		
-		<label for="name">Breed Name:</label><br>
-		<input type="text" name="name"  ><br>
-		
-		<label for="characteristics">Breed Characteristics:</label><br>
-		<input type="text" name="characteristics" ><br>
-		
-		<label for="pictureURL">Breed Picture URL:</label><br>
-		<input type="text" name="pictureURL" ><br> --%>
-		
         <input type="submit" value="Add">
         <br>
         <br>

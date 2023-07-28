@@ -9,13 +9,6 @@
 <body>
 <jsp:include page="navbar.jsp"/>
   <h1>New Event Added Successfully</h1>
-  <button onclick="redirectToAccount()">Back to Account</button>
-
-  <script>
-    function redirectToAccount() {
-      window.location.href = 'account.do';
-    }
-  </script>
   <jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

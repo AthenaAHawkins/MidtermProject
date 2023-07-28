@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+.tendieBackground li{
+	border: 4px solid seagreen;
+	list-style: none;
+	position: relative;
+}
+
+.centered{
+	text-align: center;
+}
+.tendieBackground ol, ul {
+    padding-left: 0rem;
+    margin-bottom: 0rem;
+}
+.tendieBackground {
+	
+	background-color: beige;
+    opacity: .65;
+	width: 250px;
+	line-height: 3em;
+}
+
+.eventBackground{
+	background-color: beige;
+    opacity: .65;
+	width: 500px;
+	line-height: 3em;
+	
+}
+p{
+	font-size: medium;
+}

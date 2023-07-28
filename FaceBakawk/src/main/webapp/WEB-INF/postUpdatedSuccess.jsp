@@ -8,17 +8,9 @@
 </head>
 <body>
 
-<h2>Post Successfully added</h2>
 	<jsp:include page="navbar.jsp"/>
+<h2>Post Successfully added</h2>
 
-
-	<button onclick="redirectToAccount()">Back to Account</button>
-
-	<script>
-		function redirectToAccount() {
-			window.location.href = 'account.do';
-		}
-	</script>
 	<jsp:include page="bootStrapFoot.jsp"/>
 
 </body>

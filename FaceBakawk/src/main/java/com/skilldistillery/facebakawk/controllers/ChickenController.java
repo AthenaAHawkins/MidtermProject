@@ -110,6 +110,7 @@ public class ChickenController {
 	@RequestMapping(path = { "goToUpdateChicken.do" })
 	public String redirectToUpdateChicken(Model model, Integer chickenId) {
 		Chicken chicken = chickenDAO.findChickenById(chickenId);
+		model.addAttribute("breedList", breedDAO.findAll());
 		model.addAttribute("chicken", chicken);
 		return "updateChickenForm";
 	}

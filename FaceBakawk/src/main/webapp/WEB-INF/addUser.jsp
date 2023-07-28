@@ -42,7 +42,7 @@
 		<h2>Address:</h2>
 		
 		
-		<label for="street">street:</label><br>
+		<label for="street">Street:</label><br>
 		<input type="text" name="street"  ><br>
 		
 		<label for="city">City:</label><br>
@@ -61,7 +61,7 @@
         <h6>*Required Field</h6>
         <br>
         <br>
-        <a href="account.do">Back to Profile</a>
+       
             </form>
 </div>
 <jsp:include page="bootStrapFoot.jsp"/>

@@ -21,6 +21,20 @@
 
 
 <table>
+<thead>
+<tr>
+<th>
+<u>Event Name:</u>
+</th>
+<th>
+<u>Creator:</u>
+</th>
+<th>
+<u>Start Date:</u>
+</th>
+</tr>
+
+        <tbody>
     <c:forEach items="${eventList}" var="event">
     <c:if test="${event.enabled == true }">
         <tr>
@@ -30,6 +44,7 @@
         </tr>
     </c:if>
     </c:forEach>
+     </tbody>
 </table>
 
 

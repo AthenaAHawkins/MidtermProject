@@ -7,12 +7,6 @@
 </head>
 <body>
   <h1>Error adding chicken, please resubmit information</h1>
-  <button onclick="goBack()">Go Back</button>
 
-  <script>
-    function goBack() {
-      window.history.back();
-    }
-  </script>
 </body>
 </html>

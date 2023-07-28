@@ -25,7 +25,7 @@
 <u>Title:</u>
 </th>
 <th>
-<u>Created By:</u>
+<u>Creator</u>
 </th>
 </tr>
 

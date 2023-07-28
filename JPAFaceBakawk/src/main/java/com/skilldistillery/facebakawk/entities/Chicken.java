@@ -26,8 +26,10 @@ public class Chicken {
 	
 
 	private Boolean enabled;
+	
 	@Column(name = "inches")
 	private Double height;
+	
 	private char gender;
 
 	@Column(name = "music_taste")
