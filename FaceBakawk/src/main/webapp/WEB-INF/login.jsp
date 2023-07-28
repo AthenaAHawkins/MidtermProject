@@ -6,7 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Log In</title>
 	<jsp:include page="bootStrapHead.jsp"/>
-	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 	
 	
 	
@@ -16,8 +16,10 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp"/>
+	
+	
+	
 <div class="container">
-	<%--Edit the file nav.jsp to change nav links --%>
 	
 	<h2>Log In</h2>
 	
@@ -25,7 +27,7 @@
 	<div class="transparent-input">
 		<input type="text" name="username"> 
 		</div>
-<div class="transparent-input">
+	<div class="transparent-input">
 		<input type="password" name="password" /> 
 		</div>
 		<input type="submit" value="Log In">
