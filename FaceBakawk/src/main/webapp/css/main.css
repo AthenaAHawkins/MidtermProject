@@ -24,8 +24,6 @@ body{
 
 
 
-
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -122,18 +120,6 @@ label {
 }
 
 
-<<<<<<< HEAD
-=======
-
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: rgba(87, 233, 45, 0.5);
-}
-.table-striped>tbody>tr:nth-child(even)>td, 
-.table-striped>tbody>tr:nth-child(even)>th {
-   background-color: rgba(25, 127, 27, 0.5);
-}
->>>>>>> d92ac7390eabf0bbaf9e9d056bdbe1c75c7195ef
 
  a {
       text-decoration: none;

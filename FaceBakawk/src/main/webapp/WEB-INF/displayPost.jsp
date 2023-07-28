@@ -14,7 +14,7 @@
 <body>
 <jsp:include page="navbar.jsp"/>
 
-	<h2 class="unique-text"> ${post.title} </h2>
+	<h2 > ${post.title} </h2>
 	<br>
 <img src="${post.pictureURL}" alt="${post.title}" width="300"
 		height="200"> 
@@ -39,7 +39,7 @@
 		</tbody>
 	</table>
 	<c:if test="${not empty sessionScope.loggedInUser }">
-	
+	<div>
 					<form action="addComment.do" method="POST">
 					<input type="text" name="postContent" >
 					
@@ -48,7 +48,7 @@
 					  <input type="submit" value="Comment On Post">
 					  
 					 </form>
-					 
+					 </div>
 		 </c:if>
 		 <br>
 		 

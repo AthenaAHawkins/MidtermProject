@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.facebakawk.data.ChickenDAO;
 import com.skilldistillery.facebakawk.data.UserDAO;
+import com.skilldistillery.facebakawk.entities.Chicken;
 import com.skilldistillery.facebakawk.entities.User;
 
 @Controller
@@ -18,6 +19,8 @@ public class LoginController {
 	@Autowired
 	private UserDAO userDAO;
 
+	@Autowired
+	ChickenDAO chickenDAO;
 	
 	@RequestMapping(path="login.do", method=RequestMethod.GET)
 	public String goToLoginForm() {
@@ -39,8 +42,16 @@ public class LoginController {
 	}
 
 	@RequestMapping(path="logout.do")
-	public String logout(HttpSession session) {
+	public String logout(HttpSession session, Model model) {
 		session.removeAttribute("loggedInUser");
+		Chicken spotlight = chickenDAO.spotlightChicken();
+		model.addAttribute("spotlight", spotlight);
 		return "home";
 	}
+	public void refreshSessionData(HttpSession session) {
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		session.setAttribute("loggedInUser",
+				userDAO.findByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
+	}
+
 }
