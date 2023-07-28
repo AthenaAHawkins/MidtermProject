@@ -5,8 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Forum Comment Section</title>
 <jsp:include page="bootStrapHead.jsp"/>
+<link rel="stylesheet" href="css/displayPost.css">
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
@@ -14,7 +15,6 @@
 <img src="${post.pictureURL}" alt="${post.title}" width="300"
 		height="200"> 
 	<h2> ${post.title} </h2>
-	<br>
 	Post Creator: 
 	 <a href="getUser.do?userId=${post.user.id}">${post.user.username}</a>
 	 <p><em>AITA: ${post.content } </em></p>
@@ -28,9 +28,10 @@
 					<td><img src="${postComment.user.pictureURL }" alt="This you?"
 					width="30" height="30"><a href="getUser.do?userId=${postComment.user.id}">${postComment.user.username}</a>
 </td>
-					<td>
-					<td>Comment: ${postComment.postContent }</td>
 				</tr>
+					<tr>
+					<td>Comment: ${postComment.postContent }</td>
+					</tr>
 			</c:forEach>
 		</tbody>
 	</table>
@@ -46,7 +47,10 @@
 					  
 					 </form>
 		 </c:if>
-					  <a href="home.do">home</a>
+		 
+				<form action="displayAllPosts.do" method="post">
+			<button class="btn btn-success" >Back To Forum Main Page</button>
+		</form>
 					  <jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>

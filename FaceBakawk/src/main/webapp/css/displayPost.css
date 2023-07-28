@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+table{
+	background-image: url( https://theatlasheart.b-cdn.net/wp-content/uploads/2022/02/Flower-Fields-in-California-1200x798.jpg);
+background-size: contain;    
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: red;
+ }
