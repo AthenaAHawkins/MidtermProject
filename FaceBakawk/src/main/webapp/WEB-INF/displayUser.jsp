@@ -8,9 +8,9 @@
 <title>User info</title>
 </head>
 <jsp:include page="bootStrapHead.jsp"/>
-<body>
+<body class="userpage">
 <jsp:include page="navbar.jsp"/>
-	<h1>User Details</h1>
+	<h1 class="userdeets">User Details</h1>
 
 
 
@@ -19,50 +19,19 @@
 	<img src="${user.pictureURL}" alt="${user.username}" width="300"
 
 		height="200"> 
-	<h3>User Name: ${user.username}</h3>
+	<h3 class="userdeets">User Name: ${user.username}</h3>
 	
-	<h2> ${user.firstName} &nbsp; ${user.lastName }</h2>
+	<h2 class="userdeets"> ${user.firstName} &nbsp; ${user.lastName }</h2>
 	
 	<br>
-	<h2>Description:
+	<h2 class="userdeets">Description:
 	 ${user.description}</h2>
 
 	
 	<br>
-<h2>Events Attended</h2>
-		<table class="table table-striped table-hover" id="eventAttendedTable">
-			<thead class="table-dark">
-			<c:forEach var="event" items="${user.eventsAttended}">
-			<tbody>
-					<tr>
-						<td><a href="displayEvent.do?eventId=${event.id}"> ${event.title}</a></td>
-						<td><img src="${event.pictureURL}"  alt="${event.title}"  width="300"
-						height="200"></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	
-	
-
-<h2>Flock</h2>
-<table class="table table-striped table-hover">
-		<thead class="table-dark">
-		<tbody>
-			<c:forEach var="chicken" items="${user.chickens}">
-			<c:if test="${chicken.enabled == true }">
-				<tr>
-					<td><a href="getChicken.do?chickenId=${chicken.id}"> ${chicken.name}</a></td>
-					<td><img src="${chicken.pictureURL}"  alt="${chicken.name}"  width="300"
-						height="200"></td>
-				</tr>
-			</c:if>
-			</c:forEach>
-		</tbody>
-	</table>
-	
 
 
+<jsp:include page="accountaccordion.jsp"/>
 <jsp:include page="bootStrapFoot.jsp"/>
 
 </body>
