@@ -11,6 +11,9 @@
 <body>
 	<jsp:include page="navbar.jsp" />
 <br>
+	<table>
+	<c:choose>
+	<c:when test="${not empty matchedPairs }">
 	<h1>Clucking Great Couples</h1>
 <br>
 <br>
@@ -19,7 +22,6 @@
 <br>
 
 
-	<table>
 		<c:forEach var="pair" items="${matchedPairs}">
 			<tr class="bg-image">
 				<td><c:choose>
@@ -46,6 +48,13 @@
 					</c:choose></td>
 			</tr>
 		</c:forEach>
+			</c:when>
+			<c:otherwise>
+			<h1>Love Is Blind, But Not That Blind</h1>
+			<h5>* You need chickens in your coop.</h5>
+			
+			</c:otherwise>
+			</c:choose>
 	</table>
 	<jsp:include page="bootStrapFoot.jsp" />
 </body>
