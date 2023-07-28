@@ -41,8 +41,8 @@
 	</c:choose>
 	<br>
 	
-</div>
 	<jsp:include page="profileaccordionjsp.jsp" />
+</div>
 	<jsp:include page="bootStrapFoot.jsp" />
 </body>
 </html>

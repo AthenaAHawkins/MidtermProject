@@ -16,7 +16,6 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="p-3 m-0 border-0 bd-example m-0 border-0" data-bs-theme="dark">
-<div class="container" >
 	<div class="accordion accordion-flush" id="accordionExample">
 		<div class="accordion-item">
 			<h2 class="accordion-header">
@@ -50,7 +49,6 @@
 							</c:otherwise>
 							
 						</c:choose></td>
-						<td><a href="goToAddChicken.do">Create Chicken</a></td>
 						<td><a href="goToUpdateChicken.do?chickenId=${chicken.id}">
 							Update Chicken Info</a></td>
 							<td>
@@ -65,6 +63,11 @@
 			</c:if>
 			</c:forEach>
 		</tbody>
+		<tfoot>
+<tr>
+						<td><a href="goToAddChicken.do">Create Chicken</a></td>
+</tr>
+		</tfoot>
 	</table>
 				</div>
 			</div>
@@ -110,7 +113,6 @@
 							${event.title}</a></td>
 					<td><img src="${event.pictureURL}" alt="${event.title}"
 						width="300" height="200"></td>
-						<td><a href="goToAddEvent.do">Create An Event</a></td>
 					<td>
 						<a href="updateEventButton.do?eventId=${event.id }">edit event</a></td>
 					
@@ -124,7 +126,13 @@
 				</tr>
 		</c:if>
 			</c:forEach>
+			
 		</tbody>
+		<tfoot>
+		<tr>
+		
+						<td><a href="goToAddEvent.do">Create An Event</a></td>
+						</tr></tfoot>
 	</table>
 				</div>
 			</div>
@@ -203,7 +211,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>
