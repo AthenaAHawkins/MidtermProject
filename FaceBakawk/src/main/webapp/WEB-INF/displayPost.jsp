@@ -14,12 +14,13 @@
 <body>
 <jsp:include page="navbar.jsp"/>
 
+	<h2 class="unique-text"> ${post.title} </h2>
+	<br>
+	Author:
+	 <a href="getUser.do?userId=${post.user.id}">${post.user.username}</a><br>
 <img src="${post.pictureURL}" alt="${post.title}" width="300"
 		height="200"> 
-	<h2> ${post.title} </h2>
-	Post Creator: 
-	 <a href="getUser.do?userId=${post.user.id}">${post.user.username}</a>
-	 <p><em>AITA: ${post.content } </em></p>
+	 <p><em>${post.content } </em></p>
 	 
 
 <table class="table table-striped table-hover">
@@ -40,19 +41,23 @@
 	<c:if test="${not empty sessionScope.loggedInUser }">
 	
 					<form action="addComment.do" method="POST">
-					<label for="postContent">Comment:</label><br>
-					<input type="text" name="postContent" ><br>
+					<input type="text" name="postContent" >
+					
 					<input type="hidden" name="post.id" value="${post.id }"><br>
 					<input type="hidden" name="user.id" value="${sessionScope.loggedInUser.id }"><br>
-					
 					  <input type="submit" value="Comment On Post">
 					  
 					 </form>
+					 
 		 </c:if>
+		 <br>
 		 
 				<form action="displayAllPosts.do" method="post">
 			<button class="btn btn-success" >Back To Forum Main Page</button>
 		</form>
+		
+	
+		
 					  <jsp:include page="bootStrapFoot.jsp"/>
 </body>
 </html>
