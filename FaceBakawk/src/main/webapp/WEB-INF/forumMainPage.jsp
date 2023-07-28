@@ -19,7 +19,19 @@
 </c:if>
 
 <table>
+<thead>
+<tr>
+<th>
+<u>Title:</u>
+</th>
+<th>
+<u>Created By:</u>
+</th>
+</tr>
+
+        <tbody>
     <c:forEach items="${postList}" var="post">
+   
         <tr>
             <td><a href="displayPost.do?postId=${post.id}">${post.title}</a></td>
             <td>${post.user.username}</td>
@@ -32,6 +44,7 @@
   </c:if>
         </tr>
     </c:forEach>
+        </tbody>
 </table>
 <jsp:include page="bootStrapFoot.jsp"/>
 </body>

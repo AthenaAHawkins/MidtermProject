@@ -40,10 +40,12 @@
 	</table>
 	<c:if test="${not empty sessionScope.loggedInUser }">
 	<div>
+	
+
 					<form action="addComment.do" method="POST">
-					<input type="text" name="postContent" >
+					<textarea name="postContent" ></textarea>
 					
-					<input type="hidden" name="post.id" value="${post.id }"><br>
+					<input type="hidden" name="post.id" value="${post.id }">
 					<input type="hidden" name="user.id" value="${sessionScope.loggedInUser.id }"><br>
 					  <input type="submit" value="Comment On Post">
 					  
