@@ -33,22 +33,25 @@ public class MatchmakerDAOImpl implements MatchmakerDAO {
 		for (Chicken userChicken : usersChickens) {
 
 			for (Chicken oneOfMany : allChickens) {
-				if (!usersChickens.contains(oneOfMany)) {
-					if (compatibilityLevel(oneOfMany, userChicken) > 3) {
-						if (oneOfMany.getId() != userChicken.getId()) {
+				if (userChicken.getEnabled() && oneOfMany.getEnabled()) {
+					
+					if (!usersChickens.contains(oneOfMany)) {
+						if (compatibilityLevel(oneOfMany, userChicken) > 3) {
+							if (oneOfMany.getId() != userChicken.getId()) {
 
-							lookingForLoveOne = oneOfMany;
-							lookingForLoveTwo = userChicken;
-							if (!chickensWhoVibe.contains(lookingForLoveOne)
-									&& !chickensWhoVibe.contains(lookingForLoveTwo)
-									&& !chickensWhoVibe.contains(userChicken)) {
-								chickensWhoVibe.add(lookingForLoveOne);
-								chickensWhoVibe.add(lookingForLoveTwo);
-								System.out.println("\n\n\n\n\n\n\n\nChickens who vibe, before added to list list"
-										+ chickensWhoVibe);
-								if (!inLoveTBD.contains(chickensWhoVibe)) {
-									inLoveTBD.add(chickensWhoVibe);
-									chickensWhoVibe = new ArrayList<>();
+								lookingForLoveOne = oneOfMany;
+								lookingForLoveTwo = userChicken;
+								if (!chickensWhoVibe.contains(lookingForLoveOne)
+										&& !chickensWhoVibe.contains(lookingForLoveTwo)
+										&& !chickensWhoVibe.contains(userChicken)) {
+									chickensWhoVibe.add(lookingForLoveOne);
+									chickensWhoVibe.add(lookingForLoveTwo);
+									System.out.println("\n\n\n\n\n\n\n\nChickens who vibe, before added to list list"
+											+ chickensWhoVibe);
+									if (!inLoveTBD.contains(chickensWhoVibe)) {
+										inLoveTBD.add(chickensWhoVibe);
+										chickensWhoVibe = new ArrayList<>();
+									}
 								}
 							}
 						}
@@ -75,7 +78,7 @@ public class MatchmakerDAOImpl implements MatchmakerDAO {
 		}
 		if (chickOne.isWantsChicks() == chickTwo.isWantsChicks()) {
 			compatibilityLevel = compatibilityLevel + 2;
-		}else if(compatibilityLevel>0){
+		} else if (compatibilityLevel > 0) {
 			compatibilityLevel--;
 		}
 		compatibilityLevel = compatibilityLevel + signCompatibility(signOne, signTwo);
@@ -163,7 +166,7 @@ public class MatchmakerDAOImpl implements MatchmakerDAO {
 			}
 		}
 
-		return false; // No shared keywords found
+		return false;
 	}
 
 }
