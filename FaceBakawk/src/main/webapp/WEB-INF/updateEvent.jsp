@@ -26,7 +26,7 @@
 		<textarea name="description" rows="5" cols="40">${event.description }</textarea><br>
 		
 		<label for="pictureURL">Show us a picture of what to expect at this event:</label><br>
-		<input name="pictureURL" value="${event.pictureURL}">${event.pictureURL }><br>
+		<input name="pictureURL" value="${event.pictureURL}"><br>
  		
  		
  		
