@@ -20,6 +20,9 @@
 
 		<label for="content">About Your Post:</label><br>
 		<textarea name="content" rows="5" cols="40"></textarea>
+		<br>
+		<label for="pictureURL">Add A Photo URL To The Post:</label><br>
+		<input type="text" name="pictureURL"  ><br>
 		<input type="submit" value="Post"> <br>
 		 <a
 			href="account.do">Back to Profile</a>

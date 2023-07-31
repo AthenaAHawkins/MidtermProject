@@ -21,34 +21,37 @@ public class MatchmakerDAOImpl implements MatchmakerDAO {
 
 	@Override
 	public List<List<Chicken>> findMatches(List<Chicken> usersChickens) {
-		System.out.println("\n\n\n\n\n\nList of USER CHICKENS " + usersChickens);
 		Chicken lookingForLoveOne = null;
 		Chicken lookingForLoveTwo = null;
 		List<Chicken> chickensWhoVibe = new ArrayList<>();
 		List<List<Chicken>> inLoveTBD = new ArrayList<>();
 		String jpql = "SELECT chicken FROM Chicken chicken";
 		List<Chicken> allChickens = em.createQuery(jpql, Chicken.class).getResultList();
-		System.out.println("\n\n\n\n\n\nList of ALLCHICKENS " + allChickens);
 
 		for (Chicken userChicken : usersChickens) {
 
 			for (Chicken oneOfMany : allChickens) {
+				
 				if (userChicken.getEnabled() && oneOfMany.getEnabled()) {
 					
 					if (!usersChickens.contains(oneOfMany)) {
+						
 						if (compatibilityLevel(oneOfMany, userChicken) > 3) {
+							
 							if (oneOfMany.getId() != userChicken.getId()) {
 
 								lookingForLoveOne = oneOfMany;
 								lookingForLoveTwo = userChicken;
+								
 								if (!chickensWhoVibe.contains(lookingForLoveOne)
+										
 										&& !chickensWhoVibe.contains(lookingForLoveTwo)
 										&& !chickensWhoVibe.contains(userChicken)) {
 									chickensWhoVibe.add(lookingForLoveOne);
 									chickensWhoVibe.add(lookingForLoveTwo);
-									System.out.println("\n\n\n\n\n\n\n\nChickens who vibe, before added to list list"
-											+ chickensWhoVibe);
+									
 									if (!inLoveTBD.contains(chickensWhoVibe)) {
+										
 										inLoveTBD.add(chickensWhoVibe);
 										chickensWhoVibe = new ArrayList<>();
 									}
@@ -59,8 +62,6 @@ public class MatchmakerDAOImpl implements MatchmakerDAO {
 				}
 			}
 		}
-		System.out.println("\n\n\n\n\nList of list of chickens " + inLoveTBD);
-		System.out.println("\n\n\n\n\nSize of list of chickens " + inLoveTBD.size());
 		return inLoveTBD;
 	}
 
