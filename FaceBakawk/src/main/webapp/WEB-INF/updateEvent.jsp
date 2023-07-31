@@ -29,18 +29,6 @@
 		<input name="pictureURL" value="${event.pictureURL}"><br>
  		
  		
- 		
-		<label for="currency">Event Currency</label><br>
-		<select name="currency">
-			<c:forEach var="currency" items="${event.currencies}">
-				
- 		 <option value="${currency.id}">${currency.type }</option> 
-		</c:forEach>
-        </select>
-	
-	
-	
- 		
  		<h2>Address:</h2>
 		
 		<input type="hidden" name="id" value="${event.id} ">
